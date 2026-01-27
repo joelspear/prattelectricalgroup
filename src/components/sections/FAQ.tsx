@@ -2,12 +2,17 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export interface FAQItem {
   question: string;
   answer: string;
+  link?: {
+    text: string;
+    href: string;
+  };
 }
 
 interface FAQProps {
@@ -50,7 +55,17 @@ function FAQAccordionItem({
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-gray-600 leading-relaxed">{item.answer}</p>
+            <p className="pb-3 text-gray-600 leading-relaxed">{item.answer}</p>
+            {item.link && (
+              <Link
+                href={item.link.href}
+                className="inline-flex items-center gap-1 text-primary-500 hover:text-primary-600 font-medium text-sm pb-5 transition-colors"
+              >
+                {item.link.text}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+            {!item.link && <div className="pb-2" />}
           </motion.div>
         )}
       </AnimatePresence>

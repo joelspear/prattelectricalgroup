@@ -1,114 +1,189 @@
 import { FAQItem } from "@/components/sections/FAQ";
 
-export const residentialFAQs: FAQItem[] = [
-  {
-    question: "How much does an electrician cost in Adelaide?",
-    answer:
-      "Electrician costs in Adelaide vary depending on the job. A typical callout fee ranges from $80-$120, with hourly rates between $80-$100. Simple jobs like installing a power point might cost $150-$250, while a switchboard upgrade can range from $1,500-$4,000. We provide free, no-obligation quotes for all jobs so you know the cost upfront.",
-  },
-  {
-    question: "Do I need a safety switch (RCD)?",
-    answer:
-      "Yes, safety switches are mandatory in all South Australian homes for power and lighting circuits. If your home was built before 1991, you may not have adequate safety switch protection. We recommend having your switchboard inspected to ensure compliance with current safety standards. Safety switches can literally save lives by cutting power in milliseconds when a fault is detected.",
-  },
-  {
-    question: "Can you work on weekends or after hours?",
-    answer:
-      "Yes! We understand that electrical issues don't always happen during business hours. We offer 24/7 emergency service for urgent issues, and can schedule routine work for times that suit your schedule, including weekends. After-hours work may attract additional fees.",
-  },
-  {
-    question: "How quickly can you come out?",
-    answer:
-      "For emergencies, we aim to respond within 1 hour in the Adelaide metro area. For non-urgent work, we can usually schedule an appointment within 1-2 business days. Same-day service is often available for urgent but non-emergency issues.",
-  },
-  {
-    question: "Do you provide certificates of compliance?",
-    answer:
-      "Yes, all electrical work we perform comes with a Certificate of Compliance (CoC) as required by South Australian law. This certificate confirms the work meets Australian Standards and is essential for insurance purposes and property sales.",
-  },
-];
+export interface FAQCategory {
+  id: string;
+  name: string;
+  faqs: FAQItem[];
+}
 
-export const commercialFAQs: FAQItem[] = [
-  {
-    question: "Can you work outside business hours to minimise disruption?",
-    answer:
-      "Absolutely. We understand that electrical work during business hours can disrupt your operations. We regularly schedule work for evenings, weekends, and public holidays to minimise impact on your business. We'll work around your schedule to find the best time.",
-  },
-  {
-    question: "Do you handle large commercial projects?",
-    answer:
-      "Yes, we have experience with projects ranging from small office fit-outs to large warehouse installations. We've built relationships with Adelaide's largest electrical suppliers, allowing us to handle projects of any scale. We can provide references from similar projects on request.",
-  },
-  {
-    question: "What's your emergency response time?",
-    answer:
-      "For commercial emergencies, we aim to respond within 1 hour in the Adelaide metro area, 24/7. We understand that electrical issues can shut down your business and cost you money every minute, so we prioritise commercial emergency calls.",
-  },
-  {
-    question: "Are you properly insured for commercial work?",
-    answer:
-      "Yes, we carry comprehensive public liability insurance and professional indemnity insurance suitable for commercial projects. We can provide certificates of currency on request. All our electricians are fully licensed and background-checked.",
-  },
-  {
-    question: "Do you offer maintenance contracts?",
-    answer:
-      "Yes, we offer ongoing maintenance contracts for commercial clients. Regular maintenance helps prevent unexpected breakdowns, ensures compliance with safety regulations, and can extend the life of your electrical systems. Contact us to discuss a maintenance plan tailored to your needs.",
-  },
-];
-
+// Solar & Battery FAQs
 export const solarFAQs: FAQItem[] = [
   {
     question: "How much does solar cost in Adelaide?",
     answer:
-      "A typical 6.6kW residential solar system in Adelaide costs between $4,000-$8,000 after rebates. Larger systems (10kW+) range from $8,000-$15,000. The exact cost depends on panel quality, inverter type, roof complexity, and any additional electrical work required. We provide detailed, transparent quotes with no hidden costs.",
+      "A 6.6kW system typically costs $5,500-$8,500 installed after rebates. A 10kW system costs $7,500-$10,500. Prices vary based on panel quality and roof complexity.",
+    link: { text: "Get a quote", href: "/contact" },
   },
   {
     question: "What size solar system do I need?",
     answer:
-      "The right size depends on your electricity usage, roof space, and budget. As a guide: a 6.6kW system suits average households using 20-25kWh/day, while larger families or those working from home may benefit from 10kW+. We analyse your electricity bills to recommend the optimal size for your situation.",
-  },
-  {
-    question: "What rebates are available in South Australia?",
-    answer:
-      "The main rebate is the federal Small-scale Technology Certificate (STC) rebate, which provides an upfront discount of $2,000-$4,000 depending on system size. Adelaide also has some of Australia's best feed-in tariff rates. We handle all rebate paperwork and ensure you receive every dollar you're entitled to.",
+      "Most Adelaide households do well with a 6.6kW system. For larger families or homes with pools/EVs, consider 10kW+. We assess your usage and recommend the right size.",
+    link: { text: "Try our calculator", href: "/solar-calculator" },
   },
   {
     question: "How long does solar installation take?",
     answer:
-      "A standard residential installation takes 1 day. Larger or more complex systems may take 2-3 days. After installation, SA Power Networks typically approves grid connection within 10 business days. We handle all paperwork and liaise with SAPN on your behalf.",
+      "Most residential installations are completed in one day. Commercial systems may take 2-5 days depending on size. Grid connection approval from SA Power Networks typically takes 2-4 weeks.",
   },
   {
-    question: "What brands do you install?",
+    question: "What rebates are available for solar in SA?",
     answer:
-      "We install premium solar panels from brands like Jinko, Trina, LONGi, and Q Cells, paired with quality inverters from Fronius, SMA, Sungrow, and Enphase. For batteries, we install Tesla Powerwall, Sungrow, and BYD. We only use products backed by solid warranties and proven performance.",
+      "The federal STC rebate reduces costs by $2,000-$4,000 depending on system size. Battery storage is eligible for up to $372/kWh under the Cheaper Home Batteries Program.",
   },
   {
-    question: "Is my roof suitable for solar?",
+    question: "What's the payback period for solar in Adelaide?",
     answer:
-      "Most roofs in Adelaide are suitable for solar. Ideal conditions are a north-facing roof with minimal shading, but east and west-facing panels also perform well. We conduct a free site assessment to evaluate your roof's suitability and design a system that maximises your energy production.",
+      "Typically 3-5 years for residential systems. Adelaide's high electricity prices and abundant sunshine make solar highly cost-effective.",
+    link: { text: "Calculate your savings", href: "/solar-calculator" },
+  },
+  {
+    question: "Do you install Tesla Powerwall?",
+    answer:
+      "Yes, we're certified Tesla Powerwall installers. The Powerwall 3 (13.5kWh) costs approximately $12,000-$15,000 installed. We also install Sungrow, BYD, and other quality batteries.",
+  },
+  {
+    question: "What's a solar feed-in tariff?",
+    answer:
+      "It's the rate your energy retailer pays for excess solar you export to the grid. In SA, rates range from 4-12c/kWh depending on your retailer and plan.",
+  },
+  {
+    question: "Can I add a battery to my existing solar system?",
+    answer:
+      "Yes! We can retrofit batteries to most existing solar systems. We'll assess your current setup and recommend compatible options.",
+  },
+  {
+    question: "What happens during a blackout with solar?",
+    answer:
+      "Standard solar systems shut down during blackouts for safety. With a battery system, you can maintain power to essential circuits during outages.",
+  },
+  {
+    question: "Do I need council approval for solar panels?",
+    answer:
+      "Generally no, if panels don't overhang the roof or affect heritage considerations. We handle all SA Power Networks paperwork for grid connection.",
   },
 ];
 
-export const generalFAQs: FAQItem[] = [
+// Residential Electrical FAQs
+export const residentialFAQs: FAQItem[] = [
   {
-    question: "Are you licensed and insured?",
+    question: "How much does an electrician cost per hour in Adelaide?",
     answer:
-      "Yes, all our electricians are fully licensed in South Australia and we carry comprehensive public liability insurance. We're also Clean Energy Council (CEC) accredited for solar installations, which is required to install systems that qualify for government rebates.",
+      "Rates typically range from $80-$120/hour plus a call-out fee. We provide upfront quotes so you know the total cost before work begins.",
   },
   {
-    question: "Do you provide free quotes?",
+    question: "Do you offer free quotes?",
     answer:
-      "Yes, we provide free, no-obligation quotes for all work. For most jobs, we can provide an accurate quote over the phone or via email. For larger or more complex projects, we'll arrange a free site visit to assess the work required.",
+      "Yes, we provide free quotes for all residential and commercial work. Call 0406 494 941 or fill out our online form.",
+    link: { text: "Get a free quote", href: "/contact" },
   },
   {
-    question: "What areas do you service?",
+    question: "When should I upgrade my switchboard?",
     answer:
-      "We service the entire Adelaide metropolitan area, with a focus on the southern suburbs including Christies Beach, Flagstaff Hill, Hallett Cove, Happy Valley, Morphett Vale, and surrounding areas. We also service regional South Australia for larger projects.",
+      "If your switchboard has ceramic fuses (not circuit breakers), is over 25 years old, or you're adding air conditioning/solar, it likely needs upgrading. Signs include frequently tripping circuits or burning smells.",
+  },
+  {
+    question: "Do I need a safety switch?",
+    answer:
+      "SA regulations require safety switches (RCDs) on power and lighting circuits in all homes. If your home doesn't have them, we strongly recommend upgrading — they save lives.",
+  },
+  {
+    question: "Can you install ceiling fans?",
+    answer:
+      "Yes, ceiling fan installation is one of our most common jobs. Cost is typically $150-$300 per fan, depending on wiring requirements.",
+  },
+  {
+    question: "Do you work on weekends?",
+    answer:
+      "We can arrange weekend appointments for an additional fee. Emergency services are available 24/7.",
+  },
+  {
+    question: "How quickly can you come out?",
+    answer:
+      "For emergencies, we aim to respond within 1 hour in the Adelaide metro area. For non-urgent work, we can usually schedule an appointment within 1-2 business days.",
+  },
+  {
+    question: "Do you provide certificates of compliance?",
+    answer:
+      "Yes, all electrical work we perform comes with a Certificate of Compliance (CoC) as required by South Australian law.",
+  },
+];
+
+// Commercial Electrical FAQs
+export const commercialFAQs: FAQItem[] = [
+  {
+    question: "Do you handle large commercial projects?",
+    answer:
+      "Yes, we service everything from small retail fit-outs to large commercial solar installations. We've built relationships with Adelaide's largest electrical suppliers.",
+  },
+  {
+    question: "Can you work outside business hours to avoid disruption?",
+    answer:
+      "Absolutely. We regularly complete commercial work after hours or on weekends to minimise business disruption.",
+  },
+  {
+    question: "Do you offer maintenance contracts?",
+    answer:
+      "Yes, we offer ongoing maintenance agreements for commercial clients including regular inspections, emergency priority response, and preventive maintenance.",
+    link: { text: "Learn about maintenance plans", href: "/maintenance" },
+  },
+  {
+    question: "Are you properly insured for commercial work?",
+    answer:
+      "Yes, we carry comprehensive public liability insurance and professional indemnity insurance suitable for commercial projects. We can provide certificates of currency on request.",
+  },
+];
+
+// Pricing & Payment FAQs
+export const pricingFAQs: FAQItem[] = [
+  {
+    question: "Do you offer payment plans?",
+    answer:
+      "Yes, we partner with finance providers offering interest-free options for solar and larger electrical projects.",
+    link: { text: "Learn about finance", href: "/finance" },
   },
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept cash, bank transfer, and all major credit cards including Visa and Mastercard. For larger projects, we can arrange progress payments or finance options. Payment is due on completion unless otherwise arranged.",
+      "We accept bank transfer, credit/debit cards, and cash. Payment plans available for qualifying projects.",
+  },
+  {
+    question: "Are your prices GST inclusive?",
+    answer: "All quoted prices include GST unless otherwise stated.",
+  },
+];
+
+// Emergency Services FAQs
+export const emergencyFAQs: FAQItem[] = [
+  {
+    question: "Do you offer 24/7 emergency services?",
+    answer:
+      "Yes, we're available 24/7 for genuine electrical emergencies including power outages, sparking outlets, burning smells, and safety hazards.",
+    link: { text: "Emergency page", href: "/emergency" },
+  },
+  {
+    question: "What's your emergency response time?",
+    answer:
+      "We aim to respond within 1 hour for Adelaide metro emergencies. Call 0406 494 941 immediately for urgent situations.",
+  },
+  {
+    question: "What should I do if I smell burning from an outlet?",
+    answer:
+      "Turn off power at the switchboard immediately, do not use the outlet, and call us right away. This could indicate a serious fire hazard.",
+  },
+];
+
+// General FAQs
+export const generalFAQs: FAQItem[] = [
+  {
+    question: "Are you licensed and insured?",
+    answer:
+      "Yes, all our electricians are fully licensed in South Australia and we carry comprehensive public liability insurance. We're also CEC accredited for solar installations.",
+  },
+  {
+    question: "What areas do you service?",
+    answer:
+      "We service the entire Adelaide metropolitan area, with a focus on the southern suburbs including Christie's Beach, Flagstaff Hill, Hallett Cove, Happy Valley, Morphett Vale, and surrounding areas.",
+    link: { text: "View service areas", href: "/service-areas" },
   },
   {
     question: "Do you guarantee your work?",
@@ -117,11 +192,33 @@ export const generalFAQs: FAQItem[] = [
   },
 ];
 
+// All FAQ Categories for the FAQ page
+export const faqCategories: FAQCategory[] = [
+  { id: "all", name: "All Questions", faqs: [] },
+  { id: "solar", name: "Solar & Battery", faqs: solarFAQs },
+  { id: "residential", name: "Residential Electrical", faqs: residentialFAQs },
+  { id: "commercial", name: "Commercial Electrical", faqs: commercialFAQs },
+  { id: "pricing", name: "Pricing & Payments", faqs: pricingFAQs },
+  { id: "emergency", name: "Emergency Services", faqs: emergencyFAQs },
+];
+
+// Combine all FAQs for "All Questions" view
+export const allFAQsList: FAQItem[] = [
+  ...solarFAQs,
+  ...residentialFAQs,
+  ...commercialFAQs,
+  ...pricingFAQs,
+  ...emergencyFAQs,
+  ...generalFAQs,
+];
+
 const allFAQs = {
   residential: residentialFAQs,
   commercial: commercialFAQs,
   solar: solarFAQs,
   general: generalFAQs,
+  pricing: pricingFAQs,
+  emergency: emergencyFAQs,
 };
 
 export default allFAQs;

@@ -210,10 +210,12 @@ export const navItems = [
       { label: "Residential Electrical", href: "/residential" },
       { label: "Commercial Electrical", href: "/commercial" },
       { label: "Solar & Battery", href: "/solar" },
+      { label: "EV Chargers", href: "/ev-chargers" },
+      { label: "Emergency 24/7", href: "/emergency" },
     ],
   },
+  { label: "Service Areas", href: "/service-areas" },
   { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -222,9 +224,13 @@ export const footerLinks = {
     { label: "Residential Electrical", href: "/residential" },
     { label: "Commercial Electrical", href: "/commercial" },
     { label: "Solar & Battery", href: "/solar" },
+    { label: "EV Chargers", href: "/ev-chargers" },
+    { label: "Emergency 24/7", href: "/emergency" },
   ],
   company: [
     { label: "About Us", href: "/about" },
+    { label: "Service Areas", href: "/service-areas" },
+    { label: "FAQ", href: "/faq" },
     { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy-policy" },
