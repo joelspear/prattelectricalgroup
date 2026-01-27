@@ -9,7 +9,7 @@ interface LogoProps {
 }
 
 export function Logo({ className, variant = "full", theme = "dark" }: LogoProps) {
-  const primaryColor = "#00B4D8"; // Cyan from logo
+  const primaryColor = "#00aeef"; // Cyan from logo
   const textColor = theme === "dark" ? "#E5E7EB" : "#1F2937";
   const subTextColor = primaryColor;
 
@@ -115,7 +115,7 @@ export function Logo({ className, variant = "full", theme = "dark" }: LogoProps)
 
 // Simplified logo for mobile/small spaces
 export function LogoMobile({ className, theme = "dark" }: Omit<LogoProps, "variant">) {
-  const primaryColor = "#00B4D8";
+  const primaryColor = "#00aeef";
   const textColor = theme === "dark" ? "#E5E7EB" : "#1F2937";
 
   return (

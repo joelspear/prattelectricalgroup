@@ -20,7 +20,7 @@ const serviceIcons = {
 const serviceColors = {
   residential: "group-hover:text-primary-500",
   commercial: "group-hover:text-primary-500",
-  solar: "group-hover:text-secondary-500",
+  solar: "group-hover:text-primary-500",
 };
 
 export function ServiceCards({ className, showTitle = true }: ServiceCardsProps) {
