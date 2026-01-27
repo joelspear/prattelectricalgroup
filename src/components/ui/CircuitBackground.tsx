@@ -75,12 +75,12 @@ export function CircuitBackground({ className }: CircuitBackgroundProps) {
         {/* Animated circuit paths - very subtle */}
         {isVisible && circuitPaths.map((circuit, index) => (
           <g key={index}>
-            {/* Soft glow layer */}
+            {/* Soft glow layer - grey */}
             <motion.path
               d={circuit.d}
               fill="none"
-              stroke="rgba(0, 180, 216, 0.08)"
-              strokeWidth="4"
+              stroke="rgba(255, 255, 255, 0.03)"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
               filter="url(#subtleGlow)"
@@ -91,27 +91,12 @@ export function CircuitBackground({ className }: CircuitBackgroundProps) {
                 opacity: { duration: 0.5, delay: circuit.delay },
               }}
             />
-            {/* Main line - subtle cyan */}
+            {/* Main line - subtle grey */}
             <motion.path
               d={circuit.d}
               fill="none"
-              stroke="rgba(0, 180, 216, 0.15)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{
-                pathLength: { duration: circuit.duration, delay: circuit.delay, ease: "linear" },
-                opacity: { duration: 0.5, delay: circuit.delay },
-              }}
-            />
-            {/* Bright core - very subtle */}
-            <motion.path
-              d={circuit.d}
-              fill="none"
-              stroke="rgba(150, 220, 255, 0.12)"
-              strokeWidth="0.5"
+              stroke="rgba(255, 255, 255, 0.06)"
+              strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -124,16 +109,16 @@ export function CircuitBackground({ className }: CircuitBackgroundProps) {
           </g>
         ))}
 
-        {/* Subtle end nodes */}
+        {/* Subtle end nodes - grey */}
         {isVisible && nodes.map((node, index) => (
           <g key={`node-${index}`}>
-            {/* Outer ring - very subtle */}
+            {/* Outer ring - very subtle grey */}
             <motion.circle
               cx={node.x}
               cy={node.y}
-              r="6"
+              r="4"
               fill="none"
-              stroke="rgba(0, 180, 216, 0.1)"
+              stroke="rgba(255, 255, 255, 0.05)"
               strokeWidth="1"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -143,8 +128,8 @@ export function CircuitBackground({ className }: CircuitBackgroundProps) {
             <motion.circle
               cx={node.x}
               cy={node.y}
-              r="2"
-              fill="rgba(0, 180, 216, 0.15)"
+              r="1.5"
+              fill="rgba(255, 255, 255, 0.08)"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.4, delay: node.delay + 0.2, ease: "easeOut" }}
