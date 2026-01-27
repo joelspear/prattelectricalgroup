@@ -1,0 +1,13 @@
+export { Hero } from "./Hero";
+export { TrustBar } from "./TrustBar";
+export { ServiceCards } from "./ServiceCards";
+export { WhyChooseUs } from "./WhyChooseUs";
+export { Testimonials } from "./Testimonials";
+export { CTASection } from "./CTASection";
+export { ServiceAreas } from "./ServiceAreas";
+export { FAQ } from "./FAQ";
+export type { FAQItem } from "./FAQ";
+export { ProjectGallery } from "./ProjectGallery";
+export type { Project } from "./ProjectGallery";
+export { ServiceHero } from "./ServiceHero";
+export { ServiceList } from "./ServiceList";
