@@ -209,7 +209,9 @@ export function Header() {
         </nav>
       </div>
 
-      {/* Mobile Menu Overlay */}
+    </header>
+
+      {/* Mobile Menu Overlay - Outside header for proper full-screen positioning */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -217,7 +219,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-white z-[55] lg:hidden"
+            className="fixed top-0 left-0 right-0 bottom-0 bg-white z-[55] lg:hidden"
           >
             <div className="flex flex-col h-full pt-24 pb-8 px-6 overflow-y-auto">
               <nav className="flex-1 space-y-2">
@@ -307,7 +309,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
     </>
   );
 }
