@@ -11,6 +11,9 @@ import { Button } from "@/components/ui/Button";
 
 // Validation schema
 const ghlFormSchema = z.object({
+  customerType: z.enum(["residential", "commercial"], {
+    message: "Please select if this is residential or commercial",
+  }),
   firstName: z.string().min(2, "Please enter your first name"),
   lastName: z.string().min(2, "Please enter your last name"),
   email: z.string().email("Please enter a valid email address"),
@@ -60,10 +63,13 @@ export function GoHighLevelForm({
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<GHLFormData>({
     resolver: zodResolver(ghlFormSchema),
   });
+
+  const selectedCustomerType = watch("customerType");
 
   const onSubmit = async (data: GHLFormData) => {
     setSubmitStatus("loading");
@@ -84,13 +90,14 @@ export function GoHighLevelForm({
             email: data.email,
             phone: data.phone,
             customField: {
+              customerType: data.customerType,
               service: data.service,
               suburb: data.suburb,
               message: data.message || "",
             },
             // Source tracking
             source: "Website Landing Page",
-            tags: ["Website Lead", data.service],
+            tags: ["Website Lead", data.customerType, data.service],
           }),
         });
 
@@ -164,6 +171,54 @@ export function GoHighLevelForm({
                 Something went wrong. Please try again or call us directly.
               </div>
             )}
+
+            {/* Customer Type Selection */}
+            <div>
+              <label className="form-label">I am a...</label>
+              <div className="grid grid-cols-2 gap-3 mt-2">
+                <label
+                  className={cn(
+                    "relative flex items-center justify-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all",
+                    selectedCustomerType === "residential"
+                      ? "border-primary-500 bg-primary-50 text-primary-700"
+                      : "border-gray-200 text-gray-600 hover:border-gray-300"
+                  )}
+                >
+                  <input
+                    {...register("customerType")}
+                    type="radio"
+                    value="residential"
+                    className="sr-only"
+                  />
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span className="font-medium text-sm">Residential</span>
+                </label>
+                <label
+                  className={cn(
+                    "relative flex items-center justify-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all",
+                    selectedCustomerType === "commercial"
+                      ? "border-primary-500 bg-primary-50 text-primary-700"
+                      : "border-gray-200 text-gray-600 hover:border-gray-300"
+                  )}
+                >
+                  <input
+                    {...register("customerType")}
+                    type="radio"
+                    value="commercial"
+                    className="sr-only"
+                  />
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <span className="font-medium text-sm">Commercial</span>
+                </label>
+              </div>
+              {errors.customerType && (
+                <p className="form-error">{errors.customerType.message}</p>
+              )}
+            </div>
 
             {/* Name Fields */}
             <div className="grid sm:grid-cols-2 gap-4">
