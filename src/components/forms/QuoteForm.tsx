@@ -96,8 +96,7 @@ export function QuoteForm({
 
   const inputClasses = cn(
     "form-input",
-    isDark && "bg-white/10 border-white/20 text-white placeholder-white/50 focus:ring-primary-400",
-    errors && "border-red-500 focus:ring-red-500"
+    isDark && "bg-white/10 border-white/20 text-white placeholder-white/50 focus:ring-primary-400"
   );
 
   const labelClasses = cn(
@@ -204,7 +203,7 @@ export function QuoteForm({
             </div>
 
             {submitStatus === "error" && (
-              <div className="flex items-center gap-2 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
+              <div className="flex items-center gap-2 p-3 bg-secondary-50 text-secondary-700 rounded-lg text-sm">
                 <AlertCircle className="h-4 w-4" />
                 Something went wrong. Please try again or call us directly at{" "}
                 <a href={contactInfo.phoneTel} className="font-semibold underline">
@@ -223,7 +222,7 @@ export function QuoteForm({
                 type="text"
                 id="name"
                 placeholder="John Smith"
-                className={cn(inputClasses, errors.name && "border-red-500")}
+                className={cn(inputClasses, errors.name && "border-secondary-500")}
               />
               {errors.name && (
                 <p className="form-error">{errors.name.message}</p>
@@ -240,7 +239,7 @@ export function QuoteForm({
                 type="tel"
                 id="phone"
                 placeholder="0412 345 678"
-                className={cn(inputClasses, errors.phone && "border-red-500")}
+                className={cn(inputClasses, errors.phone && "border-secondary-500")}
               />
               {errors.phone && (
                 <p className="form-error">{errors.phone.message}</p>
@@ -255,7 +254,7 @@ export function QuoteForm({
               <select
                 {...register("service")}
                 id="service"
-                className={cn(inputClasses, errors.service && "border-red-500", "appearance-none")}
+                className={cn(inputClasses, errors.service && "border-secondary-500", "appearance-none")}
               >
                 {serviceOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -278,7 +277,7 @@ export function QuoteForm({
                 type="text"
                 id="suburb"
                 placeholder="e.g., Flagstaff Hill"
-                className={cn(inputClasses, errors.suburb && "border-red-500")}
+                className={cn(inputClasses, errors.suburb && "border-secondary-500")}
               />
               {errors.suburb && (
                 <p className="form-error">{errors.suburb.message}</p>

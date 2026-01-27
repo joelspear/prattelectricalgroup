@@ -77,7 +77,7 @@ export function WhatsAppButton({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           className={cn(
-            "fixed bottom-20 md:bottom-6 right-4 md:right-6 z-40 flex items-end gap-3",
+            "fixed bottom-24 md:bottom-6 right-4 md:right-6 z-40 flex items-end gap-3",
             className
           )}
         >

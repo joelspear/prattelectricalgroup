@@ -166,7 +166,7 @@ export function GoHighLevelForm({
             </div>
 
             {submitStatus === "error" && (
-              <div className="flex items-center gap-2 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
+              <div className="flex items-center gap-2 p-3 bg-secondary-50 text-secondary-700 rounded-lg text-sm">
                 <AlertCircle className="h-4 w-4" />
                 Something went wrong. Please try again or call us directly.
               </div>
@@ -233,7 +233,7 @@ export function GoHighLevelForm({
                   placeholder="John"
                   className={cn(
                     inputClasses,
-                    errors.firstName && "border-red-500"
+                    errors.firstName && "border-secondary-500"
                   )}
                 />
                 {errors.firstName && (
@@ -249,7 +249,7 @@ export function GoHighLevelForm({
                   type="text"
                   id="lastName"
                   placeholder="Smith"
-                  className={cn(inputClasses, errors.lastName && "border-red-500")}
+                  className={cn(inputClasses, errors.lastName && "border-secondary-500")}
                 />
                 {errors.lastName && (
                   <p className="form-error">{errors.lastName.message}</p>
@@ -267,7 +267,7 @@ export function GoHighLevelForm({
                 type="email"
                 id="email"
                 placeholder="john@example.com"
-                className={cn(inputClasses, errors.email && "border-red-500")}
+                className={cn(inputClasses, errors.email && "border-secondary-500")}
               />
               {errors.email && (
                 <p className="form-error">{errors.email.message}</p>
@@ -284,7 +284,7 @@ export function GoHighLevelForm({
                 type="tel"
                 id="phone"
                 placeholder="0412 345 678"
-                className={cn(inputClasses, errors.phone && "border-red-500")}
+                className={cn(inputClasses, errors.phone && "border-secondary-500")}
               />
               {errors.phone && (
                 <p className="form-error">{errors.phone.message}</p>
@@ -302,7 +302,7 @@ export function GoHighLevelForm({
                 className={cn(
                   inputClasses,
                   "appearance-none",
-                  errors.service && "border-red-500"
+                  errors.service && "border-secondary-500"
                 )}
               >
                 {serviceOptions.map((option) => (
@@ -326,7 +326,7 @@ export function GoHighLevelForm({
                 type="text"
                 id="suburb"
                 placeholder="e.g., Flagstaff Hill"
-                className={cn(inputClasses, errors.suburb && "border-red-500")}
+                className={cn(inputClasses, errors.suburb && "border-secondary-500")}
               />
               {errors.suburb && (
                 <p className="form-error">{errors.suburb.message}</p>
