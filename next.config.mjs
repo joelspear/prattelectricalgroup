@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Output configuration for Cloudflare Pages
-  output: 'standalone',
+  // Output configuration for Cloudflare Pages static hosting
+  output: 'export',
 
   // Image optimization
   images: {
@@ -15,8 +15,8 @@ const nextConfig = {
         hostname: '*.cloudflare.com',
       },
     ],
-    // Use unoptimized images for static export if needed
-    unoptimized: process.env.NODE_ENV === 'development',
+    // Required for static export
+    unoptimized: true,
   },
 
   // Disable x-powered-by header for security
