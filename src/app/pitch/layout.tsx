@@ -11,6 +11,7 @@ const pitchNavItems = [
   { label: "Before vs After", href: "/pitch/before-after" },
   { label: "Why Design Matters", href: "/pitch/why-design-matters" },
   { label: "What We Built", href: "/pitch/new-features" },
+  { label: "AI Chatbot", href: "/pitch/ai-chatbot" },
   { label: "Investment", href: "/pitch/investment" },
   { label: "About Us", href: "/pitch/about-fms" },
   { label: "Next Steps", href: "/pitch/next-steps" },
