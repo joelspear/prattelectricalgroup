@@ -214,6 +214,18 @@ export const navItems = [
       { label: "Emergency 24/7", href: "/emergency" },
     ],
   },
+  {
+    label: "Resources",
+    href: "#",
+    children: [
+      { label: "Solar Calculator", href: "/solar-calculator" },
+      { label: "Pricing Guide", href: "/pricing" },
+      { label: "Finance Options", href: "/finance" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Maintenance Plans", href: "/maintenance" },
+      { label: "Referral Program", href: "/referrals" },
+    ],
+  },
   { label: "Service Areas", href: "/service-areas" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

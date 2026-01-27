@@ -216,7 +216,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-white z-40 lg:hidden"
+            className="fixed inset-0 bg-white z-[55] lg:hidden"
           >
             <div className="flex flex-col h-full pt-24 pb-8 px-6 overflow-y-auto">
               <nav className="flex-1 space-y-2">
