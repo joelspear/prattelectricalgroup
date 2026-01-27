@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { WhatsAppButton } from "@/components/ui";
 import { ChatBotWrapper } from "@/components/chat/ChatBotWrapper";
 
 export const metadata: Metadata = {
@@ -91,7 +90,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
-        <WhatsAppButton />
         <ChatBotWrapper />
       </body>
     </html>
