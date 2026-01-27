@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, Calculator, HelpCircle } from "lucide-react";
 import { Logo, LogoMobile } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 import { navItems, contactInfo } from "@/data/siteData";
@@ -222,6 +222,24 @@ export function Header() {
             className="fixed top-0 left-0 right-0 bottom-0 bg-white z-[55] lg:hidden"
           >
             <div className="flex flex-col h-full pt-24 pb-8 px-6 overflow-y-auto">
+              {/* Quick Access Links */}
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <Link
+                  href="/solar-calculator"
+                  className="flex items-center gap-2 p-3 bg-primary-50 text-primary-700 rounded-lg font-medium hover:bg-primary-100 transition-colors"
+                >
+                  <Calculator className="h-5 w-5" />
+                  Solar Calculator
+                </Link>
+                <Link
+                  href="/faq"
+                  className="flex items-center gap-2 p-3 bg-gray-100 text-charcoal rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                >
+                  <HelpCircle className="h-5 w-5" />
+                  FAQ
+                </Link>
+              </div>
+
               <nav className="flex-1 space-y-2">
                 {navItems.map((item) => (
                   <div key={item.label}>
