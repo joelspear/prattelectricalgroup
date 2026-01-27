@@ -69,8 +69,8 @@ export function Header() {
 
       <header
         className={cn(
-          "fixed top-1 left-0 right-0 transition-all duration-300",
-          isMobileMenuOpen ? "z-[60]" : "z-50",
+          "fixed left-0 right-0 transition-all duration-300",
+          isMobileMenuOpen ? "top-0 z-[60]" : "top-1 z-50",
           isScrolled || isMobileMenuOpen
             ? "bg-white/95 backdrop-blur-md shadow-md"
             : "bg-transparent"
