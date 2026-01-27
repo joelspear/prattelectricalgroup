@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { WhatsAppButton } from "@/components/ui";
+import { ChatBotWrapper } from "@/components/chat/ChatBotWrapper";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://prattelectrical.fuelmysocial.com.au"),
@@ -91,6 +92,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
         <WhatsAppButton />
+        <ChatBotWrapper />
       </body>
     </html>
   );
