@@ -227,10 +227,14 @@ export const footerLinks = {
     { label: "EV Chargers", href: "/ev-chargers" },
     { label: "Emergency 24/7", href: "/emergency" },
   ],
+  resources: [
+    { label: "Solar Calculator", href: "/solar-calculator" },
+    { label: "Finance Options", href: "/finance" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Service Areas", href: "/service-areas" },
+  ],
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Service Areas", href: "/service-areas" },
-    { label: "FAQ", href: "/faq" },
     { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy-policy" },
