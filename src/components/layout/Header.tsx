@@ -11,14 +11,21 @@ import { navItems, contactInfo } from "@/data/siteData";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Handle scroll for sticky header
+  // Handle scroll for sticky header and progress bar
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Calculate scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(progress);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,15 +56,26 @@ export function Header() {
   };
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container-custom">
+    <>
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-transparent">
+        <motion.div
+          className="h-full bg-primary-500"
+          style={{ width: `${scrollProgress}%` }}
+          initial={{ width: 0 }}
+          transition={{ duration: 0.1 }}
+        />
+      </div>
+
+      <header
+        className={cn(
+          "fixed top-1 left-0 right-0 z-50 transition-all duration-300",
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-md"
+            : "bg-transparent"
+        )}
+      >
+        <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="relative z-50">
@@ -289,6 +307,7 @@ export function Header() {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 }
 
