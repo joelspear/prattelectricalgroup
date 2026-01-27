@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Phone, Shield, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { CircuitBackground } from "@/components/ui/CircuitBackground";
 import { cn } from "@/lib/utils";
 import { contactInfo } from "@/data/siteData";
 
@@ -60,23 +61,8 @@ export function Hero({
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/80 to-charcoal/60" />
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-10">
-        <svg
-          viewBox="0 0 100 100"
-          className="absolute -right-20 -top-20 w-96 h-96 text-primary-500"
-          fill="currentColor"
-        >
-          <circle cx="50" cy="50" r="40" />
-        </svg>
-        <svg
-          viewBox="0 0 100 100"
-          className="absolute right-20 bottom-20 w-64 h-64 text-primary-400"
-          fill="currentColor"
-        >
-          <circle cx="50" cy="50" r="30" />
-        </svg>
-      </div>
+      {/* Circuit Background Animation */}
+      <CircuitBackground variant="dark" />
 
       {/* Content */}
       <div className="relative container-custom">
