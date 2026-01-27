@@ -1,5 +1,6 @@
 export { Hero } from "./Hero";
 export { TrustBar } from "./TrustBar";
+export { AboutSection } from "./AboutSection";
 export { ServiceCards } from "./ServiceCards";
 export { WhyChooseUs } from "./WhyChooseUs";
 export { Testimonials } from "./Testimonials";

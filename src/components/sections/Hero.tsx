@@ -36,7 +36,7 @@ export function Hero({
   primaryCta = { text: "Get Free Quote", href: "/contact" },
   secondaryCta,
   showTrustBadges = true,
-  backgroundImage = "/images/hero-electrician.jpg",
+  backgroundImage = "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80",
   variant = "home",
   children,
 }: HeroProps) {
@@ -46,7 +46,7 @@ export function Hero({
     <section
       className={cn(
         "relative overflow-hidden",
-        isHome ? "min-h-[90vh] flex items-center" : "py-32 md:py-40"
+        isHome ? "min-h-screen flex items-center pt-32 pb-20 md:pt-40 md:pb-28" : "py-32 md:py-40"
       )}
     >
       {/* Background */}
@@ -71,7 +71,7 @@ export function Hero({
         </svg>
         <svg
           viewBox="0 0 100 100"
-          className="absolute right-20 bottom-20 w-64 h-64 text-secondary-500"
+          className="absolute right-20 bottom-20 w-64 h-64 text-primary-400"
           fill="currentColor"
         >
           <circle cx="50" cy="50" r="30" />

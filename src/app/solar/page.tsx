@@ -52,9 +52,9 @@ export default function SolarPage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center p-6 bg-secondary-50 rounded-xl">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary-100 mb-4">
-                  <DollarSign className="h-7 w-7 text-secondary-600" />
+              <div className="text-center p-6 bg-primary-50 rounded-xl">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 mb-4">
+                  <DollarSign className="h-7 w-7 text-primary-600" />
                 </div>
                 <h4 className="font-semibold mb-2">Highest Power Prices</h4>
                 <p className="text-sm text-gray-600">
@@ -63,9 +63,9 @@ export default function SolarPage() {
                 </p>
               </div>
 
-              <div className="text-center p-6 bg-secondary-50 rounded-xl">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary-100 mb-4">
-                  <Sun className="h-7 w-7 text-secondary-600" />
+              <div className="text-center p-6 bg-primary-50 rounded-xl">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 mb-4">
+                  <Sun className="h-7 w-7 text-primary-600" />
                 </div>
                 <h4 className="font-semibold mb-2">Abundant Sunshine</h4>
                 <p className="text-sm text-gray-600">
@@ -74,9 +74,9 @@ export default function SolarPage() {
                 </p>
               </div>
 
-              <div className="text-center p-6 bg-secondary-50 rounded-xl">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary-100 mb-4">
-                  <Zap className="h-7 w-7 text-secondary-600" />
+              <div className="text-center p-6 bg-primary-50 rounded-xl">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 mb-4">
+                  <Zap className="h-7 w-7 text-primary-600" />
                 </div>
                 <h4 className="font-semibold mb-2">3-5 Year Payback</h4>
                 <p className="text-sm text-gray-600">
@@ -85,9 +85,9 @@ export default function SolarPage() {
                 </p>
               </div>
 
-              <div className="text-center p-6 bg-secondary-50 rounded-xl">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary-100 mb-4">
-                  <Leaf className="h-7 w-7 text-secondary-600" />
+              <div className="text-center p-6 bg-primary-50 rounded-xl">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 mb-4">
+                  <Leaf className="h-7 w-7 text-primary-600" />
                 </div>
                 <h4 className="font-semibold mb-2">Government Rebates</h4>
                 <p className="text-sm text-gray-600">
@@ -216,8 +216,8 @@ export default function SolarPage() {
                   key={benefit.title}
                   className="card p-6 hover:shadow-md transition-shadow"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-secondary-50 mb-4">
-                    <benefit.icon className="h-6 w-6 text-secondary-500" />
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary-50 mb-4">
+                    <benefit.icon className="h-6 w-6 text-primary-500" />
                   </div>
                   <h4 className="font-semibold mb-2">{benefit.title}</h4>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
@@ -313,19 +313,19 @@ export default function SolarPage() {
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-secondary-400" />
+                    <span className="w-2 h-2 rounded-full bg-primary-400" />
                     Free solar assessment
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-secondary-400" />
+                    <span className="w-2 h-2 rounded-full bg-primary-400" />
                     Custom system design
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-secondary-400" />
+                    <span className="w-2 h-2 rounded-full bg-primary-400" />
                     Clear ROI breakdown
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-secondary-400" />
+                    <span className="w-2 h-2 rounded-full bg-primary-400" />
                     All rebates included
                   </li>
                 </ul>
@@ -339,7 +339,7 @@ export default function SolarPage() {
         <CTASection
           title="Ready to Go Solar?"
           subtitle="Join thousands of Adelaide homeowners saving money with solar."
-          variant="secondary"
+          variant="primary"
         />
       </main>
       <Footer />

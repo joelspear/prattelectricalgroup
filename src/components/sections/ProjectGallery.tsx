@@ -98,7 +98,7 @@ export function ProjectGallery({
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Project image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-secondary-500/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-primary-600/20">
                   {project.image ? (
                     <Image
                       src={project.image}

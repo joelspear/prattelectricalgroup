@@ -12,6 +12,9 @@ import { contactInfo } from "@/data/siteData";
 
 // Validation schema
 const quoteFormSchema = z.object({
+  customerType: z.enum(["residential", "commercial"], {
+    message: "Please select if this is residential or commercial",
+  }),
   name: z.string().min(2, "Please enter your name"),
   phone: z
     .string()
@@ -39,6 +42,7 @@ interface QuoteFormProps {
   variant?: "default" | "compact" | "dark";
   showTitle?: boolean;
   preselectedService?: string;
+  preselectedCustomerType?: "residential" | "commercial";
 }
 
 export function QuoteForm({
@@ -46,6 +50,7 @@ export function QuoteForm({
   variant = "default",
   showTitle = true,
   preselectedService,
+  preselectedCustomerType,
 }: QuoteFormProps) {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [submittedName, setSubmittedName] = useState("");
@@ -54,13 +59,17 @@ export function QuoteForm({
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
+      customerType: preselectedCustomerType,
       service: preselectedService || "",
     },
   });
+
+  const selectedCustomerType = watch("customerType");
 
   const onSubmit = async (data: QuoteFormData) => {
     setSubmitStatus("loading");
@@ -141,6 +150,58 @@ export function QuoteForm({
                 </p>
               </div>
             )}
+
+            {/* Customer Type Selection */}
+            <div>
+              <label className={labelClasses}>I am a...</label>
+              <div className="grid grid-cols-2 gap-3 mt-2">
+                <label
+                  className={cn(
+                    "relative flex items-center justify-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all",
+                    selectedCustomerType === "residential"
+                      ? "border-primary-500 bg-primary-50 text-primary-700"
+                      : isDark
+                      ? "border-white/20 text-white hover:border-white/40"
+                      : "border-gray-200 text-gray-600 hover:border-gray-300"
+                  )}
+                >
+                  <input
+                    {...register("customerType")}
+                    type="radio"
+                    value="residential"
+                    className="sr-only"
+                  />
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span className="font-medium text-sm">Residential</span>
+                </label>
+                <label
+                  className={cn(
+                    "relative flex items-center justify-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all",
+                    selectedCustomerType === "commercial"
+                      ? "border-primary-500 bg-primary-50 text-primary-700"
+                      : isDark
+                      ? "border-white/20 text-white hover:border-white/40"
+                      : "border-gray-200 text-gray-600 hover:border-gray-300"
+                  )}
+                >
+                  <input
+                    {...register("customerType")}
+                    type="radio"
+                    value="commercial"
+                    className="sr-only"
+                  />
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <span className="font-medium text-sm">Commercial</span>
+                </label>
+              </div>
+              {errors.customerType && (
+                <p className="form-error">{errors.customerType.message}</p>
+              )}
+            </div>
 
             {submitStatus === "error" && (
               <div className="flex items-center gap-2 p-3 bg-red-50 text-red-600 rounded-lg text-sm">

@@ -9,35 +9,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary brand color - matches logo cyan
+        // Primary brand color - Pratt Electrical blue
         primary: {
-          50: '#e6f7fb',
-          100: '#cceef7',
-          200: '#99ddef',
-          300: '#66cce7',
-          400: '#33bbdf',
-          500: '#00B4D8', // Main brand cyan from logo
-          600: '#0090ad',
-          700: '#006c82',
-          800: '#004856',
-          900: '#00242b',
+          50: '#e6f7fc',
+          100: '#ccf0fa',
+          200: '#99e1f5',
+          300: '#66d2f0',
+          400: '#33c3eb',
+          500: '#00aeef', // Pratt Electrical brand blue
+          600: '#008bbf',
+          700: '#00688f',
+          800: '#004660',
+          900: '#002330',
         },
-        // Secondary - Safety Orange for CTAs and accents
+        // Secondary - black for professional accents
         secondary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#F97316', // Main orange
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
+          50: '#f5f5f5',
+          100: '#e5e5e5',
+          200: '#cccccc',
+          300: '#b3b3b3',
+          400: '#808080',
+          500: '#000000', // Black
+          600: '#000000',
+          700: '#000000',
+          800: '#000000',
+          900: '#000000',
         },
-        // Neutral colors
-        charcoal: '#1F2937',
-        'neutral-light': '#FAFAFA',
+        // Neutral colors - Pratt brand
+        charcoal: '#000000',
+        'neutral-light': '#f3f3f4', // Pratt light gray
         'neutral-mid': '#E5E7EB',
         // Success green
         success: '#10B981',
