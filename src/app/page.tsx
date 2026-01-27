@@ -2,6 +2,7 @@ import { Header, Footer } from "@/components/layout";
 import {
   Hero,
   TrustBar,
+  AboutSection,
   ServiceCards,
   WhyChooseUs,
   Testimonials,
@@ -38,6 +39,9 @@ export default function HomePage() {
 
         {/* Trust Bar with Stats */}
         <TrustBar />
+
+        {/* About Section */}
+        <AboutSection />
 
         {/* Services Overview */}
         <ServiceCards />
