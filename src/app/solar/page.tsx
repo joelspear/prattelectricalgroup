@@ -1,6 +1,6 @@
 "use client";
 
-import { Zap, DollarSign, Leaf, Battery, Shield, Sun } from "lucide-react";
+import { Zap, DollarSign, Leaf, Battery, Shield, Sun, Calculator, ArrowRight } from "lucide-react";
 import { Header, Footer } from "@/components/layout";
 import {
   ServiceHero,
@@ -11,6 +11,8 @@ import {
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
+import { QuickCalculator } from "@/app/solar-calculator/components";
+import { Button } from "@/components/ui";
 import { services } from "@/data/siteData";
 import { solarFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
@@ -221,6 +223,52 @@ export default function SolarPage() {
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Calculator Section */}
+        <section className="section bg-gradient-to-br from-primary-50 to-blue-50">
+          <div className="container-custom">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full text-primary-700 text-sm font-medium mb-4">
+                  <Calculator className="h-4 w-4" />
+                  Savings Calculator
+                </div>
+                <h2 className="mb-4">Calculate Your Solar Savings</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Get an instant estimate of how much you could save with solar.
+                  Our calculator uses Adelaide-specific electricity rates and
+                  solar generation data.
+                </p>
+                <ul className="space-y-3 text-gray-600 mb-6">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary-500" />
+                    Instant results based on your bill
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary-500" />
+                    Compare system sizes
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary-500" />
+                    See battery storage impact
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary-500" />
+                    25-year savings projection
+                  </li>
+                </ul>
+                <Button
+                  href="/solar-calculator"
+                  variant="primary"
+                  rightIcon={<ArrowRight className="h-4 w-4" />}
+                >
+                  Open Full Calculator
+                </Button>
+              </div>
+              <QuickCalculator />
             </div>
           </div>
         </section>
