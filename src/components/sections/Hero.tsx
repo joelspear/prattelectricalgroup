@@ -62,7 +62,7 @@ export function Hero({
       </div>
 
       {/* Circuit Background Animation */}
-      <CircuitBackground variant="dark" />
+      <CircuitBackground />
 
       {/* Content */}
       <div className="relative container-custom">

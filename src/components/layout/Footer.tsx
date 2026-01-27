@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="bg-charcoal text-white relative overflow-hidden">
       {/* Circuit Background Animation */}
-      <CircuitBackground variant="dark" />
+      <CircuitBackground />
 
       {/* Main Footer */}
       <div className="container-custom py-16 relative z-10">
