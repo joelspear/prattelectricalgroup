@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Phone, Shield, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { CircuitBackground } from "@/components/ui/CircuitBackground";
 import { cn } from "@/lib/utils";
 import { contactInfo } from "@/data/siteData";
 
@@ -20,7 +19,6 @@ interface HeroProps {
   };
   showTrustBadges?: boolean;
   showQuoteForm?: boolean;
-  backgroundImage?: string;
   variant?: "home" | "service" | "about";
   children?: React.ReactNode;
 }
@@ -37,7 +35,6 @@ export function Hero({
   primaryCta = { text: "Get Free Quote", href: "/contact" },
   secondaryCta,
   showTrustBadges = true,
-  backgroundImage = "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80",
   variant = "home",
   children,
 }: HeroProps) {
@@ -51,18 +48,15 @@ export function Hero({
       )}
     >
       {/* Background */}
-      <div className="absolute inset-0 gradient-hero">
-        {/* Background image with overlay */}
+      <div className="absolute inset-0 bg-charcoal">
+        {/* Solar panel background image - more visible on mobile */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 md:opacity-20"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80)` }}
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/80 to-charcoal/60" />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/50" />
       </div>
-
-      {/* Circuit Background Animation */}
-      <CircuitBackground />
 
       {/* Content */}
       <div className="relative container-custom">

@@ -3,19 +3,15 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import { CircuitBackground } from "@/components/ui/CircuitBackground";
 import { contactInfo, socialLinks, footerLinks, fuelMySocial } from "@/data/siteData";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-white relative overflow-hidden">
-      {/* Circuit Background Animation */}
-      <CircuitBackground />
-
+    <footer className="bg-charcoal text-white">
       {/* Main Footer */}
-      <div className="container-custom py-16 relative z-10">
+      <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
@@ -142,7 +138,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 relative z-10">
+      <div className="border-t border-white/10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
             <p>
