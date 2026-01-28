@@ -75,20 +75,46 @@ export function QuoteForm({
     setSubmitStatus("loading");
     setSubmittedName(data.name.split(" ")[0]);
 
-    // Simulate form submission (replace with actual submission logic)
-    console.log("Form submitted:", data);
+    try {
+      // Submit to GoHighLevel webhook
+      const response = await fetch(
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/02d048a7-7aa7-4ba7-83db-0c0f11a8eb2c",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            customerType: data.customerType,
+            name: data.name,
+            phone: data.phone,
+            service: data.service,
+            suburb: data.suburb,
+            message: data.message || "",
+            source: "Website Quote Form",
+            submittedAt: new Date().toISOString(),
+          }),
+        }
+      );
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (response.ok) {
+        setSubmitStatus("success");
+      } else {
+        console.error("Form submission failed:", response.statusText);
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    }
 
-    // For demo, always succeed
-    setSubmitStatus("success");
-
-    // Reset form after delay
-    setTimeout(() => {
-      reset();
-      setSubmitStatus("idle");
-    }, 5000);
+    // Reset form after delay if successful
+    if (submitStatus !== "error") {
+      setTimeout(() => {
+        reset();
+        setSubmitStatus("idle");
+      }, 5000);
+    }
   };
 
   const isDark = variant === "dark";
