@@ -49,9 +49,9 @@ export function Hero({
     >
       {/* Background */}
       <div className="absolute inset-0 bg-charcoal">
-        {/* Solar panel background image - more visible on mobile */}
+        {/* Solar panel background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 md:opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80)` }}
         />
         {/* Dark gradient overlay */}
