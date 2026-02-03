@@ -11,7 +11,6 @@ import {
   Home,
   Building2,
   DollarSign,
-  AlertTriangle,
   Info,
   Phone,
 } from "lucide-react";
@@ -26,7 +25,6 @@ import {
   residentialFAQs,
   commercialFAQs,
   pricingFAQs,
-  emergencyFAQs,
   generalFAQs,
 } from "@/data/faqs";
 import type { FAQItem } from "@/components/sections/FAQ";
@@ -39,7 +37,6 @@ const categoryIcons: Record<string, React.ElementType> = {
   residential: Home,
   commercial: Building2,
   pricing: DollarSign,
-  emergency: AlertTriangle,
   general: Info,
 };
 
@@ -134,8 +131,6 @@ export default function FAQPage() {
         return commercialFAQs;
       case "pricing":
         return pricingFAQs;
-      case "emergency":
-        return emergencyFAQs;
       case "general":
         return generalFAQs;
       default:
@@ -364,26 +359,26 @@ export default function FAQPage() {
                     </h3>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                       <Link
-                        href="/solar-calculator"
+                        href="/solar"
                         className="bg-white rounded-lg p-4 border border-gray-100 hover:border-primary-200 hover:shadow-sm transition-all group"
                       >
                         <Sun className="h-8 w-8 text-secondary-500 mb-2" />
                         <h4 className="font-medium text-charcoal group-hover:text-primary-500 transition-colors">
-                          Solar Savings Calculator
+                          Solar & Battery
                         </h4>
                         <p className="text-sm text-gray-500">
-                          Estimate your savings
+                          Learn about solar
                         </p>
                       </Link>
                       <Link
-                        href="/emergency"
+                        href="/pricing"
                         className="bg-white rounded-lg p-4 border border-gray-100 hover:border-primary-200 hover:shadow-sm transition-all group"
                       >
-                        <AlertTriangle className="h-8 w-8 text-red-500 mb-2" />
+                        <DollarSign className="h-8 w-8 text-primary-500 mb-2" />
                         <h4 className="font-medium text-charcoal group-hover:text-primary-500 transition-colors">
-                          Emergency Services
+                          Pricing Guide
                         </h4>
-                        <p className="text-sm text-gray-500">24/7 availability</p>
+                        <p className="text-sm text-gray-500">Transparent pricing</p>
                       </Link>
                       <Link
                         href="/contact"

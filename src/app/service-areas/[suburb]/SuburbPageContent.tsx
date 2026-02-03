@@ -43,9 +43,9 @@ const services = [
   },
   {
     icon: Zap,
-    name: "Emergency 24/7",
-    description: "Power outages, sparking outlets, burning smells - we respond fast.",
-    href: "/emergency",
+    name: "EV Chargers",
+    description: "Professional EV charger installation for homes and businesses.",
+    href: "/ev-chargers",
   },
 ];
 

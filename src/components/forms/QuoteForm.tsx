@@ -33,7 +33,7 @@ const serviceOptions = [
   { value: "commercial", label: "Commercial Electrical" },
   { value: "solar", label: "Solar Installation" },
   { value: "battery", label: "Battery Storage" },
-  { value: "emergency", label: "Emergency/Urgent" },
+  { value: "ev-charger", label: "EV Charger Installation" },
   { value: "other", label: "Other" },
 ];
 

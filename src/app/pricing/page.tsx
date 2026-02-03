@@ -10,8 +10,6 @@ import {
   Phone,
   Sun,
   Home,
-  Zap,
-  AlertTriangle,
 } from "lucide-react";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
@@ -412,10 +410,10 @@ export default function PricingPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Link
-                href="/solar-calculator"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors"
               >
-                Calculate Your Savings
+                Get a Free Quote
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
@@ -424,48 +422,6 @@ export default function PricingPage() {
               >
                 Learn About Solar
               </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Emergency Pricing Note */}
-        <section className="section bg-red-50">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-red-100 rounded-xl flex-shrink-0">
-                  <AlertTriangle className="h-8 w-8 text-red-500" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-charcoal mb-2">
-                    Emergency Electrical Services
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Electrical emergencies don&apos;t wait for business hours.
-                    We&apos;re available 24/7 for urgent issues like power
-                    outages, sparking outlets, and burning smells.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="bg-white rounded-lg p-4 border border-red-100">
-                      <span className="text-sm text-gray-500">
-                        Emergency Call-Out
-                      </span>
-                      <p className="text-2xl font-bold text-red-600">
-                        $150 - $200
-                      </p>
-                    </div>
-                    <div className="flex items-center">
-                      <a
-                        href={getTelLink(contactInfo.phone)}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition-colors"
-                      >
-                        <Zap className="h-5 w-5" />
-                        Call Now: {contactInfo.phone}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

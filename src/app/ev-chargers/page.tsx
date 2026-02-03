@@ -426,10 +426,10 @@ export default function EVChargersPage() {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
-                    href="/solar-calculator"
+                    href="/contact"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-colors"
                   >
-                    Solar Savings Calculator
+                    Get a Free Quote
                   </Link>
                 </div>
               </motion.div>

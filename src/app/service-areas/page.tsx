@@ -208,7 +208,7 @@ const services = [
   { icon: Home, name: "Residential Electrical", href: "/residential" },
   { icon: Building2, name: "Commercial Electrical", href: "/commercial" },
   { icon: Sun, name: "Solar & Battery", href: "/solar" },
-  { icon: Zap, name: "Emergency 24/7", href: "/emergency" },
+  { icon: Zap, name: "EV Chargers", href: "/ev-chargers" },
 ];
 
 export default function ServiceAreasPage() {

@@ -25,7 +25,7 @@ export const contactInfo = {
   owner: "James Pratt",
   businessName: "Pratt Electrical Group Pty Ltd",
   founded: 2020,
-  hours: "24/7 Emergency Service Available",
+  hours: "Mon-Fri 7am-5pm",
 };
 
 export const socialLinks = {
@@ -47,7 +47,7 @@ export const trustStats = [
   { value: "5+", label: "Years Serving Adelaide" },
   { value: "500+", label: "Projects Completed" },
   { value: "CEC", label: "Accredited Installers" },
-  { value: "24/7", label: "Emergency Service" },
+  { value: "100%", label: "Customer Satisfaction" },
 ];
 
 export const services = {
@@ -86,7 +86,6 @@ export const services = {
       "Standby Generator Installation",
       "Warehouse & Industrial",
       "Maintenance Contracts",
-      "24/7 Emergency Service",
     ],
   },
   solar: {
@@ -143,8 +142,8 @@ export const testimonials = [
     name: "Michael R.",
     location: "Christies Beach",
     rating: 5,
-    text: "Called for an emergency switchboard issue on a Sunday. James arrived within an hour and had everything sorted quickly. Fair pricing and excellent communication throughout.",
-    service: "Emergency",
+    text: "Called about a switchboard issue and James had everything sorted quickly. Fair pricing and excellent communication throughout. Highly recommend.",
+    service: "Residential",
   },
   {
     id: 4,
@@ -178,9 +177,9 @@ export const whyChooseUs = [
     icon: "Award",
   },
   {
-    title: "24/7 Availability",
+    title: "Reliable & On Time",
     description:
-      "Emergencies don't wait, neither do we. Call anytime for urgent electrical issues.",
+      "We show up when we say we will and complete every job on schedule.",
     icon: "Clock",
   },
   {
@@ -211,14 +210,12 @@ export const navItems = [
       { label: "Commercial Electrical", href: "/commercial" },
       { label: "Solar & Battery", href: "/solar" },
       { label: "EV Chargers", href: "/ev-chargers" },
-      { label: "Emergency 24/7", href: "/emergency" },
     ],
   },
   {
     label: "Resources",
     href: "#",
     children: [
-      { label: "Solar Calculator", href: "/solar-calculator" },
       { label: "Pricing Guide", href: "/pricing" },
       { label: "Finance Options", href: "/finance" },
       { label: "FAQ", href: "/faq" },
@@ -237,11 +234,10 @@ export const footerLinks = {
     { label: "Commercial Electrical", href: "/commercial" },
     { label: "Solar & Battery", href: "/solar" },
     { label: "EV Chargers", href: "/ev-chargers" },
-    { label: "Emergency 24/7", href: "/emergency" },
   ],
   resources: [
-    { label: "Solar Calculator", href: "/solar-calculator" },
     { label: "Finance Options", href: "/finance" },
+    { label: "Pricing Guide", href: "/pricing" },
     { label: "FAQ", href: "/faq" },
     { label: "Service Areas", href: "/service-areas" },
   ],

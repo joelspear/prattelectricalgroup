@@ -1,70 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import {
   DollarSign,
   CreditCard,
   Clock,
   CheckCircle,
   ArrowRight,
-  Calculator,
-  Shield,
-  Sun,
-  Percent,
-  Calendar,
+  Send,
+  AlertCircle,
 } from "lucide-react";
-import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import { FAQ, CTASection } from "@/components/sections";
 import { contactInfo } from "@/data/siteData";
-
-const financeOptions = [
-  {
-    name: "Interest-Free Finance",
-    provider: "Humm",
-    description:
-      "Spread the cost of your solar system or electrical work with interest-free payments.",
-    features: [
-      "0% interest",
-      "6-60 month terms",
-      "Instant approval",
-      "No early payout fees",
-    ],
-    minAmount: "$1,000",
-    maxAmount: "$30,000",
-    highlight: true,
-  },
-  {
-    name: "Green Loan",
-    provider: "Various Banks",
-    description:
-      "Discounted interest rates for solar and energy-efficient upgrades.",
-    features: [
-      "Lower rates for green purchases",
-      "Flexible terms",
-      "Various lenders",
-      "Up to $50,000+",
-    ],
-    minAmount: "$5,000",
-    maxAmount: "$50,000+",
-    highlight: false,
-  },
-  {
-    name: "Personal Loan",
-    provider: "Your Bank",
-    description:
-      "Use your existing bank relationship for competitive personal loan rates.",
-    features: [
-      "Competitive rates",
-      "Fixed repayments",
-      "Fast approval",
-      "Flexible use",
-    ],
-    minAmount: "Varies",
-    maxAmount: "Varies",
-    highlight: false,
-  },
-];
+import { cn } from "@/lib/utils";
 
 const howItWorks = [
   {
@@ -72,7 +25,7 @@ const howItWorks = [
     title: "Get Your Quote",
     description:
       "We provide a detailed quote for your solar or electrical project with all costs clearly outlined.",
-    icon: Calculator,
+    icon: DollarSign,
   },
   {
     step: 2,
@@ -94,33 +47,6 @@ const howItWorks = [
     description:
       "We complete your installation while you enjoy manageable repayments over time.",
     icon: CheckCircle,
-  },
-];
-
-const examplePayments = [
-  {
-    system: "6.6kW Solar System",
-    totalCost: "$6,500",
-    monthly: "$108/month",
-    term: "60 months interest-free",
-  },
-  {
-    system: "10kW Solar System",
-    totalCost: "$9,500",
-    monthly: "$158/month",
-    term: "60 months interest-free",
-  },
-  {
-    system: "Solar + Battery",
-    totalCost: "$18,000",
-    monthly: "$300/month",
-    term: "60 months interest-free",
-  },
-  {
-    system: "Switchboard Upgrade",
-    totalCost: "$2,500",
-    monthly: "$104/month",
-    term: "24 months interest-free",
   },
 ];
 
@@ -146,18 +72,87 @@ const financeFAQs = [
       "This depends on the finance option and amount. Some options require no deposit, while others may require a small upfront payment. We'll explain all requirements during your quote.",
   },
   {
-    question: "Can I finance just the installation, not the equipment?",
-    answer:
-      "Yes, finance can be applied to any portion of your project. Whether it's the full amount or just part of it, we can work with you to find a solution.",
-  },
-  {
     question: "How long does approval take?",
     answer:
-      "Most interest-free finance applications are approved within minutes. Green loans and personal loans may take 1-3 business days depending on the lender.",
+      "Most interest-free finance applications are approved within minutes. Other loan types may take 1-3 business days depending on the lender.",
   },
 ];
 
+// Finance enquiry form schema
+const financeFormSchema = z.object({
+  name: z.string().min(2, "Please enter your name"),
+  phone: z
+    .string()
+    .min(8, "Please enter a valid phone number")
+    .regex(/^[\d\s\-+()]+$/, "Please enter a valid phone number"),
+  email: z.string().email("Please enter a valid email address"),
+  projectType: z.string().min(1, "Please select a project type"),
+  message: z.string().max(500, "Message too long").optional(),
+});
+
+type FinanceFormData = z.infer<typeof financeFormSchema>;
+
+const projectOptions = [
+  { value: "", label: "What type of project?" },
+  { value: "solar", label: "Solar Installation" },
+  { value: "battery", label: "Battery Storage" },
+  { value: "solar-battery", label: "Solar + Battery" },
+  { value: "electrical", label: "Electrical Work" },
+  { value: "ev-charger", label: "EV Charger" },
+  { value: "other", label: "Other" },
+];
+
 export default function FinancePage() {
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FinanceFormData>({
+    resolver: zodResolver(financeFormSchema),
+  });
+
+  const onSubmit = async (data: FinanceFormData) => {
+    setSubmitStatus("loading");
+
+    try {
+      const response = await fetch(
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/02d048a7-7aa7-4ba7-83db-0c0f11a8eb2c",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            service: data.projectType,
+            message: data.message || "",
+            source: "Website Finance Enquiry",
+            submittedAt: new Date().toISOString(),
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setTimeout(() => {
+          reset();
+          setSubmitStatus("idle");
+        }, 5000);
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    }
+  };
+
   return (
     <>
       <Header />
@@ -190,140 +185,23 @@ export default function FinancePage() {
                 className="text-lg text-primary-100 mb-8"
               >
                 Don&apos;t let upfront costs stop you from upgrading your home.
-                Interest-free finance makes solar and electrical work affordable
-                for everyone.
+                We offer flexible finance options to make solar and electrical
+                work affordable for everyone.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap justify-center gap-4"
               >
-                <Link
-                  href="/contact"
+                <a
+                  href="#finance-form"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-600 rounded-lg font-medium hover:bg-gray-100 transition-colors"
                 >
-                  Get a Quote
+                  Enquire About Finance
                   <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/solar-calculator"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-colors"
-                >
-                  <Calculator className="h-4 w-4" />
-                  Solar Calculator
-                </Link>
+                </a>
               </motion.div>
             </div>
-          </div>
-        </section>
-
-        {/* Finance Options */}
-        <section className="section bg-white">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4">Finance Options</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Multiple ways to spread the cost of your solar or electrical
-                project.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {financeOptions.map((option, index) => (
-                <motion.div
-                  key={option.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`rounded-xl overflow-hidden border ${
-                    option.highlight
-                      ? "border-primary-200 shadow-lg"
-                      : "border-gray-100"
-                  }`}
-                >
-                  {option.highlight && (
-                    <div className="bg-primary-500 text-white text-center py-2 text-sm font-medium">
-                      Most Popular
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                      <CreditCard className="h-4 w-4" />
-                      {option.provider}
-                    </div>
-                    <h3 className="text-xl font-bold text-charcoal mb-3">
-                      {option.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4">
-                      {option.description}
-                    </p>
-                    <div className="flex justify-between text-sm text-gray-500 mb-4 pb-4 border-b border-gray-100">
-                      <span>
-                        From <strong className="text-charcoal">{option.minAmount}</strong>
-                      </span>
-                      <span>
-                        Up to <strong className="text-charcoal">{option.maxAmount}</strong>
-                      </span>
-                    </div>
-                    <ul className="space-y-2">
-                      {option.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2 text-sm text-gray-600"
-                        >
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Example Payments */}
-        <section className="section bg-gray-50">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4">Example Payment Plans</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                See how affordable solar and electrical upgrades can be with
-                interest-free finance.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {examplePayments.map((payment, index) => (
-                <motion.div
-                  key={payment.system}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
-                >
-                  <h4 className="font-semibold text-charcoal mb-1">
-                    {payment.system}
-                  </h4>
-                  <p className="text-3xl font-bold text-primary-500 mb-1">
-                    {payment.monthly}
-                  </p>
-                  <p className="text-sm text-gray-500 mb-3">{payment.term}</p>
-                  <p className="text-sm text-gray-600">
-                    Total: {payment.totalCost}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <p className="text-center text-sm text-gray-500 mt-8">
-              *Example only. Actual payments depend on finance approval, term
-              length, and final project cost.
-            </p>
           </div>
         </section>
 
@@ -363,104 +241,179 @@ export default function FinancePage() {
           </div>
         </section>
 
-        {/* Why Finance Solar */}
-        <section className="section bg-charcoal text-white">
+        {/* Finance Enquiry Form */}
+        <section id="finance-form" className="section bg-gray-50">
           <div className="container-custom">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 text-primary-300 mb-4">
-                  <Sun className="h-5 w-5" />
-                  <span className="font-medium text-sm uppercase tracking-wide">
-                    Smart Investment
-                  </span>
-                </div>
-                <h2 className="text-white mb-6">
-                  Why Finance Your Solar System?
-                </h2>
-                <p className="text-gray-300 text-lg mb-6">
-                  With interest-free finance, your solar savings often exceed
-                  your monthly payments from day one. That means positive cash
-                  flow immediately.
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="mb-4">Enquire About Finance</h2>
+                <p className="text-lg text-gray-600">
+                  Fill in your details below and we&apos;ll get back to you with
+                  finance options tailored to your project.
                 </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Percent className="h-6 w-6 text-primary-400 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold text-white">0% Interest</span>
-                      <p className="text-gray-400 text-sm">
-                        Pay exactly what you owe, nothing more
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <DollarSign className="h-6 w-6 text-primary-400 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold text-white">
-                        Positive Cash Flow
-                      </span>
-                      <p className="text-gray-400 text-sm">
-                        Solar savings can exceed monthly payments
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Calendar className="h-6 w-6 text-primary-400 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold text-white">
-                        Flexible Terms
-                      </span>
-                      <p className="text-gray-400 text-sm">
-                        Choose 6-60 month payment periods
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Shield className="h-6 w-6 text-primary-400 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-semibold text-white">
-                        Keep Your Savings
-                      </span>
-                      <p className="text-gray-400 text-sm">
-                        Don&apos;t drain your savings account
-                      </p>
-                    </div>
-                  </li>
-                </ul>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">
-                  Example: 6.6kW Solar System
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                    <span className="text-gray-300">System Cost</span>
-                    <span className="text-white font-bold">$6,500</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                    <span className="text-gray-300">
-                      Monthly Payment (60 months)
-                    </span>
-                    <span className="text-white font-bold">$108</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                    <span className="text-gray-300">Monthly Savings (avg)</span>
-                    <span className="text-green-400 font-bold">$130+</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-2">
-                    <span className="text-white font-semibold">
-                      Monthly Benefit
-                    </span>
-                    <span className="text-green-400 font-bold text-xl">
-                      +$22/month
-                    </span>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400 mt-6">
-                  *Based on average Adelaide household. Your actual savings may
-                  vary.
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100"
+              >
+                {submitStatus === "success" ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-8"
+                  >
+                    <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-2xl font-bold text-charcoal mb-2">
+                      Enquiry Received!
+                    </h3>
+                    <p className="text-gray-600">
+                      Thanks for your interest in finance options. We&apos;ll be in
+                      touch shortly to discuss your options.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="space-y-5"
+                  >
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal mb-1.5">
+                        Full Name *
+                      </label>
+                      <input
+                        {...register("name")}
+                        type="text"
+                        placeholder="Your name"
+                        className={cn(
+                          "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
+                          errors.name ? "border-red-300" : "border-gray-200"
+                        )}
+                      />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.name.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-medium text-charcoal mb-1.5">
+                          Phone *
+                        </label>
+                        <input
+                          {...register("phone")}
+                          type="tel"
+                          placeholder="Your phone number"
+                          className={cn(
+                            "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
+                            errors.phone
+                              ? "border-red-300"
+                              : "border-gray-200"
+                          )}
+                        />
+                        {errors.phone && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.phone.message}
+                          </p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-charcoal mb-1.5">
+                          Email *
+                        </label>
+                        <input
+                          {...register("email")}
+                          type="email"
+                          placeholder="Your email"
+                          className={cn(
+                            "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
+                            errors.email
+                              ? "border-red-300"
+                              : "border-gray-200"
+                          )}
+                        />
+                        {errors.email && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.email.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal mb-1.5">
+                        Project Type *
+                      </label>
+                      <select
+                        {...register("projectType")}
+                        className={cn(
+                          "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
+                          errors.projectType
+                            ? "border-red-300"
+                            : "border-gray-200"
+                        )}
+                      >
+                        {projectOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.projectType && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.projectType.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal mb-1.5">
+                        Tell us about your project{" "}
+                        <span className="text-gray-400">(optional)</span>
+                      </label>
+                      <textarea
+                        {...register("message")}
+                        rows={4}
+                        placeholder="Any details about your project or finance needs..."
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
+                      />
+                    </div>
+
+                    {submitStatus === "error" && (
+                      <div className="flex items-center gap-2 text-red-600 bg-red-50 rounded-lg p-3">
+                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                        <p className="text-sm">
+                          Something went wrong. Please try again or call us on{" "}
+                          {contactInfo.phoneFormatted}.
+                        </p>
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={submitStatus === "loading"}
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {submitStatus === "loading" ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4" />
+                          Submit Finance Enquiry
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </motion.div>
             </div>
           </div>
         </section>
@@ -470,41 +423,13 @@ export default function FinancePage() {
           items={financeFAQs}
           title="Finance FAQs"
           subtitle="Common questions about our payment options."
-          className="bg-gray-50"
+          className="bg-white"
         />
-
-        {/* CTA Section */}
-        <section className="section bg-white">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="mb-4">Ready to Get Started?</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Get a free quote and we&apos;ll explain all your finance options.
-                No obligation, no pressure.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors"
-                >
-                  Get a Free Quote
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-charcoal text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
-                >
-                  Call {contactInfo.phone}
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Final CTA */}
         <CTASection
-          title="Don't Wait to Start Saving"
-          subtitle="Interest-free finance makes it easy to go solar today."
+          title="Ready to Get Started?"
+          subtitle="Get a free quote and we'll explain all your finance options. No obligation, no pressure."
           variant="primary"
         />
       </main>

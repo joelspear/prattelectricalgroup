@@ -18,7 +18,7 @@ export const solarFAQs: FAQItem[] = [
     question: "What size solar system do I need?",
     answer:
       "Most Adelaide households do well with a 6.6kW system. For larger families or homes with pools/EVs, consider 10kW+. We assess your usage and recommend the right size.",
-    link: { text: "Try our calculator", href: "/solar-calculator" },
+    link: { text: "Get a free quote", href: "/contact" },
   },
   {
     question: "How long does solar installation take?",
@@ -34,7 +34,7 @@ export const solarFAQs: FAQItem[] = [
     question: "What's the payback period for solar in Adelaide?",
     answer:
       "Typically 3-5 years for residential systems. Adelaide's high electricity prices and abundant sunshine make solar highly cost-effective.",
-    link: { text: "Calculate your savings", href: "/solar-calculator" },
+    link: { text: "Get a quote", href: "/contact" },
   },
   {
     question: "Do you install Tesla Powerwall?",
@@ -94,12 +94,12 @@ export const residentialFAQs: FAQItem[] = [
   {
     question: "Do you work on weekends?",
     answer:
-      "We can arrange weekend appointments for an additional fee. Emergency services are available 24/7.",
+      "We can arrange weekend appointments for an additional fee. Contact us to discuss availability.",
   },
   {
     question: "How quickly can you come out?",
     answer:
-      "For emergencies, we aim to respond within 1 hour in the Adelaide metro area. For non-urgent work, we can usually schedule an appointment within 1-2 business days.",
+      "For most jobs, we can usually schedule an appointment within 1-2 business days. Contact us and we'll find a time that works.",
   },
   {
     question: "Do you provide certificates of compliance?",
@@ -152,26 +152,6 @@ export const pricingFAQs: FAQItem[] = [
   },
 ];
 
-// Emergency Services FAQs
-export const emergencyFAQs: FAQItem[] = [
-  {
-    question: "Do you offer 24/7 emergency services?",
-    answer:
-      "Yes, we're available 24/7 for genuine electrical emergencies including power outages, sparking outlets, burning smells, and safety hazards.",
-    link: { text: "Emergency page", href: "/emergency" },
-  },
-  {
-    question: "What's your emergency response time?",
-    answer:
-      "We aim to respond within 1 hour for Adelaide metro emergencies. Call 0406 494 941 immediately for urgent situations.",
-  },
-  {
-    question: "What should I do if I smell burning from an outlet?",
-    answer:
-      "Turn off power at the switchboard immediately, do not use the outlet, and call us right away. This could indicate a serious fire hazard.",
-  },
-];
-
 // General FAQs
 export const generalFAQs: FAQItem[] = [
   {
@@ -199,7 +179,6 @@ export const faqCategories: FAQCategory[] = [
   { id: "residential", name: "Residential Electrical", faqs: residentialFAQs },
   { id: "commercial", name: "Commercial Electrical", faqs: commercialFAQs },
   { id: "pricing", name: "Pricing & Payments", faqs: pricingFAQs },
-  { id: "emergency", name: "Emergency Services", faqs: emergencyFAQs },
 ];
 
 // Combine all FAQs for "All Questions" view
@@ -208,7 +187,6 @@ export const allFAQsList: FAQItem[] = [
   ...residentialFAQs,
   ...commercialFAQs,
   ...pricingFAQs,
-  ...emergencyFAQs,
   ...generalFAQs,
 ];
 
@@ -218,7 +196,6 @@ const allFAQs = {
   solar: solarFAQs,
   general: generalFAQs,
   pricing: pricingFAQs,
-  emergency: emergencyFAQs,
 };
 
 export default allFAQs;

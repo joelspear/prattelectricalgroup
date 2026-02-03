@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ChevronDown, Calculator, HelpCircle } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, DollarSign, HelpCircle } from "lucide-react";
 import { Logo, LogoMobile } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 import { navItems, contactInfo } from "@/data/siteData";
@@ -225,11 +225,11 @@ export function Header() {
               {/* Quick Access Links */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <Link
-                  href="/solar-calculator"
+                  href="/pricing"
                   className="flex items-center gap-2 p-3 bg-primary-50 text-primary-700 rounded-lg font-medium hover:bg-primary-100 transition-colors"
                 >
-                  <Calculator className="h-5 w-5" />
-                  Solar Calculator
+                  <DollarSign className="h-5 w-5" />
+                  Pricing Guide
                 </Link>
                 <Link
                   href="/faq"

@@ -5,7 +5,6 @@ import { ChatBot } from "./ChatBot";
 
 // Pages where the chatbot should NOT appear
 const excludedPaths = [
-  "/emergency", // Don't distract from urgent action
   "/pitch",     // Hidden pages
 ];
 

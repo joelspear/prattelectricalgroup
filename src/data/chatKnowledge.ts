@@ -15,7 +15,7 @@ How can I help you today? You can ask me anything about:
 • Battery storage options
 • Electrical services (residential & commercial)
 • EV charger installation
-• Emergency electrician services
+• Finance options
 • Booking a free quote
 
 Or just type your question and I'll do my best to help!`;
@@ -80,16 +80,16 @@ These are estimates — we'll provide an accurate quote before any work begins. 
 
   // Emergency
   emergency: {
-    keywords: ["emergency", "sparking", "burning", "smoke", "power out", "outage", "urgent", "dangerous", "24/7"],
-    response: (name: string) => `That sounds like it could be urgent, ${name}. For electrical emergencies like sparking, burning smells, or power outages, please:
+    keywords: ["emergency", "sparking", "burning", "smoke", "power out", "outage", "urgent", "dangerous"],
+    response: (name: string) => `That sounds like it could be urgent, ${name}. For electrical emergencies:
 
 1. Don't touch the affected area
 2. Switch off the circuit at your switchboard if safe
-3. Call us immediately: **${contactInfo.phoneFormatted}**
+3. Call a licensed electrician or SA Power Networks (13 12 61) for immediate assistance
 
-We're available 24/7 for genuine electrical emergencies.
+For non-urgent electrical work, we'd love to help! Give us a call on **${contactInfo.phoneFormatted}** or book a free quote through our contact page.
 
-Is there anything else I can help with while you arrange that call?`,
+Is there anything else I can help with?`,
   },
 
   // Book quote
@@ -252,8 +252,7 @@ Is there something specific you'd like to know?`,
 📍 **Base:** Christie's Beach, Adelaide
 
 **Hours:**
-• General enquiries: Mon-Fri 7am-5pm
-• Emergency services: 24/7
+• Mon-Fri 7am-5pm
 
 James typically responds within 2 business hours. Is there anything else I can help with?`,
   },
