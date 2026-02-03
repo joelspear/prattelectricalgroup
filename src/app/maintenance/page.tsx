@@ -1,6 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Shield,
   CheckCircle,
@@ -13,16 +17,21 @@ import {
   Building2,
   Star,
   Wrench,
+  X,
+  Send,
 } from "lucide-react";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import { FAQ, CTASection } from "@/components/sections";
-import { QuoteForm } from "@/components/forms";
 import { contactInfo } from "@/data/siteData";
 import { getTelLink } from "@/lib/utils";
 
+const WEBHOOK_URL =
+  "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/02d048a7-7aa7-4ba7-83db-0c0f11a8eb2c";
+
 const maintenancePlans = [
   {
+    id: "home-essential",
     name: "Home Essential",
     price: "$199",
     period: "per year",
@@ -38,8 +47,10 @@ const maintenancePlans = [
     ],
     bestFor: "Homeowners wanting annual peace of mind",
     highlight: false,
+    type: "subscription" as const,
   },
   {
+    id: "home-premium",
     name: "Home Premium",
     price: "$349",
     period: "per year",
@@ -56,8 +67,10 @@ const maintenancePlans = [
     ],
     bestFor: "Families & larger homes",
     highlight: true,
+    type: "subscription" as const,
   },
   {
+    id: "commercial",
     name: "Commercial",
     price: "Custom",
     period: "pricing",
@@ -74,6 +87,7 @@ const maintenancePlans = [
     ],
     bestFor: "Businesses requiring compliance",
     highlight: false,
+    type: "quote" as const,
   },
 ];
 
@@ -169,7 +183,469 @@ const maintenanceFAQs = [
   },
 ];
 
+// Form schemas
+const subscriptionSchema = z.object({
+  name: z.string().min(2, "Please enter your name"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z
+    .string()
+    .min(8, "Please enter a valid phone number")
+    .regex(/^[\d\s\-+()]+$/, "Please enter a valid phone number"),
+  address: z.string().min(5, "Please enter your address"),
+});
+
+const commercialQuoteSchema = z.object({
+  name: z.string().min(2, "Please enter your name"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z
+    .string()
+    .min(8, "Please enter a valid phone number")
+    .regex(/^[\d\s\-+()]+$/, "Please enter a valid phone number"),
+  businessName: z.string().min(2, "Please enter your business name"),
+  message: z.string().optional(),
+});
+
+type SubscriptionData = z.infer<typeof subscriptionSchema>;
+type CommercialQuoteData = z.infer<typeof commercialQuoteSchema>;
+
+// Subscription Sign-Up Modal
+function SubscriptionModal({
+  plan,
+  onClose,
+}: {
+  plan: (typeof maintenancePlans)[0];
+  onClose: () => void;
+}) {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SubscriptionData>({
+    resolver: zodResolver(subscriptionSchema),
+  });
+
+  const onSubmit = async (data: SubscriptionData) => {
+    setStatus("loading");
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: data.name.split(" ")[0],
+          lastName: data.name.split(" ").slice(1).join(" ") || "",
+          email: data.email,
+          phone: data.phone,
+          customField: {
+            address: data.address,
+            maintenancePlan: plan.name,
+            planPrice: plan.price,
+            planPeriod: plan.period,
+          },
+          source: "Website Maintenance Subscription",
+          tags: ["Website Lead", "Maintenance Plan", plan.id],
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const inputClasses =
+    "w-full px-4 py-3 border border-gray-300 rounded-lg text-charcoal placeholder-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
+      >
+        {status === "success" ? (
+          <div className="p-8 text-center">
+            <CheckCircle className="h-16 w-16 mx-auto mb-4 text-green-500" />
+            <h3 className="text-2xl font-bold mb-2">You&apos;re All Set!</h3>
+            <p className="text-gray-600 mb-2">
+              Thanks for signing up for the <strong>{plan.name}</strong> plan.
+            </p>
+            <p className="text-gray-600 mb-6">
+              We&apos;ll be in touch within 1 business day to confirm your subscription and schedule your first inspection.
+            </p>
+            <button
+              onClick={onClose}
+              className="px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-center justify-between p-6 border-b border-gray-100">
+              <div>
+                <h3 className="text-xl font-bold text-charcoal">
+                  Sign Up: {plan.name}
+                </h3>
+                <p className="text-sm text-gray-500">
+                  {plan.price} {plan.period}
+                </p>
+              </div>
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="h-5 w-5 text-gray-400" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
+              {status === "error" && (
+                <div className="p-3 bg-red-50 text-red-700 rounded-lg text-sm">
+                  Something went wrong. Please try again or call us on{" "}
+                  {contactInfo.phoneFormatted}.
+                </div>
+              )}
+
+              <div>
+                <label htmlFor="sub-name" className="block text-sm font-medium text-charcoal mb-1">
+                  Full Name
+                </label>
+                <input
+                  {...register("name")}
+                  id="sub-name"
+                  type="text"
+                  placeholder="John Smith"
+                  className={`${inputClasses} ${errors.name ? "border-red-400" : ""}`}
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="sub-email" className="block text-sm font-medium text-charcoal mb-1">
+                  Email Address
+                </label>
+                <input
+                  {...register("email")}
+                  id="sub-email"
+                  type="email"
+                  placeholder="john@example.com"
+                  className={`${inputClasses} ${errors.email ? "border-red-400" : ""}`}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="sub-phone" className="block text-sm font-medium text-charcoal mb-1">
+                  Phone Number
+                </label>
+                <input
+                  {...register("phone")}
+                  id="sub-phone"
+                  type="tel"
+                  placeholder="0412 345 678"
+                  className={`${inputClasses} ${errors.phone ? "border-red-400" : ""}`}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="sub-address" className="block text-sm font-medium text-charcoal mb-1">
+                  Property Address
+                </label>
+                <input
+                  {...register("address")}
+                  id="sub-address"
+                  type="text"
+                  placeholder="123 Main St, Adelaide SA 5000"
+                  className={`${inputClasses} ${errors.address ? "border-red-400" : ""}`}
+                />
+                {errors.address && (
+                  <p className="text-red-500 text-xs mt-1">{errors.address.message}</p>
+                )}
+              </div>
+
+              <div className="bg-gray-50 rounded-lg p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-medium text-charcoal">{plan.name}</span>
+                  <span className="font-bold text-charcoal">
+                    {plan.price} {plan.period}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500">
+                  We&apos;ll contact you to confirm and arrange payment. No charges until confirmed.
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === "loading" ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Sign Up for {plan.name}
+                  </>
+                )}
+              </button>
+
+              <p className="text-xs text-center text-gray-500">
+                By signing up, you agree to our{" "}
+                <Link href="/privacy-policy" className="underline hover:text-primary-500">
+                  Privacy Policy
+                </Link>
+              </p>
+            </form>
+          </>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// Commercial Quote Modal
+function CommercialQuoteModal({ onClose }: { onClose: () => void }) {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CommercialQuoteData>({
+    resolver: zodResolver(commercialQuoteSchema),
+  });
+
+  const onSubmit = async (data: CommercialQuoteData) => {
+    setStatus("loading");
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: data.name.split(" ")[0],
+          lastName: data.name.split(" ").slice(1).join(" ") || "",
+          email: data.email,
+          phone: data.phone,
+          customField: {
+            businessName: data.businessName,
+            message: data.message || "",
+            maintenancePlan: "Commercial Maintenance",
+          },
+          source: "Website Commercial Maintenance Quote",
+          tags: ["Website Lead", "Commercial Maintenance", "Quote Request"],
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const inputClasses =
+    "w-full px-4 py-3 border border-gray-300 rounded-lg text-charcoal placeholder-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
+      >
+        {status === "success" ? (
+          <div className="p-8 text-center">
+            <CheckCircle className="h-16 w-16 mx-auto mb-4 text-green-500" />
+            <h3 className="text-2xl font-bold mb-2">Quote Request Received!</h3>
+            <p className="text-gray-600 mb-6">
+              We&apos;ll review your requirements and get back to you within 1 business day with a tailored maintenance plan and quote.
+            </p>
+            <button
+              onClick={onClose}
+              className="px-6 py-3 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-center justify-between p-6 border-b border-gray-100">
+              <div>
+                <h3 className="text-xl font-bold text-charcoal">
+                  Commercial Maintenance Quote
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Tell us about your business and we&apos;ll provide a tailored plan
+                </p>
+              </div>
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="h-5 w-5 text-gray-400" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
+              {status === "error" && (
+                <div className="p-3 bg-red-50 text-red-700 rounded-lg text-sm">
+                  Something went wrong. Please try again or call us on{" "}
+                  {contactInfo.phoneFormatted}.
+                </div>
+              )}
+
+              <div>
+                <label htmlFor="comm-name" className="block text-sm font-medium text-charcoal mb-1">
+                  Your Name
+                </label>
+                <input
+                  {...register("name")}
+                  id="comm-name"
+                  type="text"
+                  placeholder="John Smith"
+                  className={`${inputClasses} ${errors.name ? "border-red-400" : ""}`}
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="comm-business" className="block text-sm font-medium text-charcoal mb-1">
+                  Business Name
+                </label>
+                <input
+                  {...register("businessName")}
+                  id="comm-business"
+                  type="text"
+                  placeholder="ABC Company Pty Ltd"
+                  className={`${inputClasses} ${errors.businessName ? "border-red-400" : ""}`}
+                />
+                {errors.businessName && (
+                  <p className="text-red-500 text-xs mt-1">{errors.businessName.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="comm-email" className="block text-sm font-medium text-charcoal mb-1">
+                  Email Address
+                </label>
+                <input
+                  {...register("email")}
+                  id="comm-email"
+                  type="email"
+                  placeholder="john@company.com.au"
+                  className={`${inputClasses} ${errors.email ? "border-red-400" : ""}`}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="comm-phone" className="block text-sm font-medium text-charcoal mb-1">
+                  Phone Number
+                </label>
+                <input
+                  {...register("phone")}
+                  id="comm-phone"
+                  type="tel"
+                  placeholder="0412 345 678"
+                  className={`${inputClasses} ${errors.phone ? "border-red-400" : ""}`}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="comm-message" className="block text-sm font-medium text-charcoal mb-1">
+                  Tell us about your needs{" "}
+                  <span className="font-normal text-gray-500">(optional)</span>
+                </label>
+                <textarea
+                  {...register("message")}
+                  id="comm-message"
+                  rows={3}
+                  placeholder="Number of sites, specific requirements, compliance needs..."
+                  className={`${inputClasses} resize-none`}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary-500 text-white rounded-lg font-medium hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === "loading" ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Request a Quote
+                  </>
+                )}
+              </button>
+
+              <p className="text-xs text-center text-gray-500">
+                By submitting, you agree to our{" "}
+                <Link href="/privacy-policy" className="underline hover:text-primary-500">
+                  Privacy Policy
+                </Link>
+              </p>
+            </form>
+          </>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function MaintenancePage() {
+  const [selectedPlan, setSelectedPlan] = useState<(typeof maintenancePlans)[0] | null>(null);
+  const [showCommercialQuote, setShowCommercialQuote] = useState(false);
+
   return (
     <>
       <Header />
@@ -296,7 +772,7 @@ export default function MaintenancePage() {
                   )}
                   <div className="bg-white p-6">
                     <div className="flex items-center gap-2 mb-2">
-                      {plan.name.includes("Home") ? (
+                      {plan.type === "subscription" ? (
                         <Home className="h-5 w-5 text-primary-500" />
                       ) : (
                         <Building2 className="h-5 w-5 text-primary-500" />
@@ -331,16 +807,22 @@ export default function MaintenancePage() {
                       Best for: {plan.bestFor}
                     </p>
 
-                    <Link
-                      href="/contact"
-                      className={`block text-center py-3 px-4 rounded-lg font-medium transition-colors ${
+                    <button
+                      onClick={() => {
+                        if (plan.type === "quote") {
+                          setShowCommercialQuote(true);
+                        } else {
+                          setSelectedPlan(plan);
+                        }
+                      }}
+                      className={`block w-full text-center py-3 px-4 rounded-lg font-medium transition-colors ${
                         plan.highlight
                           ? "bg-primary-500 text-white hover:bg-primary-600"
                           : "bg-gray-100 text-charcoal hover:bg-gray-200"
                       }`}
                     >
-                      {plan.price === "Custom" ? "Get Quote" : "Sign Up"}
-                    </Link>
+                      {plan.type === "quote" ? "Get Quote" : "Sign Up"}
+                    </button>
                   </div>
                 </motion.div>
               ))}
@@ -402,40 +884,6 @@ export default function MaintenancePage() {
           className="bg-gray-50"
         />
 
-        {/* Quote Form Section */}
-        <section className="section bg-charcoal">
-          <div className="container-custom">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="text-white">
-                <h2 className="text-white mb-4">Ready to Protect Your Home?</h2>
-                <p className="text-gray-300 text-lg mb-6">
-                  Sign up for a maintenance plan today, or contact us to discuss
-                  your specific needs.
-                </p>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary-400" />
-                    Annual safety inspections
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary-400" />
-                    Priority booking & response
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary-400" />
-                    Discounts on repairs
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary-400" />
-                    Peace of mind
-                  </li>
-                </ul>
-              </div>
-              <QuoteForm variant="default" preselectedService="residential" />
-            </div>
-          </div>
-        </section>
-
         {/* Final CTA */}
         <CTASection
           title="Prevent Problems Before They Start"
@@ -444,6 +892,21 @@ export default function MaintenancePage() {
         />
       </main>
       <Footer />
+
+      {/* Modals */}
+      <AnimatePresence>
+        {selectedPlan && (
+          <SubscriptionModal
+            plan={selectedPlan}
+            onClose={() => setSelectedPlan(null)}
+          />
+        )}
+        {showCommercialQuote && (
+          <CommercialQuoteModal
+            onClose={() => setShowCommercialQuote(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
