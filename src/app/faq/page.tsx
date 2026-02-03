@@ -371,14 +371,14 @@ export default function FAQPage() {
                         </p>
                       </Link>
                       <Link
-                        href="/pricing"
+                        href="/finance"
                         className="bg-white rounded-lg p-4 border border-gray-100 hover:border-primary-200 hover:shadow-sm transition-all group"
                       >
                         <DollarSign className="h-8 w-8 text-primary-500 mb-2" />
                         <h4 className="font-medium text-charcoal group-hover:text-primary-500 transition-colors">
-                          Pricing Guide
+                          Finance Options
                         </h4>
-                        <p className="text-sm text-gray-500">Transparent pricing</p>
+                        <p className="text-sm text-gray-500">Flexible payment plans</p>
                       </Link>
                       <Link
                         href="/contact"

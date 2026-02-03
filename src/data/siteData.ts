@@ -216,7 +216,6 @@ export const navItems = [
     label: "Resources",
     href: "#",
     children: [
-      { label: "Pricing Guide", href: "/pricing" },
       { label: "Finance Options", href: "/finance" },
       { label: "FAQ", href: "/faq" },
       { label: "Maintenance Plans", href: "/maintenance" },
@@ -237,7 +236,6 @@ export const footerLinks = {
   ],
   resources: [
     { label: "Finance Options", href: "/finance" },
-    { label: "Pricing Guide", href: "/pricing" },
     { label: "FAQ", href: "/faq" },
     { label: "Service Areas", href: "/service-areas" },
   ],

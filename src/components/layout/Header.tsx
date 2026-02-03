@@ -225,11 +225,11 @@ export function Header() {
               {/* Quick Access Links */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <Link
-                  href="/pricing"
+                  href="/finance"
                   className="flex items-center gap-2 p-3 bg-primary-50 text-primary-700 rounded-lg font-medium hover:bg-primary-100 transition-colors"
                 >
                   <DollarSign className="h-5 w-5" />
-                  Pricing Guide
+                  Finance Options
                 </Link>
                 <Link
                   href="/faq"
