@@ -18,9 +18,9 @@ const features = [
   },
   {
     icon: Shield,
-    title: "CEC Accredited",
+    title: "SAA Accredited",
     description:
-      "Clean Energy Council accredited installers for solar and battery systems.",
+      "Standards Australia accredited installers for solar and battery systems.",
   },
   {
     icon: Users,
@@ -136,7 +136,7 @@ export function AboutSection({ className }: AboutSectionProps) {
                 <Award className="h-6 w-6 text-primary-500" />
               </div>
               <div>
-                <p className="font-bold text-charcoal">CEC Accredited</p>
+                <p className="font-bold text-charcoal">SAA Accredited</p>
                 <p className="text-sm text-gray-500">Solar Installer</p>
               </div>
             </motion.div>

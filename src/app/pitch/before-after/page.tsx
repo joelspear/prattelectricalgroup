@@ -14,7 +14,7 @@ const comparisons = [
       { before: "Blurry hero image", after: "Professional, high-quality imagery" },
       { before: "Generic Wix template", after: "Custom-built, unique design" },
       { before: "One testimonial visible", after: "Google reviews integrated" },
-      { before: "Buried CEC badge", after: "Trust signals front and center" },
+      { before: "Buried SAA badge", after: "Trust signals front and center" },
       { before: "No clear value proposition", after: "Compelling headline + story" },
       { before: "Basic contact form", after: "Conversion-optimised quote form" },
     ],

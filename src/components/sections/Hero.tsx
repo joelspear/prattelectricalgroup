@@ -24,8 +24,8 @@ interface HeroProps {
 }
 
 const trustBadges = [
-  { icon: Shield, text: "CEC Accredited" },
-  { icon: Clock, text: "24/7 Service" },
+  { icon: Shield, text: "SAA Accredited" },
+  { icon: Clock, text: "Fast Response" },
   { icon: MapPin, text: "Adelaide Based" },
 ];
 

@@ -17,7 +17,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Commercial Electrician Adelaide | Business Electrical Services",
   description:
-    "Commercial electrical services for Adelaide businesses. Office fit-outs, LED upgrades, data cabling, security systems. Licensed, insured. 24/7 emergency.",
+    "Commercial electrical services for Adelaide businesses. Office fit-outs, LED upgrades, data cabling, security systems. Licensed, insured.",
 };
 
 const commercialProjects = projects.filter((p) => p.category === "commercial");
@@ -38,7 +38,6 @@ export default function CommercialPage() {
             "Data & Network Cabling",
             "Security Systems",
             "Maintenance Contracts",
-            "24/7 Emergency Response",
           ]}
         />
 
@@ -64,9 +63,9 @@ export default function CommercialPage() {
               <div className="grid sm:grid-cols-3 gap-6">
                 <div className="p-6 bg-white rounded-xl shadow-sm">
                   <div className="text-3xl font-bold text-primary-500 mb-2">
-                    24/7
+                    500+
                   </div>
-                  <p className="text-gray-600">Emergency Response</p>
+                  <p className="text-gray-600">Projects Completed</p>
                 </div>
                 <div className="p-6 bg-white rounded-xl shadow-sm">
                   <div className="text-3xl font-bold text-primary-500 mb-2">

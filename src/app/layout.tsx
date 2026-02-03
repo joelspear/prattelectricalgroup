@@ -5,20 +5,18 @@ import { ChatBotWrapper } from "@/components/chat/ChatBotWrapper";
 export const metadata: Metadata = {
   metadataBase: new URL("https://prattelectrical.fuelmysocial.com.au"),
   title: {
-    default: "Pratt Electrical Group | Adelaide Electrician & Solar Installer | 24/7 Service",
+    default: "Pratt Electrical Group | Adelaide Electrician & Solar Installer",
     template: "%s | Pratt Electrical Group",
   },
   description:
-    "Adelaide's trusted electrical and solar experts. Residential, commercial & solar installation. CEC accredited. 24/7 emergency service. Free quotes. Call 0406 494 941.",
+    "Adelaide's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes. Call 0474 320 534.",
   keywords: [
     "electrician Adelaide",
     "solar installer Adelaide",
     "commercial electrician Adelaide",
     "residential electrician Adelaide",
-    "24 hour electrician Adelaide",
-    "emergency electrician Adelaide",
     "solar panels Adelaide",
-    "CEC accredited installer",
+    "SAA accredited installer",
   ],
   authors: [{ name: "Pratt Electrical Group" }],
   creator: "Fuel My Social",
@@ -29,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Pratt Electrical Group",
     title: "Pratt Electrical Group | Adelaide Electrician & Solar Installer",
     description:
-      "Adelaide's trusted electrical and solar experts. CEC accredited. 24/7 emergency service. Free quotes.",
+      "Adelaide's trusted electrical and solar experts. SAA accredited. Free quotes.",
     images: [
       {
         url: "/og-image.jpg",
@@ -43,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pratt Electrical Group | Adelaide Electrician & Solar Installer",
     description:
-      "Adelaide's trusted electrical and solar experts. CEC accredited. 24/7 emergency service.",
+      "Adelaide's trusted electrical and solar experts. SAA accredited.",
     images: ["/og-image.jpg"],
   },
   robots: {

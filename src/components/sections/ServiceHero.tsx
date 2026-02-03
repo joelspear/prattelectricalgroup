@@ -27,7 +27,7 @@ interface ServiceHeroProps {
 
 const trustBadges = [
   { icon: Shield, text: "Licensed & Insured" },
-  { icon: Clock, text: "24/7 Available" },
+  { icon: Clock, text: "Fast Response" },
   { icon: MapPin, text: "Adelaide Metro" },
 ];
 

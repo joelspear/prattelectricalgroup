@@ -62,10 +62,10 @@ const features = [
   },
   {
     icon: AlertCircle,
-    title: "24/7 Emergency Prominence",
-    what: "Emergency service highlighted throughout with tap-to-call buttons.",
-    why: "Emergency jobs are high-value and time-sensitive. Make it easy.",
-    problemSolved: "24/7 service was buried in body copy.",
+    title: "Fast Response Prominence",
+    what: "Service contact highlighted throughout with tap-to-call buttons.",
+    why: "Quick response builds trust and captures leads. Make it easy.",
+    problemSolved: "Contact info was buried in body copy.",
   },
   {
     icon: Search,

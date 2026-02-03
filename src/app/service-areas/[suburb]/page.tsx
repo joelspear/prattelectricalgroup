@@ -23,7 +23,7 @@ export function generateMetadata({
 
   return {
     title: `Electrician ${suburb.name} | Pratt Electrical Group`,
-    description: `Licensed electrician serving ${suburb.name} ${suburb.postcode}. Solar installation, switchboard upgrades, emergency electrical. Call 0406 494 941.`,
+    description: `Licensed electrician serving ${suburb.name} ${suburb.postcode}. Solar installation, switchboard upgrades, electrical services. Call 0474 320 534.`,
   };
 }
 

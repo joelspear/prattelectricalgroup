@@ -24,7 +24,6 @@ import {
   solarFAQs,
   residentialFAQs,
   commercialFAQs,
-  pricingFAQs,
   generalFAQs,
 } from "@/data/faqs";
 import type { FAQItem } from "@/components/sections/FAQ";
@@ -36,7 +35,6 @@ const categoryIcons: Record<string, React.ElementType> = {
   solar: Sun,
   residential: Home,
   commercial: Building2,
-  pricing: DollarSign,
   general: Info,
 };
 
@@ -129,8 +127,6 @@ export default function FAQPage() {
         return residentialFAQs;
       case "commercial":
         return commercialFAQs;
-      case "pricing":
-        return pricingFAQs;
       case "general":
         return generalFAQs;
       default:
@@ -432,7 +428,7 @@ export default function FAQPage() {
         {/* Final CTA */}
         <CTASection
           title="Ready to Get Started?"
-          subtitle="From solar installations to emergency repairs, we're here to help."
+          subtitle="From solar installations to electrical upgrades, we're here to help."
           variant="dark"
         />
       </main>

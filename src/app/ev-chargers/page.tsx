@@ -14,8 +14,6 @@ import {
   CheckCircle,
   ArrowRight,
   Gauge,
-  Plug,
-  Timer,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,7 +43,7 @@ const evBenefits = [
       "Charge your EV with free solar power. We can integrate your charger with your solar system.",
   },
   {
-    icon: Timer,
+    icon: Gauge,
     title: "Faster Than a Wall Outlet",
     description:
       "A dedicated Level 2 charger is 4-8x faster than a standard power point. Full charge in 4-8 hours.",
@@ -61,45 +59,6 @@ const evBenefits = [
     title: "Reduce Emissions",
     description:
       "Lower your carbon footprint further by charging with renewable energy.",
-  },
-];
-
-const chargerTypes = [
-  {
-    name: "Tesla Wall Connector",
-    power: "Up to 11.5kW",
-    features: [
-      "Sleek design",
-      "Wi-Fi connectivity",
-      "24 ft cable",
-      "Works with all EVs",
-    ],
-    bestFor: "Tesla owners and mixed EV households",
-    priceRange: "$1,200 - $2,500 installed",
-  },
-  {
-    name: "Universal Smart Chargers",
-    power: "7.4kW - 22kW",
-    features: [
-      "App control",
-      "Load balancing",
-      "Solar integration",
-      "Type 2 connector",
-    ],
-    bestFor: "Non-Tesla EVs and future flexibility",
-    priceRange: "$1,500 - $3,000 installed",
-  },
-  {
-    name: "Basic Level 2 Chargers",
-    power: "7.4kW",
-    features: [
-      "Simple operation",
-      "Reliable",
-      "No subscription",
-      "Budget-friendly",
-    ],
-    bestFor: "Budget-conscious owners with simple needs",
-    priceRange: "$900 - $1,800 installed",
   },
 ];
 
@@ -132,11 +91,6 @@ const installationSteps = [
 
 const evFAQs = [
   {
-    question: "How much does EV charger installation cost in Adelaide?",
-    answer:
-      "Most residential EV charger installations cost between $1,200 - $3,000 including the charger. The main factors are the charger model, cable run distance from your switchboard, and whether your switchboard needs upgrading.",
-  },
-  {
     question: "Do I need to upgrade my switchboard for an EV charger?",
     answer:
       "Many Adelaide homes, especially those built before 2000, may need a switchboard upgrade to safely handle EV charging. We'll assess this during our free site visit and include any necessary upgrades in your quote.",
@@ -157,14 +111,9 @@ const evFAQs = [
       "Most installations are completed in 3-4 hours. If a switchboard upgrade is needed, it may take a full day. We'll confirm the timeframe in your quote.",
   },
   {
-    question: "Which EV charger brands do you recommend?",
+    question: "Will my EV charger work with any electric vehicle?",
     answer:
-      "For Tesla owners, the Tesla Wall Connector is excellent. For other EVs, we recommend quality brands like Wallbox, EVBox, and Fronius. All are reliable with good warranty support.",
-  },
-  {
-    question: "Can I use a Tesla Wall Connector with a non-Tesla EV?",
-    answer:
-      "Yes! The Tesla Wall Connector Gen 3 works with any EV that has a Type 2 connector, which includes most modern EVs sold in Australia.",
+      "Most modern EV chargers use a Type 2 connector, which is compatible with nearly all EVs sold in Australia. We'll recommend the right charger for your vehicle.",
   },
   {
     question: "Is three-phase power better for EV charging?",
@@ -301,186 +250,8 @@ export default function EVChargersPage() {
           </div>
         </section>
 
-        {/* Charger Types Section */}
-        <section className="section bg-gray-50">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="mb-4">EV Charger Options</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                We install all major EV charger brands. Here are the most
-                popular options for Adelaide homes.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {chargerTypes.map((charger, index) => (
-                <motion.div
-                  key={charger.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
-                >
-                  <div className="p-6 border-b border-gray-100">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-primary-50 rounded-lg">
-                        <Plug className="h-6 w-6 text-primary-500" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg">{charger.name}</h3>
-                        <p className="text-sm text-primary-500 font-medium">
-                          {charger.power}
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-500 mb-4">
-                      Best for: {charger.bestFor}
-                    </p>
-                    <p className="text-xl font-bold text-charcoal">
-                      {charger.priceRange}
-                    </p>
-                  </div>
-                  <div className="p-6 bg-gray-50">
-                    <p className="text-sm font-medium text-gray-700 mb-3">
-                      Features:
-                    </p>
-                    <ul className="space-y-2">
-                      {charger.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2 text-sm text-gray-600"
-                        >
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <p className="text-center text-sm text-gray-500 mt-8">
-              Prices include supply, installation, and certificate of
-              compliance. Final price depends on your specific requirements.
-            </p>
-          </div>
-        </section>
-
-        {/* Solar + EV Section */}
-        <section className="section bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white">
-          <div className="container-custom">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="inline-flex items-center gap-2 text-primary-100 mb-4">
-                  <Sun className="h-5 w-5" />
-                  <span className="font-medium text-sm uppercase tracking-wide">
-                    Solar + EV
-                  </span>
-                </div>
-                <h2 className="text-white mb-6">
-                  Charge Your EV with Free Solar Power
-                </h2>
-                <p className="text-primary-100 text-lg mb-6">
-                  Combine your EV charger with solar panels for the ultimate in
-                  sustainable, cost-free driving. We specialise in integrating
-                  EV chargers with existing and new solar systems.
-                </p>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-white flex-shrink-0 mt-0.5" />
-                    <span className="text-primary-100">
-                      Smart chargers programmed to use excess solar production
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-white flex-shrink-0 mt-0.5" />
-                    <span className="text-primary-100">
-                      Add battery storage to charge your EV overnight with solar
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-white flex-shrink-0 mt-0.5" />
-                    <span className="text-primary-100">
-                      Calculate the right solar system size for EV charging
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-white flex-shrink-0 mt-0.5" />
-                    <span className="text-primary-100">
-                      CEC accredited installers for both solar and EV chargers
-                    </span>
-                  </li>
-                </ul>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/solar"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                  >
-                    Learn About Solar
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-colors"
-                  >
-                    Get a Free Quote
-                  </Link>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-              >
-                <h3 className="text-xl font-bold text-white mb-6">
-                  Typical EV Charging Costs
-                </h3>
-                <div className="space-y-4">
-                  <div className="bg-white/10 rounded-lg p-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-primary-100">Public Fast Charger</span>
-                      <span className="text-white font-bold">~$0.60/kWh</span>
-                    </div>
-                    <p className="text-sm text-primary-200">
-                      $30+ for 50kWh charge
-                    </p>
-                  </div>
-                  <div className="bg-white/10 rounded-lg p-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-primary-100">Home Charging (Grid)</span>
-                      <span className="text-white font-bold">~$0.35/kWh</span>
-                    </div>
-                    <p className="text-sm text-primary-200">
-                      ~$17 for 50kWh charge
-                    </p>
-                  </div>
-                  <div className="bg-green-500/20 rounded-lg p-4 border border-green-400/30">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-white font-medium">
-                        Home Charging (Solar)
-                      </span>
-                      <span className="text-green-300 font-bold">FREE*</span>
-                    </div>
-                    <p className="text-sm text-green-200">
-                      *When charging during solar production hours
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
         {/* Installation Process */}
-        <section className="section bg-white">
+        <section className="section bg-gray-50">
           <div className="container-custom">
             <div className="text-center mb-12">
               <h2 className="mb-4">Our Installation Process</h2>
@@ -517,7 +288,7 @@ export default function EVChargersPage() {
         </section>
 
         {/* Residential & Commercial */}
-        <section className="section bg-gray-50">
+        <section className="section bg-white">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Residential */}
@@ -547,10 +318,6 @@ export default function EVChargersPage() {
                   <li className="flex items-center gap-2 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500" />
                     All EV brands supported
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    From $1,200 installed
                   </li>
                 </ul>
                 <Link
@@ -612,11 +379,11 @@ export default function EVChargersPage() {
           items={evFAQs}
           title="EV Charger FAQs"
           subtitle="Common questions about home EV charger installation in Adelaide."
-          className="bg-white"
+          className="bg-gray-50"
         />
 
         {/* Testimonials */}
-        <Testimonials variant="slider" limit={3} className="bg-gray-50" />
+        <Testimonials variant="slider" limit={3} className="bg-white" />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

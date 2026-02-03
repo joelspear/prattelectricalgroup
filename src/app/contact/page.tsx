@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Phone, Mail, MapPin, Clock, AlertTriangle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Header, Footer } from "@/components/layout";
 import { Hero } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
@@ -8,7 +8,7 @@ import { contactInfo, socialLinks } from "@/data/siteData";
 export const metadata: Metadata = {
   title: "Contact Pratt Electrical | Get a Free Quote",
   description:
-    "Contact Pratt Electrical for a free quote. Call 0406 494 941 or submit our online form. 24/7 emergency service available.",
+    "Contact Pratt Electrical for a free quote. Call 0474 320 534 or submit our online form.",
 };
 
 export default function ContactPage() {
@@ -47,7 +47,7 @@ export default function ContactPage() {
                         {contactInfo.phoneFormatted}
                       </p>
                       <p className="text-sm text-primary-600 mt-1">
-                        24/7 Emergency Service Available
+                        Mon-Fri 7am-5pm
                       </p>
                     </div>
                   </a>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                         {contactInfo.address.postcode}
                       </p>
                       <p className="text-sm text-gray-500 mt-1">
-                        Servicing all Adelaide metro
+                        Servicing all of South Australia
                       </p>
                     </div>
                   </a>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                         Mon-Fri: 7am - 5pm
                       </p>
                       <p className="text-sm text-primary-600 mt-1">
-                        24/7 Emergency calls accepted
+                        Fast response during business hours
                       </p>
                     </div>
                   </div>
@@ -136,34 +136,6 @@ export default function ContactPage() {
                 <h2 className="mb-8">Request a Quote</h2>
                 <QuoteForm variant="default" showTitle={false} />
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Emergency Section */}
-        <section className="py-12 bg-secondary-500">
-          <div className="container-custom">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-4 text-white">
-                <div className="p-3 bg-white/20 rounded-full">
-                  <AlertTriangle className="h-8 w-8" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">
-                    Electrical Emergency?
-                  </h3>
-                  <p className="text-secondary-100">
-                    We aim to respond within 1 hour for Adelaide metro emergencies
-                  </p>
-                </div>
-              </div>
-              <a
-                href={contactInfo.phoneTel}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-secondary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors text-lg"
-              >
-                <Phone className="h-5 w-5" />
-                Call Now: {contactInfo.phoneFormatted}
-              </a>
             </div>
           </div>
         </section>

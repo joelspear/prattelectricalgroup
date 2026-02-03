@@ -4,14 +4,14 @@ import { contactInfo } from "./siteData";
 
 export const getWelcomeMessage = () => `👋 Hi there! I'm the Pratt Electrical assistant.
 
-I can help you with questions about solar, electrical services, pricing, bookings, and more.
+I can help you with questions about solar, electrical services, bookings, and more.
 
 Before we chat, could I grab your name and email? That way, if we get disconnected or you need follow-up info, we can reach you.`;
 
 export const getPostRegistrationMessage = (name: string) => `Thanks ${name}! Great to meet you. 😊
 
 How can I help you today? You can ask me anything about:
-• Solar panel installation & pricing
+• Solar panel installation
 • Battery storage options
 • Electrical services (residential & commercial)
 • EV charger installation
@@ -22,60 +22,50 @@ Or just type your question and I'll do my best to help!`;
 
 // Knowledge base for responses
 const knowledgeBase = {
-  // Solar pricing
+  // Solar
   solarPricing: {
-    keywords: ["solar", "price", "cost", "how much", "pricing", "solar system", "panels", "6.6", "10kw", "13kw"],
-    response: (name: string) => `Great question, ${name}! A typical solar system in Adelaide costs:
+    keywords: ["solar", "price", "cost", "how much", "pricing", "solar system", "panels"],
+    response: (name: string) => `Great question, ${name}! Solar system pricing depends on your home, roof type, and energy usage.
 
-• 6.6kW system: $5,500 - $8,500
-• 10kW system: $7,500 - $10,500
-• 13kW system: $10,500 - $14,000
+The best way to get an accurate price is a free quote — we'll assess your roof, check your power usage, and recommend the right system. Government rebates of up to $20,000 are available and we handle all the paperwork.
 
-These prices are fully installed and include the government rebate.
-
-The best way to get an accurate price for your home is a free quote — we'll assess your roof, check your power usage, and recommend the right system. Want me to help arrange that?`,
+Want me to help arrange a free quote?`,
   },
 
-  // Battery pricing
+  // Battery
   batteryPricing: {
-    keywords: ["battery", "powerwall", "tesla", "sungrow", "byd", "storage", "backup"],
-    response: (name: string) => `Great question about batteries, ${name}! Here are our popular options (installed):
+    keywords: ["battery", "storage", "backup"],
+    response: (name: string) => `Great question about batteries, ${name}!
 
-• Tesla Powerwall 3 (13.5kWh): $12,000 - $15,000
-• Sungrow (9.6kWh): $9,000 - $12,000
-• BYD (10.2kWh): $10,000 - $13,000
+Battery storage lets you use your solar power at night and during blackouts — true energy independence. We install a range of quality battery systems with solid warranties.
 
-The SA Home Battery Scheme rebate of up to $372/kWh can reduce these costs significantly.
+Government rebates are available to help reduce the cost. The best way to find the right battery for your setup is a free assessment.
 
-Would you like a free quote to see what works best for your setup?`,
+Would you like a free quote to see what works best?`,
   },
 
-  // EV Charger pricing
+  // EV Charger
   evChargerPricing: {
-    keywords: ["ev", "charger", "electric vehicle", "tesla charger", "zappi", "car charger", "charging"],
-    response: (name: string) => `Great question about EV chargers, ${name}! Installation costs typically range from:
+    keywords: ["ev", "charger", "electric vehicle", "car charger", "charging"],
+    response: (name: string) => `Great question about EV chargers, ${name}!
 
-• Basic installation: $1,200 - $1,800
-• Standard installation: $1,800 - $2,500
-• Complex installation: $2,500 - $4,000
+We install a range of EV chargers for both residential and commercial properties. If you have solar, we can set up smart charging to use your excess solar power!
 
-We install Tesla Wall Connectors, Zappi smart chargers, and universal chargers. If you have solar, we can set up smart charging to use your excess solar power!
-
-Want me to arrange a free quote for your specific situation?`,
+Every installation is different, so the best way to get accurate pricing is a free quote. Want me to help arrange that?`,
   },
 
-  // Electrical pricing
+  // Electrical services
   electricalPricing: {
-    keywords: ["switchboard", "power point", "ceiling fan", "safety switch", "rcd", "electrical", "electrician", "rewire"],
-    response: (name: string) => `Here's a guide to common electrical work, ${name}:
+    keywords: ["switchboard", "power point", "safety switch", "rcd", "electrical", "electrician", "rewire"],
+    response: (name: string) => `We offer a full range of electrical services, ${name}:
 
-• Switchboard upgrade: $1,500 - $4,000
-• Safety switch (RCD) installation: $180 - $350
-• Power point installation: $150 - $250
-• Ceiling fan installation: $150 - $300
-• General callout + first hour: $150 - $200
+• Switchboard upgrades
+• Safety switch (RCD) installation
+• Power point installation
+• Lighting upgrades
+• General electrical maintenance
 
-These are estimates — we'll provide an accurate quote before any work begins. Would you like to book a free quote?`,
+Every job is different, so we provide a clear quote before any work begins — no hidden costs. Would you like to book a free quote?`,
   },
 
   // Emergency
@@ -103,7 +93,7 @@ You've got a few options:
 2. **Call directly:** ${contactInfo.phoneFormatted}
 3. **Email:** ${contactInfo.email}
 
-James typically responds within 2 business hours during Mon-Fri 7am-5pm.
+We typically respond within 2 business hours during Mon-Fri 7am-5pm.
 
 Which would work best for you?`,
   },
@@ -111,13 +101,9 @@ Which would work best for you?`,
   // Service areas
   serviceAreas: {
     keywords: ["service area", "location", "suburb", "where", "cover", "travel", "come to", "mount barker", "hills", "northern", "southern"],
-    response: (name: string) => `Great question, ${name}! We're based in Christie's Beach and service:
+    response: (name: string) => `Great question, ${name}! We service all of South Australia.
 
-**Primary areas (fastest response):**
-Christie's Beach, Flagstaff Hill, Hallett Cove, Happy Valley, Morphett Vale, Reynella, Seaford, Aldinga Beach, Woodcroft, Aberfoyle Park
-
-**Full coverage:**
-All Adelaide metro, Adelaide Hills, Northern suburbs to Gawler, and Southern suburbs to Aldinga.
+We're based in Adelaide and cover the full metro area, Adelaide Hills, northern suburbs, southern suburbs, and regional SA.
 
 What suburb are you in? I can confirm we service your area!`,
   },
@@ -139,11 +125,7 @@ Any other questions about the process?`,
   // Solar size recommendation
   solarSize: {
     keywords: ["what size", "how big", "kw need", "system size", "recommend"],
-    response: (name: string) => `Great question, ${name}! Here's a general guide:
-
-• **6.6kW:** Perfect for most Adelaide households (2-4 people)
-• **10kW:** Larger families, home offices, or small pool
-• **13kW+:** Large homes, EVs, pools, or high usage
+    response: (name: string) => `Great question, ${name}! The right solar system size depends on your household size, energy usage, and budget.
 
 We assess your actual electricity bills and usage patterns to recommend the right size. A system that's too small won't cover your needs, and too big wastes money.
 
@@ -155,12 +137,9 @@ Want a free assessment to find your ideal size?`,
     keywords: ["warranty", "guarantee", "how long last", "covered", "protection"],
     response: (name: string) => `Great question about warranties, ${name}!
 
-• **Solar panels:** 25-year performance warranty
-• **Inverters:** 5-12 years depending on brand
-• **Batteries:** 10-year warranty (most brands)
-• **Workmanship:** We stand behind our installation work
+We only use quality panels and inverters backed by solid long-term warranties. We also stand behind our installation workmanship.
 
-We only use quality brands with solid warranty backing — no cheap imports that fail after a few years.
+No cheap imports that fail after a few years — we use reputable brands with proper warranty backing.
 
 Anything else you'd like to know?`,
   },
@@ -187,7 +166,7 @@ We'll recommend the most cost-effective option for your setup. Want us to take a
 • Bank transfer
 • Credit/debit cards
 • Cash
-• **Interest-free payment plans** through our finance partners
+• **Payment plans** through our finance partners
 
 For solar and larger jobs, payment plans make it easy to start saving on power bills right away without a big upfront cost.
 
@@ -199,28 +178,20 @@ Would you like more details on the finance options?`,
     keywords: ["rebate", "incentive", "government", "stc", "subsidy", "scheme", "discount"],
     response: (name: string) => `Great question about rebates, ${name}!
 
-**Solar Rebate (STC):**
-• Federal government rebate: $2,000 - $4,000 depending on system size
-• Already included in our quoted prices
+Government rebates of up to $20,000 are available for solar and battery installations. These can significantly reduce the upfront cost.
 
-**Battery Rebate (SA Home Battery Scheme):**
-• Up to $372 per kWh of storage
-• Subject to eligibility criteria
+We handle all the rebate paperwork for you and our quoted prices include applicable rebates.
 
-**Feed-in Tariff:**
-• Get paid for excess solar exported to grid
-• Typically 4-12c/kWh depending on your retailer
-
-We handle all the rebate paperwork for you!`,
+Want a free quote to see how much you could save?`,
   },
 
   // Credentials
   credentials: {
-    keywords: ["licensed", "accredited", "qualified", "cec", "insured", "certified"],
+    keywords: ["licensed", "accredited", "qualified", "saa", "insured", "certified"],
     response: (name: string) => `Absolutely, ${name}! Here are our credentials:
 
 ✅ Fully licensed electricians
-✅ CEC (Clean Energy Council) Accredited Solar Installers
+✅ SAA (Standards Australia) Accredited Solar Installers
 ✅ Fully insured
 ✅ Police checked
 ✅ Growing by reputation since 2020
@@ -232,12 +203,12 @@ Anything else you'd like to know about us?`,
 
   // About company
   about: {
-    keywords: ["about", "who", "company", "james", "pratt", "history", "started"],
+    keywords: ["about", "who", "company", "pratt", "history", "started"],
     response: (name: string) => `Happy to share, ${name}!
 
-Pratt Electrical Group was started by James Pratt in 2020. We've grown rapidly through word-of-mouth and reputation — not big advertising budgets.
+Pratt Electrical Group was started in 2020. We've grown rapidly through word-of-mouth and reputation — not big advertising budgets.
 
-Based in Christie's Beach, we're now one of Adelaide's fastest-growing electrical and solar teams. Our philosophy is simple: quality work, fair pricing, and genuine customer care.
+Based in Adelaide, we're now one of South Australia's fastest-growing electrical and solar teams. Our philosophy is simple: quality work, fair pricing, and genuine customer care.
 
 Is there something specific you'd like to know?`,
   },
@@ -249,17 +220,17 @@ Is there something specific you'd like to know?`,
 
 📞 **Phone:** ${contactInfo.phoneFormatted}
 📧 **Email:** ${contactInfo.email}
-📍 **Base:** Christie's Beach, Adelaide
+📍 **Base:** Adelaide, South Australia
 
 **Hours:**
 • Mon-Fri 7am-5pm
 
-James typically responds within 2 business hours. Is there anything else I can help with?`,
+We typically respond within 2 business hours. Is there anything else I can help with?`,
   },
 
   // Human handoff
   humanHandoff: {
-    keywords: ["speak to someone", "talk to human", "real person", "speak to james", "not helpful", "frustrated"],
+    keywords: ["speak to someone", "talk to human", "real person", "not helpful", "frustrated"],
     response: (name: string) => `I understand, ${name}. I think this one's best handled by our team directly.
 
 Here's how to reach us:
@@ -267,7 +238,7 @@ Here's how to reach us:
 📞 **Call:** ${contactInfo.phoneFormatted}
 📧 **Email:** ${contactInfo.email}
 
-If it's during business hours (Mon-Fri 7am-5pm), James will typically respond within a couple of hours.
+If it's during business hours (Mon-Fri 7am-5pm), we'll typically respond within a couple of hours.
 
 Is there anything else I can help with in the meantime?`,
   },
@@ -285,7 +256,7 @@ Is there anything about our services I can help you with?`,
     keywords: ["competitor", "other company", "better", "cheaper elsewhere", "someone else"],
     response: (name: string) => `I can only speak to what Pratt Electrical offers, ${name} — I'm not across the details of other companies.
 
-What I can tell you is that we're CEC accredited, offer free quotes, and have built our reputation on quality work and genuine customer care.
+What I can tell you is that we're SAA accredited, offer free quotes, and have built our reputation on quality work and genuine customer care.
 
 Want to know more about what we do?`,
   },
@@ -295,9 +266,19 @@ Want to know more about what we do?`,
     keywords: ["discount", "cheaper", "deal", "negotiate", "lower price", "best price"],
     response: (name: string) => `I can't negotiate pricing, ${name}, but I can tell you we always aim to be competitive and transparent. Our quotes include everything — no hidden costs.
 
-The best way to get accurate pricing is to book a free quote. James can discuss your specific needs and find the best solution for your budget.
+The best way to get accurate pricing is to book a free quote. We can discuss your specific needs and find the best solution for your budget.
 
 Want me to help arrange that?`,
+  },
+
+  // Referral
+  referral: {
+    keywords: ["referral", "refer", "friend", "recommend"],
+    response: (name: string) => `Great question, ${name}! We have a referral program where you earn **$300** for every successful referral.
+
+Just have your friend mention your name when they book. Once their job is complete, you get $300. No limit on how many people you can refer!
+
+Check out our referrals page for more details, or give us a call on ${contactInfo.phoneFormatted}.`,
   },
 
   // Thank you / goodbye
@@ -344,7 +325,7 @@ For specific questions, the best option is to:
 📧 **Email:** ${contactInfo.email}
 
 Or ask me about:
-• Solar pricing and installation
+• Solar installation
 • Battery storage
 • EV chargers
 • Electrical services

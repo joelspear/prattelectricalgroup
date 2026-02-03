@@ -51,7 +51,7 @@ const maintenancePlans = [
       "Power point & switch inspection",
       "Minor repairs included (up to $100)",
       "15% discount on additional work",
-      "Same-day emergency response",
+      "Priority response times",
       "Extended warranty on our work",
     ],
     bestFor: "Families & larger homes",
@@ -64,10 +64,10 @@ const maintenancePlans = [
     description: "Tailored maintenance for businesses",
     features: [
       "Scheduled maintenance visits",
-      "Exit & emergency lighting testing",
+      "Exit & safety lighting testing",
       "RCD & circuit breaker testing",
       "Compliance documentation",
-      "Priority emergency response",
+      "Priority response",
       "Dedicated account manager",
       "Flexible scheduling (after hours)",
       "Full compliance reporting",
@@ -94,7 +94,7 @@ const benefits = [
     icon: Zap,
     title: "Prevent Breakdowns",
     description:
-      "Proactive maintenance prevents unexpected failures and emergency call-outs.",
+      "Proactive maintenance prevents unexpected failures and costly repairs.",
   },
   {
     icon: AlertTriangle,
@@ -122,7 +122,7 @@ const whatWeCheck = [
       "Battery replacement",
       "RCD trip testing",
       "Earth fault testing",
-      "Emergency lighting (commercial)",
+      "Safety lighting (commercial)",
     ],
   },
   {
@@ -130,7 +130,6 @@ const whatWeCheck = [
     items: [
       "Power point condition",
       "Light switch operation",
-      "Ceiling fan checks",
       "Outdoor electrical",
       "Pool/spa equipment (if applicable)",
     ],
@@ -159,9 +158,9 @@ const maintenanceFAQs = [
       "We'll provide a detailed report of any issues found, along with recommendations and quotes for repairs. Plan members receive discounts on all repair work.",
   },
   {
-    question: "Do maintenance plans cover emergency call-outs?",
+    question: "Do maintenance plans include repairs?",
     answer:
-      "Emergency call-outs are not included in the plan cost, but plan members receive priority response and discounted emergency rates.",
+      "The Home Premium plan includes minor repairs up to $100 per visit. For larger repairs, plan members receive discounted rates.",
   },
   {
     question: "Is the maintenance plan tax deductible for rental properties?",
@@ -238,7 +237,7 @@ export default function MaintenancePage() {
               <h2 className="mb-4">Why Choose a Maintenance Plan?</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Regular maintenance is the best way to keep your family safe and
-                avoid costly emergency repairs.
+                avoid costly unexpected repairs.
               </p>
             </div>
 

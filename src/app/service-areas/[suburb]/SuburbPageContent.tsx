@@ -32,7 +32,7 @@ const services = [
   {
     icon: Sun,
     name: "Solar & Battery",
-    description: "CEC accredited solar installation. 6.6kW to 13kW+ systems with battery options.",
+    description: "SAA accredited solar installation with battery storage options.",
     href: "/solar",
   },
   {
@@ -53,7 +53,7 @@ const localFAQs = [
   {
     question: "How quickly can you get to my suburb?",
     answer:
-      "For our core southern Adelaide service area, we typically respond within 1 hour for emergencies. For non-urgent work, we can usually schedule an appointment within 1-2 business days.",
+      "We service all of South Australia. For non-urgent work, we can usually schedule an appointment within 1-2 business days.",
   },
   {
     question: "Do you charge a call-out fee?",
@@ -63,12 +63,12 @@ const localFAQs = [
   {
     question: "Are you licensed to work in this area?",
     answer:
-      "Yes, we're fully licensed electricians in South Australia, able to work anywhere in the state. We're also CEC accredited for solar installations.",
+      "Yes, we're fully licensed electricians in South Australia, able to work anywhere in the state. We're also SAA accredited for solar installations.",
   },
   {
     question: "Can you give me a quote over the phone?",
     answer:
-      "For straightforward jobs like ceiling fan or power point installation, we can often provide a ballpark quote over the phone. For larger jobs, we prefer to visit first to give you an accurate fixed price.",
+      "For straightforward jobs like power point installation, we can often provide a ballpark quote over the phone. For larger jobs, we prefer to visit first to give you an accurate fixed price.",
   },
 ];
 
@@ -215,7 +215,7 @@ export default function SuburbPageContent({ suburb }: SuburbPageContentProps) {
                   <div className="bg-secondary-50 rounded-xl p-4">
                     <div className="flex items-center gap-2 text-secondary-600 mb-1">
                       <Sun className="h-5 w-5" />
-                      <span className="font-semibold">CEC Accredited</span>
+                      <span className="font-semibold">SAA Accredited</span>
                     </div>
                     <p className="text-sm text-gray-600">
                       Solar installation certified
@@ -224,10 +224,10 @@ export default function SuburbPageContent({ suburb }: SuburbPageContentProps) {
                   <div className="bg-green-50 rounded-xl p-4">
                     <div className="flex items-center gap-2 text-green-600 mb-1">
                       <Clock className="h-5 w-5" />
-                      <span className="font-semibold">24/7 Service</span>
+                      <span className="font-semibold">Fast Response</span>
                     </div>
                     <p className="text-sm text-gray-600">
-                      Emergency response available
+                      Quick, reliable service
                     </p>
                   </div>
                   <div className="bg-yellow-50 rounded-xl p-4">

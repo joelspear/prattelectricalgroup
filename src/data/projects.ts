@@ -12,11 +12,11 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "10kW Solar Installation",
+    title: "Residential Solar Installation",
     category: "solar",
     location: "Hallett Cove, SA",
     description:
-      "Residential 10kW solar system installation with battery backup. Optimised panel placement for maximum north-facing exposure.",
+      "Residential solar system installation with battery backup. Optimised panel placement for maximum north-facing exposure.",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     category: "residential",
     location: "Happy Valley, SA",
     description:
-      "Tesla Wall Connector installation with dedicated circuit. Integrated with existing solar system for sustainable charging.",
+      "EV charger installation with dedicated circuit. Integrated with existing solar system for sustainable charging.",
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80",
   },
   {
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     category: "solar",
     location: "Aldinga Beach, SA",
     description:
-      "Tesla Powerwall 2 installation paired with existing solar system. Providing backup power and maximising self-consumption.",
+      "Battery storage system paired with existing solar system. Providing backup power and maximising self-consumption.",
     image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80",
   },
 ];

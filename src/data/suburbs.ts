@@ -130,7 +130,7 @@ export const suburbsData: Record<string, SuburbInfo> = {
     postcode: "5169",
     region: "Southern Adelaide",
     description:
-      "Seaford offers excellent coastal living with a mix of property styles. We provide full electrical services to Seaford residents, from emergency repairs to solar installations.",
+      "Seaford offers excellent coastal living with a mix of property styles. We provide full electrical services to Seaford residents, from general repairs to solar installations.",
     features: [
       "Coastal property specialists",
       "Strong local customer base",
@@ -151,7 +151,7 @@ export const suburbsData: Record<string, SuburbInfo> = {
       "Residential and commercial services",
       "Close to our base location",
       "Regular maintenance contracts",
-      "Rapid emergency response",
+      "Quick response times",
     ],
     nearbySuburbs: ["Christies Beach", "Port Noarlunga", "Seaford", "Morphett Vale"],
   },
@@ -180,7 +180,7 @@ export const suburbsData: Record<string, SuburbInfo> = {
     features: [
       "Family home specialists",
       "Solar installation experts",
-      "Ceiling fan installations",
+      "Lighting upgrades",
       "General electrical maintenance",
     ],
     nearbySuburbs: ["Morphett Vale", "Happy Valley", "Reynella", "Sheidow Park"],

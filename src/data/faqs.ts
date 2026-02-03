@@ -9,15 +9,14 @@ export interface FAQCategory {
 // Solar & Battery FAQs
 export const solarFAQs: FAQItem[] = [
   {
-    question: "How much does solar cost in Adelaide?",
+    question: "How does solar work?",
     answer:
-      "A 6.6kW system typically costs $5,500-$8,500 installed after rebates. A 10kW system costs $7,500-$10,500. Prices vary based on panel quality and roof complexity.",
-    link: { text: "Get a quote", href: "/contact" },
+      "Solar panels convert sunlight into electricity. The power is used in your home first, with any excess exported to the grid. Adding a battery lets you store solar power for use at night.",
   },
   {
     question: "What size solar system do I need?",
     answer:
-      "Most Adelaide households do well with a 6.6kW system. For larger families or homes with pools/EVs, consider 10kW+. We assess your usage and recommend the right size.",
+      "The right system depends on your energy usage, roof space, and goals. We assess your needs and recommend the best option for your home.",
     link: { text: "Get a free quote", href: "/contact" },
   },
   {
@@ -26,25 +25,15 @@ export const solarFAQs: FAQItem[] = [
       "Most residential installations are completed in one day. Commercial systems may take 2-5 days depending on size. Grid connection approval from SA Power Networks typically takes 2-4 weeks.",
   },
   {
-    question: "What rebates are available for solar in SA?",
+    question: "Are there government rebates available?",
     answer:
-      "The federal STC rebate reduces costs by $2,000-$4,000 depending on system size. Battery storage is eligible for up to $372/kWh under the Cheaper Home Batteries Program.",
+      "Yes, government rebates are available that can significantly reduce the cost of your solar system. We handle all the paperwork and ensure you receive the maximum rebate you're entitled to.",
   },
   {
     question: "What's the payback period for solar in Adelaide?",
     answer:
       "Typically 3-5 years for residential systems. Adelaide's high electricity prices and abundant sunshine make solar highly cost-effective.",
     link: { text: "Get a quote", href: "/contact" },
-  },
-  {
-    question: "Do you install Tesla Powerwall?",
-    answer:
-      "Yes, we're certified Tesla Powerwall installers. The Powerwall 3 (13.5kWh) costs approximately $12,000-$15,000 installed. We also install Sungrow, BYD, and other quality batteries.",
-  },
-  {
-    question: "What's a solar feed-in tariff?",
-    answer:
-      "It's the rate your energy retailer pays for excess solar you export to the grid. In SA, rates range from 4-12c/kWh depending on your retailer and plan.",
   },
   {
     question: "Can I add a battery to my existing solar system?",
@@ -66,30 +55,20 @@ export const solarFAQs: FAQItem[] = [
 // Residential Electrical FAQs
 export const residentialFAQs: FAQItem[] = [
   {
-    question: "How much does an electrician cost per hour in Adelaide?",
-    answer:
-      "Rates typically range from $80-$120/hour plus a call-out fee. We provide upfront quotes so you know the total cost before work begins.",
-  },
-  {
     question: "Do you offer free quotes?",
     answer:
-      "Yes, we provide free quotes for all residential and commercial work. Call 0406 494 941 or fill out our online form.",
+      "Yes, we provide free quotes for all residential and commercial work. Call 0474 320 534 or fill out our online form.",
     link: { text: "Get a free quote", href: "/contact" },
   },
   {
     question: "When should I upgrade my switchboard?",
     answer:
-      "If your switchboard has ceramic fuses (not circuit breakers), is over 25 years old, or you're adding air conditioning/solar, it likely needs upgrading. Signs include frequently tripping circuits or burning smells.",
+      "If your switchboard has ceramic fuses (not circuit breakers), is over 25 years old, or you're adding air conditioning/solar, it likely needs upgrading.",
   },
   {
     question: "Do I need a safety switch?",
     answer:
       "SA regulations require safety switches (RCDs) on power and lighting circuits in all homes. If your home doesn't have them, we strongly recommend upgrading — they save lives.",
-  },
-  {
-    question: "Can you install ceiling fans?",
-    answer:
-      "Yes, ceiling fan installation is one of our most common jobs. Cost is typically $150-$300 per fan, depending on wiring requirements.",
   },
   {
     question: "Do you work on weekends?",
@@ -123,7 +102,7 @@ export const commercialFAQs: FAQItem[] = [
   {
     question: "Do you offer maintenance contracts?",
     answer:
-      "Yes, we offer ongoing maintenance agreements for commercial clients including regular inspections, emergency priority response, and preventive maintenance.",
+      "Yes, we offer ongoing maintenance agreements for commercial clients including regular inspections, priority response, and preventive maintenance.",
     link: { text: "Learn about maintenance plans", href: "/maintenance" },
   },
   {
@@ -133,36 +112,17 @@ export const commercialFAQs: FAQItem[] = [
   },
 ];
 
-// Pricing & Payment FAQs
-export const pricingFAQs: FAQItem[] = [
-  {
-    question: "Do you offer payment plans?",
-    answer:
-      "Yes, we partner with finance providers offering interest-free options for solar and larger electrical projects.",
-    link: { text: "Learn about finance", href: "/finance" },
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept bank transfer, credit/debit cards, and cash. Payment plans available for qualifying projects.",
-  },
-  {
-    question: "Are your prices GST inclusive?",
-    answer: "All quoted prices include GST unless otherwise stated.",
-  },
-];
-
 // General FAQs
 export const generalFAQs: FAQItem[] = [
   {
     question: "Are you licensed and insured?",
     answer:
-      "Yes, all our electricians are fully licensed in South Australia and we carry comprehensive public liability insurance. We're also CEC accredited for solar installations.",
+      "Yes, all our electricians are fully licensed in South Australia and we carry comprehensive public liability insurance. We're also SAA accredited for solar installations.",
   },
   {
     question: "What areas do you service?",
     answer:
-      "We service the entire Adelaide metropolitan area, with a focus on the southern suburbs including Christie's Beach, Flagstaff Hill, Hallett Cove, Happy Valley, Morphett Vale, and surrounding areas.",
+      "We service all of South Australia, with a focus on the Adelaide metropolitan area.",
     link: { text: "View service areas", href: "/service-areas" },
   },
   {
@@ -178,7 +138,6 @@ export const faqCategories: FAQCategory[] = [
   { id: "solar", name: "Solar & Battery", faqs: solarFAQs },
   { id: "residential", name: "Residential Electrical", faqs: residentialFAQs },
   { id: "commercial", name: "Commercial Electrical", faqs: commercialFAQs },
-  { id: "pricing", name: "Pricing & Payments", faqs: pricingFAQs },
 ];
 
 // Combine all FAQs for "All Questions" view
@@ -186,7 +145,6 @@ export const allFAQsList: FAQItem[] = [
   ...solarFAQs,
   ...residentialFAQs,
   ...commercialFAQs,
-  ...pricingFAQs,
   ...generalFAQs,
 ];
 
@@ -195,7 +153,6 @@ const allFAQs = {
   commercial: commercialFAQs,
   solar: solarFAQs,
   general: generalFAQs,
-  pricing: pricingFAQs,
 };
 
 export default allFAQs;

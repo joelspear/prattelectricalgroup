@@ -7,20 +7,20 @@ import { contactInfo, testimonials } from "@/data/siteData";
 export const metadata: Metadata = {
   title: "Get Your Free Electrical Quote | Pratt Electrical Group Adelaide",
   description:
-    "Request a free quote from Adelaide's trusted electrical and solar experts. CEC accredited, 24/7 emergency service, quality workmanship guaranteed.",
+    "Request a free quote from Adelaide's trusted electrical and solar experts. SAA accredited, quality workmanship guaranteed.",
   robots: { index: true, follow: true },
 };
 
 const benefits = [
   {
     icon: Shield,
-    title: "CEC Accredited",
+    title: "SAA Accredited",
     description: "Certified solar installers",
   },
   {
     icon: Clock,
-    title: "24/7 Emergency",
-    description: "Always here when you need us",
+    title: "Fast Response",
+    description: "Quick, reliable service",
   },
   {
     icon: Award,
@@ -74,14 +74,14 @@ export default function LandingPage() {
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 Get a free, no-obligation quote for your electrical or solar
                 project. Our licensed electricians deliver quality workmanship
-                with 24/7 emergency service.
+                with fast, reliable service.
               </p>
 
               {/* Trust Points */}
               <ul className="space-y-3 mb-8">
                 {[
                   "Licensed & fully insured electricians",
-                  "CEC accredited solar installers",
+                  "SAA accredited solar installers",
                   "Free quotes with no obligation",
                   "Response within 2 business hours",
                   "Serving all Adelaide metro areas",

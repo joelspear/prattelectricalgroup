@@ -39,7 +39,7 @@ export default function ResidentialPage() {
             "Safety Switches & RCDs",
             "EV Charger Installation",
             "New Builds & Renovations",
-            "24/7 Emergency Service",
+            "Smoke Alarm Compliance",
           ]}
         />
 

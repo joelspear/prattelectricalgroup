@@ -239,7 +239,7 @@ export default function ServiceAreasPage() {
                 transition={{ delay: 0.1 }}
                 className="text-3xl md:text-5xl font-bold mb-6"
               >
-                Adelaide&apos;s Southern Suburbs Electrical Experts
+                Servicing All of South Australia
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -248,7 +248,7 @@ export default function ServiceAreasPage() {
                 className="text-lg text-primary-100 mb-8"
               >
                 Based in Christies Beach, we provide fast, reliable electrical
-                services across Adelaide with a focus on the southern suburbs.
+                services all across South Australia.
               </motion.p>
 
               <motion.div
@@ -258,12 +258,12 @@ export default function ServiceAreasPage() {
                 className="flex flex-wrap justify-center gap-4"
               >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg">
-                  <Clock className="h-5 w-5 text-primary-200" />
-                  <span>Under 1 hour response (southern suburbs)</span>
+                  <MapPin className="h-5 w-5 text-primary-200" />
+                  <span>All across South Australia</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg">
                   <Zap className="h-5 w-5 text-primary-200" />
-                  <span>24/7 Emergency Service</span>
+                  <span>Residential & Commercial</span>
                 </div>
               </motion.div>
             </div>
@@ -382,8 +382,8 @@ export default function ServiceAreasPage() {
                     <span className="font-semibold">Priority Response Area</span>
                   </div>
                   <p className="text-sm text-primary-600">
-                    Emergency response typically under 1 hour. Same-day service
-                    available for most jobs.
+                    Same-day service often available. Quick response for our
+                    core service area.
                   </p>
                 </div>
 
@@ -423,8 +423,8 @@ export default function ServiceAreasPage() {
                     <span className="font-semibold">Extended Service Area</span>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Service available with advance booking. Emergency service
-                    subject to availability.
+                    Service available with advance booking across the greater
+                    Adelaide area and beyond.
                   </p>
                 </div>
 
@@ -477,7 +477,7 @@ export default function ServiceAreasPage() {
         {/* Final CTA */}
         <CTASection
           title="Adelaide's Trusted Local Electricians"
-          subtitle="Based in Christies Beach, serving all of Adelaide's southern suburbs."
+          subtitle="Based in Christies Beach, servicing all of South Australia."
           variant="primary"
         />
       </main>

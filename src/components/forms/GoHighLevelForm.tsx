@@ -34,7 +34,7 @@ const serviceOptions = [
   { value: "commercial_electrical", label: "Commercial Electrical" },
   { value: "solar_installation", label: "Solar Installation" },
   { value: "battery_storage", label: "Battery Storage" },
-  { value: "emergency_service", label: "Emergency Service" },
+  { value: "maintenance", label: "Maintenance" },
   { value: "ev_charger", label: "EV Charger Installation" },
   { value: "other", label: "Other / General Enquiry" },
 ];

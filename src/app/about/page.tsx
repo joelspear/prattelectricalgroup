@@ -12,7 +12,7 @@ import { Shield, Award, Users, Clock } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Pratt Electrical | Adelaide Electrical & Solar Company",
   description:
-    "Meet the Pratt Electrical team. Adelaide's fastest-growing electrical and solar company. Founded 2020. CEC accredited. Licensed electricians.",
+    "Meet the Pratt Electrical team. Adelaide's fastest-growing electrical and solar company. Founded 2020. SAA accredited. Licensed electricians.",
 };
 
 export default function AboutPage() {
@@ -144,9 +144,9 @@ export default function AboutPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  title: "CEC Accredited",
-                  description: "Clean Energy Council accredited solar installer",
-                  active: credentials.cecAccredited,
+                  title: "SAA Accredited",
+                  description: "Standards Australia accredited solar installer",
+                  active: credentials.saaAccredited,
                 },
                 {
                   title: "Licensed Electricians",

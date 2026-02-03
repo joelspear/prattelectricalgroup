@@ -5,16 +5,16 @@ export const siteConfig = {
   shortName: "Pratt Electrical",
   tagline: "Adelaide's Trusted Electrical & Solar Experts",
   description:
-    "Adelaide's trusted electrical and solar experts. Residential, commercial & solar installation. CEC accredited. 24/7 emergency service. Free quotes.",
+    "Adelaide's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes.",
   url: "https://prattelectrical.fuelmysocial.com.au",
   productionUrl: "https://www.prattelectricalgroup.com",
 };
 
 export const contactInfo = {
-  phone: "0406 494 941",
-  phoneFormatted: "0406 494 941",
-  phoneTel: "tel:+61406494941",
-  email: "james@prattelectricalgroup.com",
+  phone: "0474 320 534",
+  phoneFormatted: "0474 320 534",
+  phoneTel: "tel:+61474320534",
+  email: "lewis@prattelectricalgroup.com",
   address: {
     street: "18 Davis Ave",
     suburb: "Christies Beach",
@@ -36,8 +36,8 @@ export const socialLinks = {
 };
 
 export const credentials = {
-  cecAccredited: true,
-  cecMember: true,
+  saaAccredited: true,
+  saaCompliant: true,
   fullyInsured: true,
   backgroundChecked: true,
   licensedElectricians: true,
@@ -46,7 +46,7 @@ export const credentials = {
 export const trustStats = [
   { value: "5+", label: "Years Serving Adelaide" },
   { value: "500+", label: "Projects Completed" },
-  { value: "CEC", label: "Accredited Installers" },
+  { value: "SAA", label: "Accredited Installers" },
   { value: "100%", label: "Customer Satisfaction" },
 ];
 
@@ -59,7 +59,6 @@ export const services = {
     services: [
       "Switchboard Upgrades",
       "Lighting Installation",
-      "Ceiling Fans",
       "Power Points & GPOs",
       "Safety Switches (RCDs)",
       "Smoke Alarms",
@@ -92,11 +91,11 @@ export const services = {
     title: "Solar & Battery",
     slug: "solar",
     shortDescription:
-      "CEC accredited solar installation. Cut your electricity bills with quality solar systems.",
+      "SAA accredited solar installation. Cut your electricity bills with quality solar systems.",
     services: [
-      "Residential Solar Systems (6.6kW, 10kW, 13kW)",
+      "Residential Solar Systems",
       "Commercial Solar",
-      "Battery Storage (Tesla, Sungrow)",
+      "Battery Storage",
       "Solar System Upgrades",
       "Maintenance & Repairs",
       "SA Power Networks Connection",
@@ -105,18 +104,7 @@ export const services = {
 };
 
 export const serviceAreas = [
-  "Christies Beach",
-  "Flagstaff Hill",
-  "Aldinga Beach",
-  "Hallett Cove",
-  "Happy Valley",
-  "Woodcroft",
-  "Morphett Vale",
-  "Noarlunga",
-  "Seaford",
-  "Reynella",
-  "Aberfoyle Park",
-  "Blackwood",
+  "All across South Australia",
 ];
 
 export const testimonials = [
@@ -158,7 +146,7 @@ export const testimonials = [
     name: "David M.",
     location: "Noarlunga",
     rating: 5,
-    text: "Pratt Electrical installed a 10kW solar system for our business. The process was seamless from quote to installation. Already seeing significant savings on power bills.",
+    text: "Pratt Electrical installed a solar system for our business. The process was seamless from quote to installation. Already seeing significant savings on power bills.",
     service: "Commercial Solar",
   },
 ];
@@ -183,9 +171,9 @@ export const whyChooseUs = [
     icon: "Clock",
   },
   {
-    title: "CEC Accredited",
+    title: "SAA Accredited",
     description:
-      "Clean Energy Council accredited installers. Properly certified for all solar work.",
+      "Standards Australia accredited installers. Properly certified for all solar and electrical work.",
     icon: "ShieldCheck",
   },
 ];

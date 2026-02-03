@@ -25,14 +25,14 @@ export default function SolarPage() {
         {/* Hero Section */}
         <ServiceHero
           title="Solar & Battery Installation"
-          subtitle="Cut your electricity bills with Adelaide's trusted solar experts. CEC accredited installation with quality panels and inverters backed by solid warranties."
+          subtitle="Cut your electricity bills with Adelaide's trusted solar experts. SAA accredited installation with quality panels and inverters backed by solid warranties."
           iconName="Sun"
           features={[
-            "CEC Accredited Installers",
+            "SAA Accredited Installers",
             "Premium Panel Brands",
             "Battery Storage Systems",
             "Government Rebate Assistance",
-            "10-25 Year Warranties",
+            "Long-Term Warranties",
             "Local Adelaide Team",
           ]}
         />
@@ -89,8 +89,8 @@ export default function SolarPage() {
                 </div>
                 <h4 className="font-semibold mb-2">Government Rebates</h4>
                 <p className="text-sm text-gray-600">
-                  Federal STCs provide $2,000-$4,000 off your system cost. We
-                  handle all paperwork.
+                  Government rebates can save you up to $20,000 on your solar
+                  system. We handle all the paperwork.
                 </p>
               </div>
             </div>
@@ -106,7 +106,7 @@ export default function SolarPage() {
           className="bg-gray-50"
         />
 
-        {/* CEC Accreditation Section */}
+        {/* SAA Accreditation Section */}
         <section className="section bg-primary-500">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -114,14 +114,14 @@ export default function SolarPage() {
                 <div className="inline-flex items-center gap-2 text-primary-100 mb-4">
                   <Shield className="h-5 w-5" />
                   <span className="font-medium text-sm uppercase tracking-wide">
-                    CEC Accredited
+                    SAA Accredited
                   </span>
                 </div>
                 <h2 className="text-white mb-4">
-                  Clean Energy Council Accredited Installer
+                  Standards Australia Accredited Installer
                 </h2>
                 <p className="text-primary-100 text-lg mb-6">
-                  Our CEC accreditation means we meet the highest standards for
+                  Our SAA accreditation means we meet the highest standards for
                   solar installation in Australia. It&apos;s your guarantee of quality
                   workmanship and eligibility for government rebates.
                 </p>
@@ -149,11 +149,11 @@ export default function SolarPage() {
                   <Shield className="h-16 w-16 text-primary-500" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  CEC Accredited Installer
+                  SAA Accredited Installer
                 </h3>
                 <p className="text-primary-100">
                   Pratt Electrical Group is a proud member and accredited installer
-                  under the Clean Energy Council of Australia.
+                  under Standards Australia.
                 </p>
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function SolarPage() {
                   icon: Zap,
                   title: "Government Rebates",
                   description:
-                    "Access federal STC rebates worth $2,000-$4,000 depending on system size. We handle all the paperwork for you.",
+                    "Government rebates can save you up to $20,000. We handle all the paperwork for you.",
                 },
                 {
                   icon: Sun,
@@ -195,7 +195,7 @@ export default function SolarPage() {
                   icon: Leaf,
                   title: "Environmental Impact",
                   description:
-                    "A typical 6.6kW system prevents about 9 tonnes of CO2 emissions per year – like planting 200+ trees.",
+                    "A typical solar system prevents tonnes of CO2 emissions per year – a real difference for the environment.",
                 },
                 {
                   icon: Battery,
@@ -207,7 +207,7 @@ export default function SolarPage() {
                   icon: Shield,
                   title: "Long-Term Warranties",
                   description:
-                    "Quality panels come with 25-year performance warranties. Inverters typically 10+ years. Serious peace of mind.",
+                    "Quality panels and inverters come with long-term performance warranties. Serious peace of mind.",
                 },
               ].map((benefit) => (
                 <div

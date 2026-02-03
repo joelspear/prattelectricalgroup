@@ -21,7 +21,7 @@ export default function HomePage() {
         {/* Hero Section with Quote Form */}
         <Hero
           headline="Adelaide's Trusted Electrical & Solar Experts"
-          subheadline="From emergency repairs to solar installations – quality workmanship since 2020. CEC accredited, 24/7 service, free quotes."
+          subheadline="Quality solar installations and electrical workmanship since 2020. SAA accredited, free quotes."
           variant="home"
         >
           {/* Quote Form on right side for desktop */}

@@ -99,7 +99,7 @@ export default function PitchLandingPage() {
                 icon: Star,
                 title: "Trust Signals",
                 description:
-                  "Google reviews, CEC badges, and testimonials prominently displayed.",
+                  "Google reviews, SAA badges, and testimonials prominently displayed.",
               },
               {
                 icon: Smartphone,

@@ -18,12 +18,12 @@ export function Footer() {
             <Logo theme="dark" className="h-10 mb-6" />
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Adelaide&apos;s trusted electrical and solar experts. Quality workmanship,
-              24/7 emergency service, and CEC accredited solar installation.
+              SAA accredited solar installation.
             </p>
-            {/* CEC Badge Placeholder */}
+            {/* SAA Badge Placeholder */}
             <div className="flex items-center gap-3">
               <div className="bg-white/10 rounded-lg px-3 py-2 text-xs font-medium">
-                CEC Accredited Installer
+                SAA Accredited Installer
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ export function Footer() {
                     <div className="text-white font-semibold">
                       {contactInfo.phoneFormatted}
                     </div>
-                    <div className="text-xs">24/7 Emergency Service</div>
+                    <div className="text-xs">Mon-Fri 7am-5pm</div>
                   </div>
                 </a>
               </li>
