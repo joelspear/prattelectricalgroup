@@ -110,7 +110,7 @@ export function AboutSection({ className }: AboutSectionProps) {
             {/* Main Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80"
+                src="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical15"
                 alt="Solar panel installation in South Australia"
                 width={600}
                 height={500}
