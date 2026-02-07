@@ -77,12 +77,14 @@ export function QuoteForm({
 
     try {
       // Submit to GoHighLevel webhook
-      const response = await fetch(
+      // Use no-cors mode to avoid CORS preflight blocking the request
+      await fetch(
         "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/f095bf77-3f42-47fa-a950-68d1309b0ddd",
         {
           method: "POST",
+          mode: "no-cors",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "text/plain",
           },
           body: JSON.stringify({
             full_name: data.name,
@@ -97,16 +99,12 @@ export function QuoteForm({
         }
       );
 
-      if (response.ok) {
-        setSubmitStatus("success");
-        setTimeout(() => {
-          reset();
-          setSubmitStatus("idle");
-        }, 5000);
-      } else {
-        console.error("Form submission failed:", response.statusText);
-        setSubmitStatus("error");
-      }
+      // With no-cors, we can't read the response, so assume success if no error thrown
+      setSubmitStatus("success");
+      setTimeout(() => {
+        reset();
+        setSubmitStatus("idle");
+      }, 5000);
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
