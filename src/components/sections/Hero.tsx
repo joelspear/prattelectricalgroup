@@ -50,10 +50,10 @@ export function Hero({
       {/* Background */}
       <div className="absolute inset-0 bg-charcoal">
         {/* Video background */}
-        <div className="absolute inset-0 opacity-40 overflow-hidden">
+        <div className="absolute inset-0 opacity-40 overflow-hidden pointer-events-none">
           <iframe
             src="https://player.vimeo.com/video/1162816682?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[100vw] min-h-[100vh] w-[177.78vh] h-[56.25vw]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[max(177.78vh,100vw)] h-[max(56.25vw,100vh)] scale-125"
             style={{ border: 'none' }}
             allow="autoplay; fullscreen"
             title="Banner video"
