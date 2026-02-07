@@ -76,26 +76,24 @@ export function QuoteForm({
     setSubmittedName(data.name.split(" ")[0]);
 
     try {
-      // Submit to GoHighLevel webhook
-      // Use no-cors mode to avoid CORS preflight blocking the request
+      // Submit to GoHighLevel webhook using form-encoded data
+      // URLSearchParams sends as application/x-www-form-urlencoded (no CORS preflight)
+      const formData = new URLSearchParams();
+      formData.append("full_name", data.name);
+      formData.append("phone", data.phone);
+      formData.append("customerType", data.customerType);
+      formData.append("service", data.service);
+      formData.append("suburb", data.suburb);
+      formData.append("message", data.message || "");
+      formData.append("source", "Website Quote Form");
+      formData.append("submittedAt", new Date().toISOString());
+
       await fetch(
         "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/f095bf77-3f42-47fa-a950-68d1309b0ddd",
         {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "text/plain",
-          },
-          body: JSON.stringify({
-            full_name: data.name,
-            phone: data.phone,
-            customerType: data.customerType,
-            service: data.service,
-            suburb: data.suburb,
-            message: data.message || "",
-            source: "Website Quote Form",
-            submittedAt: new Date().toISOString(),
-          }),
+          body: formData,
         }
       );
 
