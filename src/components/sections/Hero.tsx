@@ -36,7 +36,7 @@ export function Hero({
   primaryCta = { text: "Get Free Quote", href: "/contact" },
   secondaryCta,
   showTrustBadges = true,
-  backgroundImage = "/images/hero-electrician.jpg",
+  backgroundImage = "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical12",
   variant = "home",
   children,
 }: HeroProps) {
