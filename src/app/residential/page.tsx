@@ -33,7 +33,7 @@ export default function ResidentialPage() {
           title="Residential Electrical Services"
           subtitle="From small repairs to complete rewires – quality electrical work for South Australian homes. Licensed, insured, and committed to your satisfaction."
           iconName="Home"
-          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical19_sbv7jb.jpg"
+          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_1600/Pratt_Electrical19_sbv7jb.jpg"
           features={[
             "Switchboard Upgrades",
             "Lighting Installation",

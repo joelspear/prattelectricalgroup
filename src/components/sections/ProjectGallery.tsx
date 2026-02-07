@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, ZoomIn } from "lucide-react";
+import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface Project {
@@ -94,11 +94,11 @@ export function ProjectGallery({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] cursor-pointer"
+                className="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Project image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-primary-600/20">
+                <div className="relative overflow-hidden aspect-[4/3]">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -107,29 +107,21 @@ export function ProjectGallery({
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
                       <span className="text-gray-400">Project Image</span>
                     </div>
                   )}
                 </div>
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-xs uppercase tracking-wide text-primary-300 mb-1">
+                {/* Content - always visible */}
+                <div className="p-4">
+                  <span className="text-xs uppercase tracking-wide text-primary-500 font-medium">
                     {project.category}
                   </span>
-                  <h3 className="text-lg font-semibold text-white mb-1">
+                  <h3 className="text-base font-semibold text-charcoal mt-1">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-300">{project.location}</p>
-                </div>
-
-                {/* Zoom icon */}
-                <div className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ZoomIn className="h-5 w-5 text-white" />
+                  <p className="text-sm text-gray-500">{project.location}</p>
                 </div>
               </motion.div>
             ))}
