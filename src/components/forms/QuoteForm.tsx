@@ -76,28 +76,48 @@ export function QuoteForm({
     setSubmittedName(data.name.split(" ")[0]);
 
     try {
-      // Submit to GoHighLevel webhook using form-encoded data
-      // URLSearchParams sends as application/x-www-form-urlencoded (no CORS preflight)
-      const formData = new URLSearchParams();
-      formData.append("full_name", data.name);
-      formData.append("phone", data.phone);
-      formData.append("customerType", data.customerType);
-      formData.append("service", data.service);
-      formData.append("suburb", data.suburb);
-      formData.append("message", data.message || "");
-      formData.append("source", "Website Quote Form");
-      formData.append("submittedAt", new Date().toISOString());
+      // Submit via hidden form + iframe to bypass CORS entirely
+      // Native form submissions are not subject to CORS restrictions
+      const iframeName = "ghl_submit_" + Date.now();
+      const iframe = document.createElement("iframe");
+      iframe.name = iframeName;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
 
-      await fetch(
-        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/f095bf77-3f42-47fa-a950-68d1309b0ddd",
-        {
-          method: "POST",
-          mode: "no-cors",
-          body: formData,
-        }
-      );
+      const hiddenForm = document.createElement("form");
+      hiddenForm.method = "POST";
+      hiddenForm.action =
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/f095bf77-3f42-47fa-a950-68d1309b0ddd";
+      hiddenForm.target = iframeName;
+      hiddenForm.style.display = "none";
 
-      // With no-cors, we can't read the response, so assume success if no error thrown
+      const fields: Record<string, string> = {
+        full_name: data.name,
+        phone: data.phone,
+        customerType: data.customerType,
+        service: data.service,
+        suburb: data.suburb,
+        message: data.message || "",
+        source: "Website Quote Form",
+      };
+
+      Object.entries(fields).forEach(([key, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        hiddenForm.appendChild(input);
+      });
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+
+      // Clean up after submission
+      setTimeout(() => {
+        document.body.removeChild(hiddenForm);
+        document.body.removeChild(iframe);
+      }, 5000);
+
       setSubmitStatus("success");
       setTimeout(() => {
         reset();
