@@ -8,7 +8,7 @@ export const projects: Project[] = [
     location: "Flagstaff Hill, SA",
     description:
       "Complete switchboard upgrade for a 1980s family home. Installed modern safety switches and circuit breakers to meet current Australian standards.",
-    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical3_jnifg6.jpg",
+    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     location: "Adelaide CBD, SA",
     description:
       "Complete electrical fit-out for a new office space including LED lighting, data cabling, and power distribution.",
-    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical5_tnbokq.jpg",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     location: "Noarlunga, SA",
     description:
       "Warehouse LED lighting upgrade reducing energy consumption by 60%. Improved lighting quality for safer work environment.",
-    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical11_ahahxn.jpg",
+    image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     location: "Happy Valley, SA",
     description:
       "EV charger installation with dedicated circuit. Integrated with existing solar system for sustainable charging.",
-    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical16_mox22l.jpg",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80",
   },
   {
     id: 8,

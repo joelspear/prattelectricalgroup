@@ -145,7 +145,7 @@ export default function EVChargersPage() {
                   <Car className="h-4 w-4" />
                   EV Charger Installation
                 </div>
-                <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white">
                   Charge Your EV at Home
                 </h1>
                 <p className="text-lg text-gray-300 mb-8">
@@ -195,8 +195,8 @@ export default function EVChargersPage() {
               >
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical23_zcderq.jpg"
-                    alt="EV charger installation"
+                    src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80"
+                    alt="EV charger installation on home wall"
                     fill
                     className="object-cover"
                   />

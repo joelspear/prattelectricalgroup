@@ -190,6 +190,7 @@ export const fuelMySocial = {
 
 export const navItems = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
     label: "Services",
     href: "#",
@@ -211,7 +212,6 @@ export const navItems = [
     ],
   },
   { label: "Service Areas", href: "/service-areas" },
-  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
