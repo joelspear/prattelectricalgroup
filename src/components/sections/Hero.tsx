@@ -49,11 +49,16 @@ export function Hero({
     >
       {/* Background */}
       <div className="absolute inset-0 bg-charcoal">
-        {/* Solar panel background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80)` }}
-        />
+        {/* Video background */}
+        <div className="absolute inset-0 opacity-40">
+          <iframe
+            src="https://player.vimeo.com/video/1162816682?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full min-h-full"
+            style={{ aspectRatio: '16/9' }}
+            allow="autoplay; fullscreen"
+            title="Banner video"
+          />
+        </div>
         {/* Dark gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/50" />
       </div>
