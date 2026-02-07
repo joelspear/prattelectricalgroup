@@ -45,7 +45,7 @@ export function WhyChooseUs({ className, variant = "default" }: WhyChooseUsProps
               isDark ? "text-gray-400" : "text-gray-600"
             )}
           >
-            Adelaide&apos;s fastest-growing electrical team, built on quality
+            South Australia&apos;s fastest-growing electrical team, built on quality
             workmanship and genuine customer care.
           </p>
         </motion.div>

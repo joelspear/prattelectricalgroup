@@ -92,7 +92,7 @@ export const commercialFAQs: FAQItem[] = [
   {
     question: "Do you handle large commercial projects?",
     answer:
-      "Yes, we service everything from small retail fit-outs to large commercial solar installations. We've built relationships with Adelaide's largest electrical suppliers.",
+      "Yes, we service everything from small retail fit-outs to large commercial solar installations. We've built strong relationships with South Australia's largest electrical suppliers.",
   },
   {
     question: "Can you work outside business hours to avoid disruption?",
@@ -122,7 +122,7 @@ export const generalFAQs: FAQItem[] = [
   {
     question: "What areas do you service?",
     answer:
-      "We service all of South Australia, with a focus on the Adelaide metropolitan area.",
+      "We service all of South Australia.",
     link: { text: "View service areas", href: "/service-areas" },
   },
   {

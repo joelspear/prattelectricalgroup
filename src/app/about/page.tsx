@@ -10,9 +10,9 @@ import { contactInfo, credentials } from "@/data/siteData";
 import { Shield, Award, Users, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Pratt Electrical | Adelaide Electrical & Solar Company",
+  title: "About Pratt Electrical | South Australia Electrical & Solar Company",
   description:
-    "Meet the Pratt Electrical team. Adelaide's fastest-growing electrical and solar company. Founded 2020. SAA accredited. Licensed electricians.",
+    "Meet the Pratt Electrical team. South Australia's fastest-growing electrical and solar company. Founded 2020. SAA accredited. Licensed electricians.",
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
       <main>
         {/* Hero Section */}
         <Hero
-          headline="Adelaide's Fastest-Growing Electrical Team"
+          headline="South Australia's Fastest-Growing Electrical Team"
           subheadline="Founded in 2020, built on reputation. Quality workmanship and genuine customer care have driven our rapid growth."
           variant="about"
           showTrustBadges={false}
@@ -47,12 +47,12 @@ export default function AboutPage() {
                 </p>
                 <p>
                   We were right. In just five years – including launching during a
-                  global pandemic – we&apos;ve built relationships with Adelaide&apos;s
+                  global pandemic – we&apos;ve built relationships with South Australia&apos;s
                   largest electrical groups and suppliers, and served hundreds of
-                  residential and commercial customers across South Australia.
+                  residential and commercial customers across the state.
                 </p>
                 <p>
-                  We&apos;re not the biggest electrical company in Adelaide – but we&apos;re
+                  We&apos;re not the biggest electrical company in South Australia – but we&apos;re
                   one of the fastest-growing. And that growth is proof that quality
                   still wins.
                 </p>
@@ -127,7 +127,7 @@ export default function AboutPage() {
                     an electrical company that puts quality and customer care
                     first. With years of experience in both residential and
                     commercial electrical work, James leads a growing team of
-                    skilled electricians serving Adelaide.
+                    skilled electricians serving South Australia.
                   </p>
                 </div>
               </div>

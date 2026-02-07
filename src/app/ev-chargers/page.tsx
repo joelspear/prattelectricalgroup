@@ -93,7 +93,7 @@ const evFAQs = [
   {
     question: "Do I need to upgrade my switchboard for an EV charger?",
     answer:
-      "Many Adelaide homes, especially those built before 2000, may need a switchboard upgrade to safely handle EV charging. We'll assess this during our free site visit and include any necessary upgrades in your quote.",
+      "Many homes, especially those built before 2000, may need a switchboard upgrade to safely handle EV charging. We'll assess this during our free site visit and include any necessary upgrades in your quote.",
   },
   {
     question: "What's the difference between Level 1 and Level 2 charging?",
@@ -149,7 +149,7 @@ export default function EVChargersPage() {
                   Charge Your EV at Home
                 </h1>
                 <p className="text-lg text-gray-300 mb-8">
-                  Professional EV charger installation for Adelaide homes and
+                  Professional EV charger installation for South Australian homes and
                   businesses. Wake up to a full charge every day, and save money
                   with home charging.
                 </p>
@@ -378,7 +378,7 @@ export default function EVChargersPage() {
         <FAQ
           items={evFAQs}
           title="EV Charger FAQs"
-          subtitle="Common questions about home EV charger installation in Adelaide."
+          subtitle="Common questions about home EV charger installation in South Australia."
           className="bg-gray-50"
         />
 

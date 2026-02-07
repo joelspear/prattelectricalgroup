@@ -20,7 +20,7 @@ export default function HomePage() {
       <main>
         {/* Hero Section with Quote Form */}
         <Hero
-          headline="Adelaide's Trusted Electrical & Solar Experts"
+          headline="South Australia's Trusted Electrical & Solar Experts"
           subheadline="Quality solar installations and electrical workmanship since 2020. SAA accredited, free quotes."
           variant="home"
         >

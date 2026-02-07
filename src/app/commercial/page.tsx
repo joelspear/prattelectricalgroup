@@ -15,9 +15,9 @@ import { commercialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Commercial Electrician Adelaide | Business Electrical Services",
+  title: "Commercial Electrician South Australia | Business Electrical Services",
   description:
-    "Commercial electrical services for Adelaide businesses. Office fit-outs, LED upgrades, data cabling, security systems. Licensed, insured.",
+    "Commercial electrical services across South Australia. Office fit-outs, LED upgrades, data cabling, security systems. Licensed, insured.",
 };
 
 const commercialProjects = projects.filter((p) => p.category === "commercial");
@@ -30,7 +30,7 @@ export default function CommercialPage() {
         {/* Hero Section */}
         <ServiceHero
           title="Commercial Electrical Services"
-          subtitle="Powering Adelaide businesses with reliable electrical solutions. From office fit-outs to industrial installations, we deliver on time and on budget."
+          subtitle="Powering South Australian businesses with reliable electrical solutions. From office fit-outs to industrial installations, we deliver on time and on budget."
           iconName="Building2"
           features={[
             "Office & Retail Fit-Outs",
@@ -44,7 +44,7 @@ export default function CommercialPage() {
         {/* Services List */}
         <ServiceList
           title="Commercial Electrical Services"
-          subtitle="Comprehensive electrical solutions for businesses of all sizes across Adelaide."
+          subtitle="Comprehensive electrical solutions for businesses of all sizes across South Australia."
           services={services.commercial.services}
           columns={3}
         />
@@ -56,7 +56,7 @@ export default function CommercialPage() {
               <h2 className="mb-6">Built for Business</h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Since 2020, Pratt Electrical Group has built strong relationships
-                with Adelaide&apos;s largest electrical groups and suppliers. Our rapid
+                with South Australia&apos;s largest electrical groups and suppliers. Our rapid
                 growth is proof of our commitment to quality commercial work,
                 delivered on schedule with minimal disruption to your operations.
               </p>
@@ -93,7 +93,7 @@ export default function CommercialPage() {
             <div className="text-center mb-12">
               <h2 className="mb-4">Commercial Projects</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                From small offices to large commercial developments across Adelaide.
+                From small offices to large commercial developments across South Australia.
               </p>
             </div>
             <ProjectGallery

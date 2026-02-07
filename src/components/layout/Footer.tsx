@@ -17,7 +17,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Logo theme="dark" className="h-10 mb-6" />
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Adelaide&apos;s trusted electrical and solar experts. Quality workmanship,
+              South Australia&apos;s trusted electrical and solar experts. Quality workmanship,
               SAA accredited solar installation.
             </p>
             {/* SAA Badge Placeholder */}

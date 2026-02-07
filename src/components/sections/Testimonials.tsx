@@ -63,7 +63,7 @@ export function Testimonials({
           >
             <h2 className="mb-4">What Our Customers Say</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Don&apos;t just take our word for it. Here&apos;s what Adelaide
+              Don&apos;t just take our word for it. Here&apos;s what South Australian
               homeowners and businesses say about working with us.
             </p>
             {/* Google Rating Badge */}

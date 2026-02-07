@@ -25,11 +25,10 @@ export function ServiceAreas({ className }: ServiceAreasProps) {
               <MapPin className="h-5 w-5" />
               <span className="font-medium">Service Areas</span>
             </div>
-            <h2 className="mb-4">Proudly Serving Adelaide</h2>
+            <h2 className="mb-4">Proudly Serving All of South Australia</h2>
             <p className="text-gray-600 mb-8">
-              Based in Christies Beach, we service the entire Adelaide
-              metropolitan area. From the city to the southern suburbs, our team
-              is ready to help with all your electrical and solar needs.
+              Based in Christies Beach, we service all of South Australia.
+              Our team is ready to help with all your electrical and solar needs.
             </p>
 
             {/* Service areas list */}
@@ -50,7 +49,7 @@ export function ServiceAreas({ className }: ServiceAreasProps) {
             </div>
 
             <p className="mt-6 text-sm text-gray-500">
-              + All Adelaide metropolitan suburbs
+              + All of South Australia
             </p>
           </motion.div>
 
@@ -68,7 +67,7 @@ export function ServiceAreas({ className }: ServiceAreasProps) {
                 <div className="text-center p-8">
                   <MapPin className="h-16 w-16 mx-auto text-primary-500 mb-4" />
                   <p className="text-charcoal font-semibold">
-                    Adelaide Metropolitan Area
+                    South Australia Wide
                   </p>
                   <p className="text-sm text-gray-600 mt-2">
                     Christies Beach, SA 5165

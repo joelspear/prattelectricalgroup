@@ -26,13 +26,13 @@ const features = [
     icon: Users,
     title: "Local Team",
     description:
-      "Adelaide-based electricians who understand South Australian homes.",
+      "South Australian electricians who understand local homes.",
   },
   {
     icon: Award,
     title: "5-Star Service",
     description:
-      "Consistently rated 5 stars by our customers across Adelaide.",
+      "Consistently rated 5 stars by our customers across South Australia.",
   },
 ];
 
@@ -50,7 +50,7 @@ export function AboutSection({ className }: AboutSectionProps) {
           >
             {/* Eyebrow */}
             <span className="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-4 block">
-              Why Adelaide Chooses Us
+              Why South Australia Chooses Us
             </span>
 
             {/* Headline */}
@@ -69,7 +69,7 @@ export function AboutSection({ className }: AboutSectionProps) {
               Whether it&apos;s a small repair or a complete solar installation, our
               team brings the same dedication to every project. We don&apos;t just
               install electrical systems – we build lasting relationships with
-              our customers across Adelaide.
+              our customers across South Australia.
             </p>
 
             {/* Features Grid */}
@@ -111,7 +111,7 @@ export function AboutSection({ className }: AboutSectionProps) {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80"
-                alt="Solar panel installation in Adelaide"
+                alt="Solar panel installation in South Australia"
                 width={600}
                 height={500}
                 className="w-full h-auto object-cover"

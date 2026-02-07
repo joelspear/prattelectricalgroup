@@ -28,7 +28,7 @@ interface ServiceHeroProps {
 const trustBadges = [
   { icon: Shield, text: "Licensed & Insured" },
   { icon: Clock, text: "Fast Response" },
-  { icon: MapPin, text: "Adelaide Metro" },
+  { icon: MapPin, text: "All of South Australia" },
 ];
 
 export function ServiceHero({

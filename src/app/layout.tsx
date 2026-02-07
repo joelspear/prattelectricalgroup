@@ -5,17 +5,19 @@ import { ChatBotWrapper } from "@/components/chat/ChatBotWrapper";
 export const metadata: Metadata = {
   metadataBase: new URL("https://prattelectrical.fuelmysocial.com.au"),
   title: {
-    default: "Pratt Electrical Group | Adelaide Electrician & Solar Installer",
+    default: "Pratt Electrical Group | South Australia Electrician & Solar Installer",
     template: "%s | Pratt Electrical Group",
   },
   description:
-    "Adelaide's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes. Call 0474 320 534.",
+    "South Australia's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes. Call 0474 320 534.",
   keywords: [
+    "electrician South Australia",
     "electrician Adelaide",
+    "solar installer South Australia",
     "solar installer Adelaide",
-    "commercial electrician Adelaide",
-    "residential electrician Adelaide",
-    "solar panels Adelaide",
+    "commercial electrician SA",
+    "residential electrician SA",
+    "solar panels South Australia",
     "SAA accredited installer",
   ],
   authors: [{ name: "Pratt Electrical Group" }],
@@ -25,23 +27,23 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: "https://prattelectrical.fuelmysocial.com.au",
     siteName: "Pratt Electrical Group",
-    title: "Pratt Electrical Group | Adelaide Electrician & Solar Installer",
+    title: "Pratt Electrical Group | South Australia Electrician & Solar Installer",
     description:
-      "Adelaide's trusted electrical and solar experts. SAA accredited. Free quotes.",
+      "South Australia's trusted electrical and solar experts. SAA accredited. Free quotes.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Pratt Electrical Group - Adelaide's Trusted Electrical & Solar Experts",
+        alt: "Pratt Electrical Group - South Australia's Trusted Electrical & Solar Experts",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pratt Electrical Group | Adelaide Electrician & Solar Installer",
+    title: "Pratt Electrical Group | South Australia Electrician & Solar Installer",
     description:
-      "Adelaide's trusted electrical and solar experts. SAA accredited.",
+      "South Australia's trusted electrical and solar experts. SAA accredited.",
     images: ["/og-image.jpg"],
   },
   robots: {

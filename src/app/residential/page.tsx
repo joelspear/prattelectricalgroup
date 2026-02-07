@@ -15,9 +15,9 @@ import { residentialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Residential Electrician Adelaide | Home Electrical Services",
+  title: "Residential Electrician South Australia | Home Electrical Services",
   description:
-    "Expert residential electrical services in Adelaide. New builds, renovations, switchboard upgrades, lighting, safety switches. Licensed electricians. Free quotes.",
+    "Expert residential electrical services across South Australia. New builds, renovations, switchboard upgrades, lighting, safety switches. Licensed electricians. Free quotes.",
 };
 
 const residentialProjects = projects.filter((p) => p.category === "residential");
@@ -31,7 +31,7 @@ export default function ResidentialPage() {
         {/* Hero Section */}
         <ServiceHero
           title="Residential Electrical Services"
-          subtitle="From small repairs to complete rewires – quality electrical work for Adelaide homes. Licensed, insured, and committed to your satisfaction."
+          subtitle="From small repairs to complete rewires – quality electrical work for South Australian homes. Licensed, insured, and committed to your satisfaction."
           iconName="Home"
           features={[
             "Switchboard Upgrades",
@@ -60,7 +60,7 @@ export default function ResidentialPage() {
             <div className="text-center mb-12">
               <h2 className="mb-4">Recent Residential Projects</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                See examples of our work in homes across Adelaide.
+                See examples of our work in homes across South Australia.
               </p>
             </div>
             <ProjectGallery
@@ -75,7 +75,7 @@ export default function ResidentialPage() {
         <FAQ
           items={residentialFAQs}
           title="Residential Electrical FAQs"
-          subtitle="Common questions about home electrical services in Adelaide."
+          subtitle="Common questions about home electrical services in South Australia."
           className="bg-gray-50"
         />
 

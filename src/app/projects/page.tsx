@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Our Projects | Electrical & Solar Gallery",
   description:
-    "View our completed electrical and solar projects across Adelaide. Residential, commercial, and solar installations.",
+    "View our completed electrical and solar projects across South Australia. Residential, commercial, and solar installations.",
 };
 
 export default function ProjectsPage() {
@@ -17,7 +17,7 @@ export default function ProjectsPage() {
         {/* Hero */}
         <Hero
           headline="Our Projects"
-          subheadline="Browse our portfolio of completed electrical and solar projects across Adelaide. Quality workmanship you can see."
+          subheadline="Browse our portfolio of completed electrical and solar projects across South Australia. Quality workmanship you can see."
           variant="about"
           showTrustBadges={false}
         />

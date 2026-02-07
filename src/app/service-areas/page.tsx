@@ -476,7 +476,7 @@ export default function ServiceAreasPage() {
 
         {/* Final CTA */}
         <CTASection
-          title="Adelaide's Trusted Local Electricians"
+          title="South Australia's Trusted Local Electricians"
           subtitle="Based in Christies Beach, servicing all of South Australia."
           variant="primary"
         />

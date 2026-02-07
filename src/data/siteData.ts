@@ -3,9 +3,9 @@
 export const siteConfig = {
   name: "Pratt Electrical Group",
   shortName: "Pratt Electrical",
-  tagline: "Adelaide's Trusted Electrical & Solar Experts",
+  tagline: "South Australia's Trusted Electrical & Solar Experts",
   description:
-    "Adelaide's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes.",
+    "South Australia's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes.",
   url: "https://prattelectrical.fuelmysocial.com.au",
   productionUrl: "https://www.prattelectricalgroup.com",
 };
@@ -44,7 +44,7 @@ export const credentials = {
 };
 
 export const trustStats = [
-  { value: "5+", label: "Years Serving Adelaide" },
+  { value: "5+", label: "Years Serving South Australia" },
   { value: "500+", label: "Projects Completed" },
   { value: "SAA", label: "Accredited Installers" },
   { value: "100%", label: "Customer Satisfaction" },
@@ -55,7 +55,7 @@ export const services = {
     title: "Residential Electrical",
     slug: "residential",
     shortDescription:
-      "Expert electrical services for Adelaide homes. From small repairs to complete rewires.",
+      "Expert electrical services for your home. From small repairs to complete rewires.",
     services: [
       "Switchboard Upgrades",
       "Lighting Installation",
@@ -74,7 +74,7 @@ export const services = {
     title: "Commercial Electrical",
     slug: "commercial",
     shortDescription:
-      "Reliable electrical solutions for Adelaide businesses. Office fit-outs to industrial.",
+      "Reliable electrical solutions for businesses across SA. Office fit-outs to industrial.",
     services: [
       "Office & Retail Fit-Outs",
       "LED Lighting Upgrades",

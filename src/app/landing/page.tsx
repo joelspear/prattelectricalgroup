@@ -5,9 +5,9 @@ import { GoHighLevelForm } from "@/components/forms/GoHighLevelForm";
 import { contactInfo, testimonials } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Get Your Free Electrical Quote | Pratt Electrical Group Adelaide",
+  title: "Get Your Free Electrical Quote | Pratt Electrical Group South Australia",
   description:
-    "Request a free quote from Adelaide's trusted electrical and solar experts. SAA accredited, quality workmanship guaranteed.",
+    "Request a free quote from South Australia's trusted electrical and solar experts. SAA accredited, quality workmanship guaranteed.",
   robots: { index: true, follow: true },
 };
 
@@ -68,7 +68,7 @@ export default function LandingPage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Adelaide&apos;s Trusted Electrical & Solar Experts
+                South Australia&apos;s Trusted Electrical & Solar Experts
               </h1>
 
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
@@ -84,7 +84,7 @@ export default function LandingPage() {
                   "SAA accredited solar installers",
                   "Free quotes with no obligation",
                   "Response within 2 business hours",
-                  "Serving all Adelaide metro areas",
+                  "Serving all of South Australia",
                 ].map((point) => (
                   <li key={point} className="flex items-center gap-3 text-gray-300">
                     <CheckCircle className="h-5 w-5 text-primary-400 flex-shrink-0" />
@@ -104,7 +104,7 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <span className="text-gray-300">
-                  4.9 stars from Adelaide customers
+                  4.9 stars from South Australian customers
                 </span>
               </div>
             </div>

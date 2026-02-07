@@ -25,7 +25,7 @@ export default function SolarPage() {
         {/* Hero Section */}
         <ServiceHero
           title="Solar & Battery Installation"
-          subtitle="Cut your electricity bills with Adelaide's trusted solar experts. SAA accredited installation with quality panels and inverters backed by solid warranties."
+          subtitle="Cut your electricity bills with South Australia's trusted solar experts. SAA accredited installation with quality panels and inverters backed by solid warranties."
           iconName="Sun"
           features={[
             "SAA Accredited Installers",
@@ -33,15 +33,15 @@ export default function SolarPage() {
             "Battery Storage Systems",
             "Government Rebate Assistance",
             "Long-Term Warranties",
-            "Local Adelaide Team",
+            "Local SA Team",
           ]}
         />
 
-        {/* Why Solar in Adelaide */}
+        {/* Why Solar in South Australia */}
         <section className="section bg-white">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="mb-4">Why Adelaide is Perfect for Solar</h2>
+              <h2 className="mb-4">Why South Australia is Perfect for Solar</h2>
               <p className="text-lg text-gray-600">
                 South Australia has the highest electricity prices in the country
                 and some of the best sunshine. The combination makes solar one of
@@ -67,7 +67,7 @@ export default function SolarPage() {
                 </div>
                 <h4 className="font-semibold mb-2">Abundant Sunshine</h4>
                 <p className="text-sm text-gray-600">
-                  Adelaide averages over 2,500 hours of sunshine per year – ideal
+                  South Australia averages over 2,500 hours of sunshine per year – ideal
                   for solar generation.
                 </p>
               </div>
@@ -231,7 +231,7 @@ export default function SolarPage() {
             <div className="text-center mb-12">
               <h2 className="mb-4">Solar Installations</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Recent solar and battery installations across Adelaide.
+                Recent solar and battery installations across South Australia.
               </p>
             </div>
             <ProjectGallery
@@ -246,7 +246,7 @@ export default function SolarPage() {
         <FAQ
           items={solarFAQs}
           title="Solar Installation FAQs"
-          subtitle="Common questions about solar panels and battery storage in Adelaide."
+          subtitle="Common questions about solar panels and battery storage in South Australia."
           className="bg-white"
         />
 
@@ -290,7 +290,7 @@ export default function SolarPage() {
         {/* Final CTA */}
         <CTASection
           title="Ready to Go Solar?"
-          subtitle="Join thousands of Adelaide homeowners saving money with solar."
+          subtitle="Join thousands of South Australian homeowners saving money with solar."
           variant="primary"
         />
       </main>

@@ -26,7 +26,7 @@ interface HeroProps {
 const trustBadges = [
   { icon: Shield, text: "SAA Accredited" },
   { icon: Clock, text: "Fast Response" },
-  { icon: MapPin, text: "Adelaide Based" },
+  { icon: MapPin, text: "South Australia Wide" },
 ];
 
 export function Hero({
