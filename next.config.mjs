@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.cloudflare.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
     // Static export requires unoptimized images
     unoptimized: true,
