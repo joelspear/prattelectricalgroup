@@ -8,7 +8,7 @@ export const projects: Project[] = [
     location: "Flagstaff Hill, SA",
     description:
       "Complete switchboard upgrade for a 1980s family home. Installed modern safety switches and circuit breakers to meet current Australian standards.",
-    image: "/images/projects/switchboard-upgrade.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical3",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const projects: Project[] = [
     location: "Hallett Cove, SA",
     description:
       "Residential 10kW solar system installation with battery backup. Optimised panel placement for maximum north-facing exposure.",
-    image: "/images/projects/solar-residential.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical4",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     location: "Adelaide CBD, SA",
     description:
       "Complete electrical fit-out for a new office space including LED lighting, data cabling, and power distribution.",
-    image: "/images/projects/office-fitout.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical5",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     location: "Noarlunga, SA",
     description:
       "Warehouse LED lighting upgrade reducing energy consumption by 60%. Improved lighting quality for safer work environment.",
-    image: "/images/projects/led-upgrade.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical6",
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     location: "Christies Beach, SA",
     description:
       "Full house rewiring for heritage property. Careful installation to preserve original features while meeting modern safety standards.",
-    image: "/images/projects/home-rewire.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical7",
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     location: "Morphett Vale, SA",
     description:
       "30kW commercial solar installation for manufacturing facility. Significant reduction in operating costs with 4-year payback period.",
-    image: "/images/projects/solar-commercial.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical8",
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     location: "Happy Valley, SA",
     description:
       "Tesla Wall Connector installation with dedicated circuit. Integrated with existing solar system for sustainable charging.",
-    image: "/images/projects/ev-charger.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical9",
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     location: "Adelaide, SA",
     description:
       "New retail store electrical installation including display lighting, point of sale power, and security systems.",
-    image: "/images/projects/retail-store.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical10",
   },
   {
     id: 9,
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     location: "Aldinga Beach, SA",
     description:
       "Tesla Powerwall 2 installation paired with existing solar system. Providing backup power and maximising self-consumption.",
-    image: "/images/projects/battery-storage.jpg",
+    image: "https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical11",
   },
 ];
 

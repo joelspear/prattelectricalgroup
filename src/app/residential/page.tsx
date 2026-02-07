@@ -33,6 +33,7 @@ export default function ResidentialPage() {
           title="Residential Electrical Services"
           subtitle="From small repairs to complete rewires – quality electrical work for Adelaide homes. Licensed, insured, and committed to your satisfaction."
           iconName="Home"
+          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical14"
           features={[
             "Switchboard Upgrades",
             "Lighting Installation",

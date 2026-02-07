@@ -7,6 +7,7 @@ import {
   CTASection,
 } from "@/components/sections";
 import { contactInfo, credentials } from "@/data/siteData";
+import Image from "next/image";
 import { Shield, Award, Users, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function AboutPage() {
           subheadline="Founded in 2020, built on reputation. Quality workmanship and genuine customer care have driven our rapid growth."
           variant="about"
           showTrustBadges={false}
+          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical13"
         />
 
         {/* Our Story */}
@@ -115,8 +117,14 @@ export default function AboutPage() {
               <div className="text-center">
                 {/* Team member card */}
                 <div className="bg-gray-50 rounded-2xl p-8">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center">
-                    <Users className="h-16 w-16 text-primary-500" />
+                  <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                    <Image
+                      src="https://res.cloudinary.com/dhzl5ccct/image/upload/James_Pratt_Headshot_paaoqy"
+                      alt="James Pratt - Founder & Lead Electrician"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{contactInfo.owner}</h3>
                   <p className="text-primary-500 font-medium mb-4">

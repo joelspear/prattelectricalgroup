@@ -27,6 +27,7 @@ export default function SolarPage() {
           title="Solar & Battery Installation"
           subtitle="Cut your electricity bills with Adelaide's trusted solar experts. CEC accredited installation with quality panels and inverters backed by solid warranties."
           iconName="Sun"
+          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical16"
           features={[
             "CEC Accredited Installers",
             "Premium Panel Brands",
