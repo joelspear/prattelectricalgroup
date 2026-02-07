@@ -32,7 +32,7 @@ export default function CommercialPage() {
           title="Commercial Electrical Services"
           subtitle="Powering South Australian businesses with reliable electrical solutions. From office fit-outs to industrial installations, we deliver on time and on budget."
           iconName="Building2"
-          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical13.jpg"
+          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical20_dpkipz.jpg"
           features={[
             "Office & Retail Fit-Outs",
             "LED Lighting Upgrades",

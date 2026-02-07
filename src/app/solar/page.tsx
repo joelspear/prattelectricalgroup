@@ -27,7 +27,7 @@ export default function SolarPage() {
           title="Solar & Battery Installation"
           subtitle="Cut your electricity bills with South Australia's trusted solar experts. SAA accredited installation with quality panels and inverters backed by solid warranties."
           iconName="Sun"
-          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical14.jpg"
+          backgroundImage="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical21_lena3p.jpg"
           features={[
             "SAA Accredited Installers",
             "Premium Panel Brands",
