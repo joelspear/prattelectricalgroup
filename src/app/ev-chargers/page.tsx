@@ -195,7 +195,7 @@ export default function EVChargersPage() {
               >
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical16"
+                    src="https://res.cloudinary.com/dhzl5ccct/image/upload/Pratt_Electrical16.jpg"
                     alt="EV charger installation"
                     fill
                     className="object-cover"

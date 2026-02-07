@@ -118,7 +118,7 @@ export default function AboutPage() {
                 <div className="bg-gray-50 rounded-2xl p-8">
                   <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
                     <Image
-                      src="https://res.cloudinary.com/dhzl5ccct/image/upload/James_Pratt_Headshot_paaoqy"
+                      src="https://res.cloudinary.com/dhzl5ccct/image/upload/James_Pratt_Headshot_paaoqy.jpg"
                       alt="James Pratt - Founder & Lead Electrician"
                       width={128}
                       height={128}
