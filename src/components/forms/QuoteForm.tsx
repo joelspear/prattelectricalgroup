@@ -78,16 +78,16 @@ export function QuoteForm({
     try {
       // Submit to GoHighLevel webhook
       const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/02d048a7-7aa7-4ba7-83db-0c0f11a8eb2c",
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/f095bf77-3f42-47fa-a950-68d1309b0ddd",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            customerType: data.customerType,
-            name: data.name,
+            full_name: data.name,
             phone: data.phone,
+            customerType: data.customerType,
             service: data.service,
             suburb: data.suburb,
             message: data.message || "",
@@ -99,6 +99,10 @@ export function QuoteForm({
 
       if (response.ok) {
         setSubmitStatus("success");
+        setTimeout(() => {
+          reset();
+          setSubmitStatus("idle");
+        }, 5000);
       } else {
         console.error("Form submission failed:", response.statusText);
         setSubmitStatus("error");
@@ -108,13 +112,6 @@ export function QuoteForm({
       setSubmitStatus("error");
     }
 
-    // Reset form after delay if successful
-    if (submitStatus !== "error") {
-      setTimeout(() => {
-        reset();
-        setSubmitStatus("idle");
-      }, 5000);
-    }
   };
 
   const isDark = variant === "dark";
