@@ -78,7 +78,7 @@ export function QuoteForm({
     try {
       // Submit to GoHighLevel webhook
       const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/f095bf77-3f42-47fa-a950-68d1309b0ddd",
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/36a7724f-4ec3-4adb-92f4-1ed4b39f1b62",
         {
           method: "POST",
           headers: {
