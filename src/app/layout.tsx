@@ -91,6 +91,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
         <ChatBotWrapper />
+        <script src="https://link.msgsndr.com/js/form_embed.js" async />
       </body>
     </html>
   );
