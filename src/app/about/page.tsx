@@ -30,16 +30,28 @@ export default function AboutPage() {
         />
 
         {/* Our Story */}
-        <section className="section bg-white">
+        <section className="section bg-neutral-light">
           <div className="container-custom">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-center mb-8">Our Story</h2>
-              <div className="prose prose-lg max-w-none text-gray-600">
-                <p className="lead text-xl text-charcoal font-medium mb-6">
-                  Pratt Electrical Group was founded in 2020 with a simple goal:
-                  deliver exceptional electrical and solar services that speak for
-                  themselves.
-                </p>
+            <div className="text-center mb-12">
+              <h2 className="mb-4">Our Story</h2>
+              <p className="text-lg max-w-2xl mx-auto text-gray-600">
+                Pratt Electrical Group was founded in 2020 with a simple goal:
+                deliver exceptional electrical and solar services that speak for
+                themselves.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical11_ahahxn.jpg"
+                  alt="Pratt Electrical team at work"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="text-center md:text-left space-y-4 text-gray-600">
                 <p>
                   While many companies rely on aggressive marketing, we focused on
                   quality workmanship and genuine customer care. We believed that
