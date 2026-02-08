@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
@@ -8,7 +10,8 @@ import {
   Phone,
   CheckCircle,
   Shield,
-  Award,
+  Clock,
+  MapPin,
   Zap,
   TrendingUp,
   BadgeDollarSign,
@@ -18,6 +21,7 @@ import {
   Sun,
   Car,
   Building2,
+  Award,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
@@ -25,6 +29,11 @@ import { LandingForm } from "./LandingForm";
 import { StickyBar } from "./StickyBar";
 import type { LandingPageData } from "@/data/landingPages";
 import { trustBadges, howItWorks } from "@/data/landingPages";
+
+const LOGO_LIGHT =
+  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_copy_tr41ry.png";
+const SAA_LOGO =
+  "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_40/SAA-Logo-Blue-White_wqwe6l.png";
 
 const iconMap: Record<string, React.ReactNode> = {
   Zap: <Zap className="h-6 w-6" />,
@@ -87,135 +96,165 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
 
   return (
     <>
-      {/* ==================== HERO ==================== */}
-      <section className="relative bg-gradient-to-br from-charcoal via-gray-900 to-charcoal overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-500/10 via-transparent to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
-            >
-              {data.hero.headline}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed"
-            >
-              {data.hero.subheadline}
-            </motion.p>
+      {/* ==================== HERO WITH NAV + FORM ==================== */}
+      <section className="relative overflow-hidden min-h-[85vh] flex flex-col">
+        {/* Background */}
+        <div className="absolute inset-0 bg-charcoal">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-500/15 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-charcoal/95 via-charcoal/80 to-charcoal/60" />
+        </div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+        {/* Nav bar */}
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <Link href="/" aria-label="Pratt Electrical Group">
+              <Image
+                src={LOGO_LIGHT}
+                alt="Pratt Electrical Group"
+                width={200}
+                height={50}
+                className="h-8 sm:h-10 w-auto object-contain"
+                priority
+              />
+            </Link>
+            <a
+              href="tel:+61474320534"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-primary-400 transition-colors"
             >
-              <Button href="#booking" size="lg">
-                <Phone className="h-5 w-5" />
-                Book a Free 10-Min Chat
-              </Button>
-              <Button href="#quote-form" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-charcoal">
-                Get a Free Quote
-              </Button>
-            </motion.div>
+              <Phone className="h-4 w-4" />
+              <span className="hidden sm:inline">0474 320 534</span>
+              <span className="sm:hidden">Call Us</span>
+            </a>
+          </div>
+        </div>
 
-            {/* Trust Badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-3"
-            >
-              {trustBadges.map((badge) => (
-                <span
-                  key={badge}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-xs sm:text-sm font-medium backdrop-blur-sm"
+        {/* Hero content */}
+        <div className="relative z-10 flex-1 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+              {/* Left — text content */}
+              <div>
+                {/* Trust badges */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="flex flex-wrap gap-3 mb-6"
                 >
-                  <Shield className="h-3.5 w-3.5 text-primary-400" />
-                  {badge}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
+                  {[
+                    { icon: Shield, text: "CEC Accredited" },
+                    { icon: Clock, text: "Fast Response" },
+                    { icon: MapPin, text: "Local Adelaide Team" },
+                  ].map((badge, index) => (
+                    <motion.div
+                      key={badge.text}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                      className="trust-badge"
+                    >
+                      <badge.icon className="h-4 w-4 text-primary-500" />
+                      <span>{badge.text}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
 
-      {/* ==================== PROBLEM / AGITATION ==================== */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-10"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              {data.painPoints.heading}
-            </h2>
-          </motion.div>
-          <div className="space-y-4">
-            {data.painPoints.points.map((point, i) => (
+                {/* Headline */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
+                >
+                  {data.hero.headline}
+                </motion.h1>
+
+                {/* Subheadline */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-xl"
+                >
+                  {data.hero.subheadline}
+                </motion.p>
+
+                {/* CTA buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="flex flex-wrap gap-4 mb-6"
+                >
+                  <Button href="#booking" size="lg">
+                    <Phone className="h-5 w-5" />
+                    Book a Free 10-Min Chat
+                  </Button>
+                  <Button
+                    href="#quote-form"
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white hover:text-charcoal"
+                  >
+                    Get a Free Quote
+                  </Button>
+                </motion.div>
+
+                {/* SAA Logo */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                >
+                  <img
+                    src={SAA_LOGO}
+                    alt="SAA Accredited Installer"
+                    className="h-10 w-auto"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Right — form (desktop) */}
               <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="hidden lg:block"
               >
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold text-sm">
-                  {i + 1}
-                </span>
-                <p className="text-gray-700 leading-relaxed">{point}</p>
+                <LandingForm
+                  source={data.formSource}
+                  showPowerBillField={data.showPowerBillField}
+                  showExistingSolarField={data.showExistingSolarField}
+                />
               </motion.div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ==================== SOLUTION ==================== */}
-      <section className="py-16 md:py-20 bg-white">
+      {/* Mobile form (below hero, same as homepage pattern) */}
+      <div className="lg:hidden py-8 px-4 bg-charcoal">
+        <div className="max-w-md mx-auto">
+          <LandingForm
+            source={data.formSource}
+            showPowerBillField={data.showPowerBillField}
+            showExistingSolarField={data.showExistingSolarField}
+          />
+        </div>
+      </div>
+
+      {/* ==================== TRUST BADGES BAR ==================== */}
+      <section className="bg-white border-y border-gray-100 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {data.solution.heading}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              {data.solution.description}
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {data.solution.benefits.map((benefit, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="text-center p-6 md:p-8 bg-gray-50 rounded-xl hover:shadow-md transition-shadow"
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+            {trustBadges.map((badge) => (
+              <div
+                key={badge}
+                className="flex items-center gap-2 text-sm font-medium text-gray-700"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 text-primary-500 mb-4">
-                  {iconMap[benefit.icon] || <Zap className="h-6 w-6" />}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </motion.div>
+                <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
+                {badge}
+              </div>
             ))}
           </div>
         </div>
@@ -265,7 +304,7 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
         </div>
       </section>
 
-      {/* ==================== SOCIAL PROOF ==================== */}
+      {/* ==================== SOCIAL PROOF / TESTIMONIALS ==================== */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -326,7 +365,7 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
         </div>
       </section>
 
-      {/* ==================== FAQ ==================== */}
+      {/* ==================== PROBLEM / AGITATION ==================== */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -337,37 +376,67 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              Frequently Asked Questions
+              {data.painPoints.heading}
             </h2>
           </motion.div>
+          <div className="space-y-4">
+            {data.painPoints.points.map((point, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold text-sm">
+                  {i + 1}
+                </span>
+                <p className="text-gray-700 leading-relaxed">{point}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* ==================== SOLUTION / WHAT WE DO ==================== */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white rounded-xl shadow-sm border border-gray-100 px-6"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
           >
-            {data.faqs.map((faq, i) => (
-              <FAQItem
-                key={i}
-                item={faq}
-                isOpen={openFAQ === i}
-                onToggle={() => setOpenFAQ(openFAQ === i ? null : i)}
-              />
-            ))}
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {data.solution.heading}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              {data.solution.description}
+            </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* ==================== LEAD CAPTURE FORM ==================== */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <LandingForm
-            source={data.formSource}
-            showPowerBillField={data.showPowerBillField}
-            showExistingSolarField={data.showExistingSolarField}
-          />
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {data.solution.benefits.map((benefit, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="text-center p-6 md:p-8 bg-gray-50 rounded-xl hover:shadow-md transition-shadow"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 text-primary-500 mb-4">
+                  {iconMap[benefit.icon] || <Zap className="h-6 w-6" />}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -412,6 +481,40 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
         </div>
       </section>
 
+      {/* ==================== FAQ (at the bottom) ==================== */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white rounded-xl shadow-sm border border-gray-100 px-6"
+          >
+            {data.faqs.map((faq, i) => (
+              <FAQItem
+                key={i}
+                item={faq}
+                isOpen={openFAQ === i}
+                onToggle={() => setOpenFAQ(openFAQ === i ? null : i)}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* ==================== FINAL CTA ==================== */}
       <section className="py-16 md:py-20 bg-primary-500 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -450,7 +553,7 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
       {/* Sticky Bar */}
       <StickyBar />
 
-      {/* Bottom padding to prevent sticky bar from covering content on mobile */}
+      {/* Bottom padding for sticky bar on mobile */}
       <div className="h-16 sm:h-0" />
     </>
   );
