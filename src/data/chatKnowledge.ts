@@ -29,7 +29,9 @@ const knowledgeBase = {
 
 The best way to get an accurate price is a free quote — we'll assess your roof, check your power usage, and recommend the right system. Government rebates of up to $20,000 are available and we handle all the paperwork.
 
-Want me to help arrange a free quote?`,
+📅 **Book a quick 10-min discovery call** and we'll chat through your options: ${DISCOVERY_CALL_URL}
+
+Or call us directly on ${contactInfo.phoneFormatted}!`,
   },
 
   // Battery
@@ -41,7 +43,7 @@ Battery storage lets you use your solar power at night and during blackouts — 
 
 Government rebates are available to help reduce the cost. The best way to find the right battery for your setup is a free assessment.
 
-Would you like a free quote to see what works best?`,
+📅 **Book a quick 10-min discovery call** to discuss your options: ${DISCOVERY_CALL_URL}`,
   },
 
   // EV Charger
@@ -51,7 +53,9 @@ Would you like a free quote to see what works best?`,
 
 We install a range of EV chargers for both residential and commercial properties. If you have solar, we can set up smart charging to use your excess solar power!
 
-Every installation is different, so the best way to get accurate pricing is a free quote. Want me to help arrange that?`,
+Every installation is different, so the best way to get accurate pricing is a free assessment.
+
+📅 **Book a quick 10-min discovery call** to chat through your setup: ${DISCOVERY_CALL_URL}`,
   },
 
   // Electrical services
@@ -65,7 +69,9 @@ Every installation is different, so the best way to get accurate pricing is a fr
 • Lighting upgrades
 • General electrical maintenance
 
-Every job is different, so we provide a clear quote before any work begins — no hidden costs. Would you like to book a free quote?`,
+Every job is different, so we provide a clear quote before any work begins — no hidden costs.
+
+📅 **Book a quick 10-min discovery call** to discuss your needs: ${DISCOVERY_CALL_URL}`,
   },
 
   // Emergency
@@ -84,16 +90,16 @@ Is there anything else I can help with?`,
 
   // Book quote
   bookQuote: {
-    keywords: ["book", "quote", "appointment", "free quote", "consultation", "visit", "come out"],
+    keywords: ["book", "quote", "appointment", "free quote", "consultation", "visit", "come out", "discovery", "call"],
     response: (name: string) => `Fantastic, ${name}! I can help with that.
 
 You've got a few options:
 
-1. **Book online:** Visit our contact page to request a quote
+1. 📅 **Book a 10-min discovery call:** ${DISCOVERY_CALL_URL}
 2. **Call directly:** ${contactInfo.phoneFormatted}
 3. **Email:** ${contactInfo.email}
 
-We typically respond within 2 business hours during Mon-Fri 7am-5pm.
+The discovery call is a quick chat to understand your needs and give you a rough idea on pricing. No obligation!
 
 Which would work best for you?`,
   },
@@ -129,7 +135,7 @@ Any other questions about the process?`,
 
 We assess your actual electricity bills and usage patterns to recommend the right size. A system that's too small won't cover your needs, and too big wastes money.
 
-Want a free assessment to find your ideal size?`,
+📅 **Book a free discovery call** and we'll work it out together: ${DISCOVERY_CALL_URL}`,
   },
 
   // Warranty
@@ -182,7 +188,7 @@ Government rebates of up to $20,000 are available for solar and battery installa
 
 We handle all the rebate paperwork for you and our quoted prices include applicable rebates.
 
-Want a free quote to see how much you could save?`,
+📅 **Book a discovery call** to find out how much you could save: ${DISCOVERY_CALL_URL}`,
   },
 
   // Credentials
@@ -266,9 +272,9 @@ Want to know more about what we do?`,
     keywords: ["discount", "cheaper", "deal", "negotiate", "lower price", "best price"],
     response: (name: string) => `I can't negotiate pricing, ${name}, but I can tell you we always aim to be competitive and transparent. Our quotes include everything — no hidden costs.
 
-The best way to get accurate pricing is to book a free quote. We can discuss your specific needs and find the best solution for your budget.
+The best way to get accurate pricing is a quick chat with our team.
 
-Want me to help arrange that?`,
+📅 **Book a 10-min discovery call** and we'll find the best solution for your budget: ${DISCOVERY_CALL_URL}`,
   },
 
   // Referral
@@ -291,6 +297,31 @@ If you have any more questions later, feel free to come back and chat. Or you ca
 Have a great day!`,
   },
 };
+
+const DISCOVERY_CALL_URL = "https://api.leadconnectorhq.com/widget/bookings/10min-discovery-call";
+
+// Detect interest tags from user messages
+const tagKeywords: Record<string, string[]> = {
+  solar: ["solar", "panels", "solar system", "solar installation"],
+  battery: ["battery", "storage", "backup", "powerwall"],
+  "ev-charger": ["ev", "charger", "electric vehicle", "car charger", "charging"],
+  electrical: ["switchboard", "power point", "safety switch", "rcd", "electrician", "rewire", "lighting", "wiring"],
+  residential: ["residential", "home", "house"],
+  commercial: ["commercial", "business", "office", "warehouse", "shop"],
+};
+
+export function detectInterestTags(message: string): string[] {
+  const lower = message.toLowerCase();
+  const tags: string[] = [];
+
+  for (const [tag, keywords] of Object.entries(tagKeywords)) {
+    if (keywords.some((kw) => lower.includes(kw))) {
+      tags.push(tag);
+    }
+  }
+
+  return tags;
+}
 
 // Find the best matching response
 export function findResponse(query: string, userName: string): string {

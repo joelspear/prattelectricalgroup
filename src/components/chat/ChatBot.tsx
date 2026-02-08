@@ -5,7 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Zap, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { contactInfo } from "@/data/siteData";
-import { findResponse, getWelcomeMessage, getPostRegistrationMessage } from "@/data/chatKnowledge";
+import { findResponse, getWelcomeMessage, getPostRegistrationMessage, detectInterestTags } from "@/data/chatKnowledge";
+
+const GHL_CHATBOT_WEBHOOK =
+  "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/619b5785-1df4-46ac-ad21-f6472afbabda";
 
 interface Message {
   id: string;
@@ -30,6 +33,7 @@ export function ChatBot() {
   const [leadFormData, setLeadFormData] = useState({ name: "", email: "" });
   const [leadFormErrors, setLeadFormErrors] = useState({ name: "", email: "" });
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
+  const [interestTags, setInterestTags] = useState<Set<string>>(new Set());
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -112,18 +116,16 @@ export function ChatBot() {
       }, 500);
 
       // Submit lead to GHL webhook
-      fetch(
-        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/619b5785-1df4-46ac-ad21-f6472afbabda",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            full_name: leadFormData.name,
-            email: leadFormData.email,
-            source: "Website Chatbot",
-          }),
-        }
-      ).catch((err) => console.error("GHL webhook error:", err));
+      fetch(GHL_CHATBOT_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          full_name: leadFormData.name,
+          email: leadFormData.email,
+          tags: "",
+          source: "Website Chatbot",
+        }),
+      }).catch((err) => console.error("GHL webhook error:", err));
     }
   };
 
@@ -168,6 +170,32 @@ export function ChatBot() {
         ]);
       }, 1000);
       return;
+    }
+
+    // Detect interest tags from user message
+    const newTags = detectInterestTags(userMessage.content);
+    const updatedTags = new Set(interestTags);
+    let hasNewTags = false;
+    newTags.forEach((tag) => {
+      if (!updatedTags.has(tag)) {
+        updatedTags.add(tag);
+        hasNewTags = true;
+      }
+    });
+
+    if (hasNewTags) {
+      setInterestTags(updatedTags);
+      // Send updated tags to GHL
+      fetch(GHL_CHATBOT_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          full_name: leadData.name,
+          email: leadData.email,
+          tags: Array.from(updatedTags).join(", "),
+          source: "Website Chatbot",
+        }),
+      }).catch((err) => console.error("GHL tag update error:", err));
     }
 
     // Simulate typing delay and get response
