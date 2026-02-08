@@ -20,11 +20,13 @@ export function Footer() {
               South Australia&apos;s trusted electrical and solar experts. Quality workmanship,
               SAA accredited solar installation.
             </p>
-            {/* SAA Badge Placeholder */}
+            {/* SAA Accreditation Logo */}
             <div className="flex items-center gap-3">
-              <div className="bg-white/10 rounded-lg px-3 py-2 text-xs font-medium">
-                SAA Accredited Installer
-              </div>
+              <img
+                src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_48/SAA-Logo-Blue-White_wqwe6l.png"
+                alt="SAA Accredited Installer"
+                className="h-12 w-auto"
+              />
             </div>
           </div>
 
