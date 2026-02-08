@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { ChatBotWrapper } from "@/components/chat/ChatBotWrapper";
 
@@ -91,10 +92,11 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
         <ChatBotWrapper />
-        <script
+        <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="698810e12ad2f7d213eba44e"
+          strategy="afterInteractive"
         />
       </body>
     </html>
