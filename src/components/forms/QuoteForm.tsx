@@ -15,7 +15,8 @@ const quoteFormSchema = z.object({
   customerType: z.enum(["residential", "commercial"], {
     message: "Please select if this is residential or commercial",
   }),
-  name: z.string().min(2, "Please enter your name"),
+  firstName: z.string().min(2, "Please enter your first name"),
+  lastName: z.string().min(2, "Please enter your last name"),
   email: z.string().email("Please enter a valid email address"),
   phone: z
     .string()
@@ -73,7 +74,7 @@ export function QuoteForm({
 
   const onSubmit = async (data: QuoteFormData) => {
     setSubmitStatus("loading");
-    setSubmittedName(data.name.split(" ")[0]);
+    setSubmittedName(data.firstName);
 
     try {
       // Submit to GoHighLevel webhook
@@ -85,8 +86,8 @@ export function QuoteForm({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            firstName: data.name.split(" ")[0],
-            lastName: data.name.split(" ").slice(1).join(" "),
+            first_name: data.firstName,
+            last_name: data.lastName,
             email: data.email,
             phone: data.phone,
             customerType: data.customerType,
@@ -236,23 +237,42 @@ export function QuoteForm({
               </div>
             )}
 
-            {/* Name & Email - side by side */}
+            {/* First Name & Last Name - side by side */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label htmlFor="name" className={labelClasses}>
-                  Name
+                <label htmlFor="firstName" className={labelClasses}>
+                  First Name
                 </label>
                 <input
-                  {...register("name")}
+                  {...register("firstName")}
                   type="text"
-                  id="name"
-                  placeholder="John Smith"
-                  className={cn(inputClasses, errors.name && "border-secondary-500")}
+                  id="firstName"
+                  placeholder="John"
+                  className={cn(inputClasses, errors.firstName && "border-secondary-500")}
                 />
-                {errors.name && (
-                  <p className="form-error">{errors.name.message}</p>
+                {errors.firstName && (
+                  <p className="form-error">{errors.firstName.message}</p>
                 )}
               </div>
+              <div>
+                <label htmlFor="lastName" className={labelClasses}>
+                  Last Name
+                </label>
+                <input
+                  {...register("lastName")}
+                  type="text"
+                  id="lastName"
+                  placeholder="Smith"
+                  className={cn(inputClasses, errors.lastName && "border-secondary-500")}
+                />
+                {errors.lastName && (
+                  <p className="form-error">{errors.lastName.message}</p>
+                )}
+              </div>
+            </div>
+
+            {/* Email & Phone - side by side */}
+            <div className="grid grid-cols-2 gap-3">
               <div>
                 <label htmlFor="email" className={labelClasses}>
                   Email
@@ -268,10 +288,6 @@ export function QuoteForm({
                   <p className="form-error">{errors.email.message}</p>
                 )}
               </div>
-            </div>
-
-            {/* Phone & Suburb - side by side */}
-            <div className="grid grid-cols-2 gap-3">
               <div>
                 <label htmlFor="phone" className={labelClasses}>
                   Phone
@@ -287,21 +303,23 @@ export function QuoteForm({
                   <p className="form-error">{errors.phone.message}</p>
                 )}
               </div>
-              <div>
-                <label htmlFor="suburb" className={labelClasses}>
-                  Suburb
-                </label>
-                <input
-                  {...register("suburb")}
-                  type="text"
-                  id="suburb"
-                  placeholder="e.g., Flagstaff Hill"
-                  className={cn(inputClasses, errors.suburb && "border-secondary-500")}
-                />
-                {errors.suburb && (
-                  <p className="form-error">{errors.suburb.message}</p>
-                )}
-              </div>
+            </div>
+
+            {/* Suburb */}
+            <div>
+              <label htmlFor="suburb" className={labelClasses}>
+                Suburb
+              </label>
+              <input
+                {...register("suburb")}
+                type="text"
+                id="suburb"
+                placeholder="e.g., Flagstaff Hill"
+                className={cn(inputClasses, errors.suburb && "border-secondary-500")}
+              />
+              {errors.suburb && (
+                <p className="form-error">{errors.suburb.message}</p>
+              )}
             </div>
 
             {/* Services - Multi-select checkboxes */}

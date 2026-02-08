@@ -66,8 +66,8 @@ export function LandingForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName: data.firstName,
-          lastName: data.lastName,
+          first_name: data.firstName,
+          last_name: data.lastName,
           email: data.email,
           phone: data.phone,
           address: data.address || "",
