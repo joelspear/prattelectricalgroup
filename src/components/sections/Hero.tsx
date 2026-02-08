@@ -44,7 +44,7 @@ export function Hero({
     <section
       className={cn(
         "relative overflow-hidden",
-        isHome ? "min-h-screen flex items-center pt-32 pb-20 md:pt-40 md:pb-28" : "py-32 md:py-40"
+        isHome ? "min-h-[85vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24" : "py-32 md:py-40"
       )}
     >
       {/* Background */}
