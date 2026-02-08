@@ -91,6 +91,11 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
         <ChatBotWrapper />
+        <script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="698810e12ad2f7d213eba44e"
+        />
       </body>
     </html>
   );
