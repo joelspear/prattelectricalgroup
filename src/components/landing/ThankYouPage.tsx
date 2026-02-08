@@ -24,8 +24,8 @@ import {
 import { Button } from "@/components/ui/Button";
 import type { LandingPageData } from "@/data/landingPages";
 
-const LOGO_DARK =
-  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_dzfg0y.png";
+const LOGO_LIGHT =
+  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_copy_tr41ry.png";
 
 const iconMap: Record<string, React.ReactNode> = {
   Zap: <Zap className="h-6 w-6" />,
@@ -49,11 +49,11 @@ function ThankYouContent({ data }: { data: LandingPageData }) {
   return (
     <>
       {/* Nav bar */}
-      <div className="bg-white border-b border-gray-100">
+      <div className="bg-charcoal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" aria-label="Pratt Electrical Group">
             <Image
-              src={LOGO_DARK}
+              src={LOGO_LIGHT}
               alt="Pratt Electrical Group"
               width={200}
               height={50}
@@ -63,7 +63,7 @@ function ThankYouContent({ data }: { data: LandingPageData }) {
           </Link>
           <a
             href="tel:+61474320534"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-500 hover:text-primary-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-primary-400 transition-colors"
           >
             <Phone className="h-4 w-4" />
             <span className="hidden sm:inline">0474 320 534</span>

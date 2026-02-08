@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -90,12 +90,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="698810e12ad2f7d213eba44e"
-          strategy="afterInteractive"
-        />
+        <ChatWidget />
       </body>
     </html>
   );
