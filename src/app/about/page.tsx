@@ -71,6 +71,22 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            {/* Statistics */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-5xl mx-auto">
+              {[
+                { value: "5+", label: "Years Experience" },
+                { value: "500+", label: "Jobs Completed" },
+                { value: "200+", label: "Happy Customers" },
+                { value: "100%", label: "SAA Accredited" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center p-6 bg-white rounded-xl shadow-sm">
+                  <p className="text-3xl md:text-4xl font-bold text-primary-500 mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-gray-600">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
