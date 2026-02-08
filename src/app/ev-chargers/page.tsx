@@ -18,7 +18,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
-import { FAQ, CTASection, Testimonials } from "@/components/sections";
+import { FAQ, CTASection } from "@/components/sections";
+import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { QuoteForm } from "@/components/forms";
 import { contactInfo } from "@/data/siteData";
 import { getTelLink } from "@/lib/utils";
@@ -125,8 +126,28 @@ const evFAQs = [
 export default function EVChargersPage() {
   return (
     <>
+      <ServiceSchema
+        name="EV Charger Installation Adelaide"
+        description="Professional EV charger installation for homes and businesses across Adelaide and South Australia. All brands supported."
+        url="https://www.prattelectricalgroup.com/ev-chargers"
+        catalogName="EV Charger Services"
+        services={[
+          "Home EV Charger Installation",
+          "Commercial EV Charging Stations",
+          "Solar EV Charger Integration",
+          "Switchboard Upgrades for EV",
+          "Three-Phase EV Charging",
+          "Fleet Vehicle Charging",
+        ]}
+      />
+      <FAQSchema faqs={evFAQs} />
       <Header />
       <main>
+        <div className="container-custom py-3">
+          <Breadcrumbs
+            items={[{ name: "EV Chargers", href: "/ev-chargers" }]}
+          />
+        </div>
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-charcoal via-gray-800 to-charcoal text-white py-16 md:py-24 overflow-hidden">
           {/* Background Pattern */}
@@ -383,7 +404,7 @@ export default function EVChargersPage() {
         />
 
         {/* Testimonials */}
-        <Testimonials variant="slider" limit={3} className="bg-white" />
+        <GoogleReviews className="bg-white" />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

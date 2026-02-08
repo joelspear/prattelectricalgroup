@@ -21,9 +21,22 @@ export function generateMetadata({
     };
   }
 
+  const title = `Electrician ${suburb.name} | Local Electrical & Solar Services | Pratt Electrical Group`;
+  const description = `Trusted electrician in ${suburb.name}, SA. Residential & commercial electrical services, solar installation & battery storage. SAA accredited. Call 0474 320 534 for a free quote.`;
+
   return {
-    title: `Electrician ${suburb.name} | Pratt Electrical Group`,
-    description: `Licensed electrician serving ${suburb.name} ${suburb.postcode}. Solar installation, switchboard upgrades, electrical services. Call 0474 320 534.`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://www.prattelectricalgroup.com/service-areas/${suburb.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
+    },
   };
 }
 

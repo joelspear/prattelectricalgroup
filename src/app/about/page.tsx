@@ -11,9 +11,21 @@ import Image from "next/image";
 import { Shield, Award, Users, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Pratt Electrical | South Australia Electrical & Solar Company",
+  title: "About Pratt Electrical Group | Adelaide Electrician Since 2020",
   description:
-    "Meet the Pratt Electrical team. South Australia's fastest-growing electrical and solar company. Founded 2020. SAA accredited. Licensed electricians.",
+    "Meet the team behind Adelaide's fastest-growing electrical company. SAA accredited, locally owned & operated since 2020. Quality workmanship across South Australia.",
+  openGraph: {
+    title: "About Pratt Electrical Group | Adelaide Electrician Since 2020",
+    description:
+      "Meet the team behind Adelaide's fastest-growing electrical company. SAA accredited, locally owned & operated since 2020. Quality workmanship across South Australia.",
+    url: "https://www.prattelectricalgroup.com/about",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Pratt Electrical Group | Adelaide Electrician Since 2020",
+    description:
+      "Meet the team behind Adelaide's fastest-growing electrical company. SAA accredited, locally owned & operated since 2020.",
+  },
 };
 
 export default function AboutPage() {

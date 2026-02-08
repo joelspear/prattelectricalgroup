@@ -6,9 +6,21 @@ import { QuoteForm } from "@/components/forms";
 import { contactInfo, socialLinks } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Contact Pratt Electrical | Get a Free Quote",
+  title: "Contact Pratt Electrical Group | Free Quotes Adelaide",
   description:
-    "Contact Pratt Electrical for a free quote. Call 0474 320 534 or submit our online form.",
+    "Get a free electrical or solar quote from Pratt Electrical Group. Call 0474 320 534 or fill out our form. Fast response, no obligation. Serving all of South Australia.",
+  openGraph: {
+    title: "Contact Pratt Electrical Group | Free Quotes Adelaide",
+    description:
+      "Get a free electrical or solar quote from Pratt Electrical Group. Call 0474 320 534 or fill out our form. Fast response, no obligation. Serving all of South Australia.",
+    url: "https://www.prattelectricalgroup.com/contact",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Pratt Electrical Group | Free Quotes Adelaide",
+    description:
+      "Get a free electrical or solar quote from Pratt Electrical Group. Call 0474 320 534 or fill out our form.",
+  },
 };
 
 export default function ContactPage() {

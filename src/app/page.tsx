@@ -5,12 +5,12 @@ import {
   AboutSection,
   ServiceCards,
   WhyChooseUs,
-  Testimonials,
   CTASection,
   ServiceAreas,
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
+import { GoogleReviews } from "@/components/seo";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
@@ -52,8 +52,8 @@ export default function HomePage() {
         {/* Project Showcase */}
         <ProjectGallery projects={projects} limit={6} showFilters={false} />
 
-        {/* Testimonials */}
-        <Testimonials variant="slider" />
+        {/* Google Reviews */}
+        <GoogleReviews />
 
         {/* Service Areas */}
         <ServiceAreas />

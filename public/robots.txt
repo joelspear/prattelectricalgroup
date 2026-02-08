@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /ads/
+Disallow: /pitch/
+Disallow: /landing/
+
+Sitemap: https://www.prattelectricalgroup.com/sitemap.xml

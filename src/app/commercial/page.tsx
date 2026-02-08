@@ -5,19 +5,34 @@ import {
   ServiceList,
   WhyChooseUs,
   FAQ,
-  Testimonials,
   CTASection,
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
+import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { services } from "@/data/siteData";
 import { commercialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Commercial Electrician South Australia | Business Electrical Services",
+  title:
+    "Commercial Electrician Adelaide | Office & Industrial Electrical | Pratt Electrical",
   description:
-    "Commercial electrical services across South Australia. Office fit-outs, LED upgrades, data cabling, security systems. Licensed, insured.",
+    "Reliable commercial electrical services in Adelaide. Office fit-outs, LED upgrades, data cabling, security systems & industrial electrical. Call for a free quote.",
+  openGraph: {
+    title:
+      "Commercial Electrician Adelaide | Office & Industrial Electrical | Pratt Electrical",
+    description:
+      "Reliable commercial electrical services in Adelaide. Office fit-outs, LED upgrades, data cabling, security systems & industrial electrical. Call for a free quote.",
+    url: "https://www.prattelectricalgroup.com/commercial",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Commercial Electrician Adelaide | Office & Industrial Electrical | Pratt Electrical",
+    description:
+      "Reliable commercial electrical services in Adelaide. Office fit-outs, LED upgrades, data cabling, security systems & industrial electrical.",
+  },
 };
 
 const commercialProjects = projects.filter((p) => p.category === "commercial");
@@ -25,8 +40,31 @@ const commercialProjects = projects.filter((p) => p.category === "commercial");
 export default function CommercialPage() {
   return (
     <>
+      <ServiceSchema
+        name="Commercial Electrical Services Adelaide"
+        description="Reliable commercial electrical services in Adelaide. Office fit-outs, LED upgrades, data cabling, security systems and industrial electrical."
+        url="https://www.prattelectricalgroup.com/commercial"
+        catalogName="Commercial Electrical Services"
+        services={[
+          "Office & Retail Fit-Outs",
+          "LED Lighting Upgrades",
+          "Data & Communications Cabling",
+          "Security System Installation",
+          "Air Conditioning Electrical",
+          "Electrical Troubleshooting",
+          "Standby Generator Installation",
+          "Warehouse & Industrial",
+          "Maintenance Contracts",
+        ]}
+      />
+      <FAQSchema faqs={commercialFAQs} />
       <Header />
       <main>
+        <div className="container-custom py-3">
+          <Breadcrumbs
+            items={[{ name: "Commercial Electrical", href: "/commercial" }]}
+          />
+        </div>
         {/* Hero Section */}
         <ServiceHero
           title="Commercial Electrical Services"
@@ -114,7 +152,7 @@ export default function CommercialPage() {
         />
 
         {/* Testimonials */}
-        <Testimonials variant="grid" limit={3} />
+        <GoogleReviews />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

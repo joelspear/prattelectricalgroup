@@ -6,8 +6,7 @@ export const siteConfig = {
   tagline: "South Australia's Trusted Electrical & Solar Experts",
   description:
     "South Australia's trusted electrical and solar experts. Residential, commercial & solar installation. SAA accredited. Free quotes.",
-  url: "https://prattelectrical.fuelmysocial.com.au",
-  productionUrl: "https://www.prattelectricalgroup.com",
+  url: "https://www.prattelectricalgroup.com",
 };
 
 export const contactInfo = {
@@ -16,11 +15,11 @@ export const contactInfo = {
   phoneTel: "tel:+61474320534",
   email: "sales@prattelectricalgroup.com",
   address: {
-    street: "",
-    suburb: "Adelaide",
+    street: "18 Davis Ave",
+    suburb: "Christies Beach",
     state: "SA",
-    postcode: "",
-    full: "Adelaide, SA",
+    postcode: "5165",
+    full: "18 Davis Ave, Christies Beach SA 5165",
   },
   owner: "James Pratt",
   businessName: "Pratt Electrical Group Pty Ltd",
