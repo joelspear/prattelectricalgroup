@@ -14,7 +14,7 @@ export const contactInfo = {
   phone: "0474 320 534",
   phoneFormatted: "0474 320 534",
   phoneTel: "tel:+61474320534",
-  email: "lewis@prattelectricalgroup.com",
+  email: "sales@prattelectricalgroup.com",
   address: {
     street: "",
     suburb: "Adelaide",
