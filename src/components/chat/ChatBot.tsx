@@ -111,8 +111,19 @@ export function ChatBot() {
         ]);
       }, 500);
 
-      // TODO: Sync lead to GHL/CRM here
-      console.log("Lead captured:", leadFormData);
+      // Submit lead to GHL webhook
+      fetch(
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/619b5785-1df4-46ac-ad21-f6472afbabda",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            full_name: leadFormData.name,
+            email: leadFormData.email,
+            source: "Website Chatbot",
+          }),
+        }
+      ).catch((err) => console.error("GHL webhook error:", err));
     }
   };
 
