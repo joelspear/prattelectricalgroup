@@ -85,7 +85,8 @@ export function QuoteForm({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            full_name: data.name,
+            firstName: data.name.split(" ")[0],
+            lastName: data.name.split(" ").slice(1).join(" "),
             email: data.email,
             phone: data.phone,
             customerType: data.customerType,
