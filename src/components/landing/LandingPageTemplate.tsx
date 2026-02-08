@@ -30,8 +30,8 @@ import { StickyBar } from "./StickyBar";
 import type { LandingPageData } from "@/data/landingPages";
 import { trustBadges, howItWorks } from "@/data/landingPages";
 
-const LOGO_LIGHT =
-  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_copy_tr41ry.png";
+const LOGO_DARK =
+  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_dzfg0y.png";
 const SAA_LOGO =
   "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_40/SAA-Logo-Blue-White_wqwe6l.png";
 
@@ -109,7 +109,7 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
             <Link href="/" aria-label="Pratt Electrical Group">
               <Image
-                src={LOGO_LIGHT}
+                src={LOGO_DARK}
                 alt="Pratt Electrical Group"
                 width={200}
                 height={50}
@@ -190,14 +190,6 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
                     <Phone className="h-5 w-5" />
                     Book a Free 10-Min Chat
                   </Button>
-                  <Button
-                    href="#quote-form"
-                    variant="outline"
-                    size="lg"
-                    className="border-white text-white hover:bg-white hover:text-charcoal"
-                  >
-                    Get a Free Quote
-                  </Button>
                 </motion.div>
 
                 {/* SAA Logo */}
@@ -223,8 +215,8 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
               >
                 <LandingForm
                   source={data.formSource}
+                  slug={data.slug}
                   showPowerBillField={data.showPowerBillField}
-                  showExistingSolarField={data.showExistingSolarField}
                 />
               </motion.div>
             </div>
@@ -237,8 +229,8 @@ export function LandingPageTemplate({ data }: { data: LandingPageData }) {
         <div className="max-w-md mx-auto">
           <LandingForm
             source={data.formSource}
+            slug={data.slug}
             showPowerBillField={data.showPowerBillField}
-            showExistingSolarField={data.showExistingSolarField}
           />
         </div>
       </div>

@@ -26,9 +26,13 @@ export interface LandingPageData {
     rating: number;
   }[];
   faqs: { question: string; answer: string }[];
+  thankYou: {
+    heading: string;
+    subheading: string;
+    benefits: { icon: string; title: string; description: string }[];
+  };
   formSource: string;
   showPowerBillField: boolean;
-  showExistingSolarField: boolean;
 }
 
 export const trustBadges = [
@@ -132,11 +136,6 @@ export const landingPages: Record<string, LandingPageData> = {
     ],
     faqs: [
       {
-        question: "How much does a solar system cost?",
-        answer:
-          "A typical residential system ranges from $4,000–$12,000 after rebates, depending on system size and your energy needs. We provide a detailed quote with no hidden fees.",
-      },
-      {
         question: "How long does installation take?",
         answer:
           "Most residential installations are completed in a single day. From your initial enquiry to a fully operational system, the process usually takes 2–4 weeks.",
@@ -147,19 +146,66 @@ export const landingPages: Record<string, LandingPageData> = {
           "Most Adelaide roofs are great for solar. We assess your roof orientation, angle, and shading during our free consultation to design the optimal system for your property.",
       },
       {
-        question: "How much will I actually save?",
-        answer:
-          "Savings depend on your usage, system size, and feed-in tariff. Most of our customers save between $1,200–$2,500 per year. We'll give you a realistic estimate based on your actual bills.",
-      },
-      {
         question: "What rebates are available?",
         answer:
-          "The federal Small-scale Technology Certificates (STCs) can reduce your cost by $2,000–$4,000 depending on system size. We handle all the rebate paperwork for you.",
+          "Federal Small-scale Technology Certificates (STCs) and state incentives can significantly reduce your upfront cost. We handle all the rebate paperwork for you.",
+      },
+      {
+        question: "Do you handle the full installation?",
+        answer:
+          "Yes — from initial design to final commissioning, our in-house team handles everything. No subcontractors. We also take care of all council approvals and grid connection paperwork.",
+      },
+      {
+        question: "What brands do you install?",
+        answer:
+          "We install premium tier-1 panels and inverters from leading brands. During your consultation, we'll recommend the best system for your roof and energy needs.",
       },
     ],
+    thankYou: {
+      heading: "Great Decision — Here's Why Solar Pays Off",
+      subheading:
+        "You're on your way to slashing your power bills and taking control of your energy. Here's what makes solar such a smart move.",
+      benefits: [
+        {
+          icon: "Zap",
+          title: "Slash Your Power Bills",
+          description:
+            "Most of our customers see their electricity bills drop by 60–80% after going solar. That's thousands saved every year.",
+        },
+        {
+          icon: "TrendingUp",
+          title: "Increase Your Property Value",
+          description:
+            "Solar-equipped homes sell faster and for more money. It's an investment that pays for itself — and then some.",
+        },
+        {
+          icon: "BadgeDollarSign",
+          title: "Government Rebates Available",
+          description:
+            "Take advantage of federal STCs and state incentives to reduce your upfront cost. We handle all the paperwork.",
+        },
+        {
+          icon: "Sun",
+          title: "Adelaide Gets Amazing Sunshine",
+          description:
+            "South Australia averages over 2,500 hours of sunshine per year — ideal conditions for solar generation.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "CEC Accredited Installers",
+          description:
+            "Our accreditation means you get quality workmanship, proper system design, and eligibility for all available rebates.",
+        },
+        {
+          icon: "Award",
+          title: "Long-Term Warranties",
+          description:
+            "Quality panels and inverters backed by solid manufacturer warranties. Serious peace of mind for decades to come.",
+        },
+      ],
+    },
     formSource: "Meta Ads - Solar Landing Page",
     showPowerBillField: true,
-    showExistingSolarField: false,
   },
   battery: {
     slug: "battery",
@@ -258,9 +304,51 @@ export const landingPages: Record<string, LandingPageData> = {
           "Most quality home batteries come with a 10-year warranty and are designed to last 15+ years. We only install products we trust to go the distance.",
       },
     ],
+    thankYou: {
+      heading: "Smart Move — Here's Why Battery Storage Pays Off",
+      subheading:
+        "You're about to stop giving your solar energy away for pennies. Here's what a battery system does for you.",
+      benefits: [
+        {
+          icon: "Battery",
+          title: "Use Your Solar Energy 24/7",
+          description:
+            "Store excess solar during the day and use it at night. No more buying expensive peak-rate power from the grid.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Blackout Protection",
+          description:
+            "When the grid goes down, your battery kicks in automatically. Keep your lights, fridge, and essentials running.",
+        },
+        {
+          icon: "Coins",
+          title: "Virtual Power Plant Credits",
+          description:
+            "Join a VPP program and earn money from your battery — it works for you even when you're not using it.",
+        },
+        {
+          icon: "TrendingUp",
+          title: "Rising Electricity Prices",
+          description:
+            "Electricity prices keep climbing. A battery locks in your savings and protects you from future rate increases.",
+        },
+        {
+          icon: "Zap",
+          title: "Maximise Your Solar Investment",
+          description:
+            "Without a battery, you're only using about 30% of your solar. With one, you can use up to 80% or more.",
+        },
+        {
+          icon: "Award",
+          title: "Premium Brands, Long Warranties",
+          description:
+            "We install Tesla Powerwall, BYD, Sungrow, and Enphase — all backed by solid long-term warranties.",
+        },
+      ],
+    },
     formSource: "Meta Ads - Battery Landing Page",
     showPowerBillField: true,
-    showExistingSolarField: true,
   },
   "ev-charger": {
     slug: "ev-charger",
@@ -353,9 +441,51 @@ export const landingPages: Record<string, LandingPageData> = {
           "We'll assess your switchboard during the quoting process. If it needs an upgrade, we can handle that too — we're licensed electricians after all.",
       },
     ],
+    thankYou: {
+      heading: "Great Choice — Here's Why Home EV Charging Makes Sense",
+      subheading:
+        "No more trips to public chargers or worrying about slow charging. Here's what a proper home setup gives you.",
+      benefits: [
+        {
+          icon: "Sun",
+          title: "Charge From Your Solar",
+          description:
+            "Pair your charger with solar and drive on sunshine. It doesn't get cheaper than free fuel.",
+        },
+        {
+          icon: "Zap",
+          title: "Up to 10x Faster Charging",
+          description:
+            "A dedicated Level 2 charger delivers a full charge overnight — no more waiting around with a standard plug.",
+        },
+        {
+          icon: "Car",
+          title: "Works With Every EV",
+          description:
+            "Tesla, BYD, Hyundai, Kia, MG, Polestar — we install chargers compatible with every EV on the market.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Safe, Dedicated Circuit",
+          description:
+            "A properly installed charger with its own circuit means no overloading, no tripped breakers, no worries.",
+        },
+        {
+          icon: "TrendingUp",
+          title: "Save on Running Costs",
+          description:
+            "Home charging is significantly cheaper than public charging — especially when you charge from solar.",
+        },
+        {
+          icon: "Award",
+          title: "Licensed, Insured Installation",
+          description:
+            "Our licensed electricians handle everything — from switchboard assessment to final commissioning.",
+        },
+      ],
+    },
     formSource: "Meta Ads - EV Charger Landing Page",
     showPowerBillField: false,
-    showExistingSolarField: true,
   },
   electrical: {
     slug: "electrical",
@@ -439,11 +569,6 @@ export const landingPages: Record<string, LandingPageData> = {
           "We prioritise urgent jobs wherever possible. Give us a call and we'll do our best to get someone to you quickly.",
       },
       {
-        question: "How much does a switchboard upgrade cost?",
-        answer:
-          "A standard switchboard upgrade typically costs between $1,200–$2,500 depending on the size and complexity. We'll give you a clear quote with no surprises.",
-      },
-      {
         question: "Do you provide compliance certificates?",
         answer:
           "Yes — every job we complete comes with the appropriate compliance certificate as required by South Australian regulations.",
@@ -454,8 +579,50 @@ export const landingPages: Record<string, LandingPageData> = {
           "Absolutely. We handle everything from office fit-outs to warehouse installations and retail shop electrical work.",
       },
     ],
+    thankYou: {
+      heading: "You're in Good Hands — Here's Why Pratt Electrical",
+      subheading:
+        "We treat every job like it's our own home. Here's what you can expect working with us.",
+      benefits: [
+        {
+          icon: "Award",
+          title: "Fully Licensed & Insured",
+          description:
+            "Every electrician on our team is fully licensed and insured. We do it right the first time, every time.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Compliance Certificates Provided",
+          description:
+            "All work meets Australian standards. You'll receive the appropriate compliance certificate for every job.",
+        },
+        {
+          icon: "Building2",
+          title: "Residential & Commercial",
+          description:
+            "From family homes to warehouses — we handle projects of every size right across Adelaide.",
+        },
+        {
+          icon: "Zap",
+          title: "Quality Workmanship Guaranteed",
+          description:
+            "We stand behind every job we do. If something's not right, we'll come back and fix it — no questions asked.",
+        },
+        {
+          icon: "Clock",
+          title: "On Time, Every Time",
+          description:
+            "We show up when we say we will. No waiting around, no chasing. Reliable service you can count on.",
+        },
+        {
+          icon: "MapPin",
+          title: "Local Adelaide Team",
+          description:
+            "We're a local team who live and work in Adelaide. No call centres, no subcontractors — just us.",
+        },
+      ],
+    },
     formSource: "Meta Ads - Electrical Landing Page",
     showPowerBillField: false,
-    showExistingSolarField: false,
   },
 };
