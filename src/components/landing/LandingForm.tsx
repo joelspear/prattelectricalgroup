@@ -38,6 +38,13 @@ interface LandingFormProps {
 const WEBHOOK_URL =
   "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/36a7724f-4ec3-4adb-92f4-1ed4b39f1b62";
 
+const slugToTag: Record<string, string> = {
+  solar: "solar install",
+  battery: "battery",
+  "ev-charger": "ev charger",
+  electrical: "residential electrical",
+};
+
 export function LandingForm({
   className,
   source,
@@ -76,6 +83,7 @@ export function LandingForm({
           existingSolar: data.existingSolar || "",
           message: data.message || "",
           source,
+          tags: slugToTag[slug] || "",
           submittedAt: new Date().toISOString(),
         }),
       });
