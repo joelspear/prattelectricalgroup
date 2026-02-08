@@ -16,11 +16,11 @@ export const contactInfo = {
   phoneTel: "tel:+61474320534",
   email: "lewis@prattelectricalgroup.com",
   address: {
-    street: "18 Davis Ave",
-    suburb: "Christies Beach",
+    street: "",
+    suburb: "Adelaide",
     state: "SA",
-    postcode: "5165",
-    full: "18 Davis Ave, Christies Beach SA 5165",
+    postcode: "",
+    full: "Adelaide, SA",
   },
   owner: "James Pratt",
   businessName: "Pratt Electrical Group Pty Ltd",
@@ -32,7 +32,7 @@ export const socialLinks = {
   facebook: "https://www.facebook.com/prattelectricalgroup",
   instagram: "https://www.instagram.com/prattelectricalgroup",
   googleMaps:
-    "https://www.google.com/maps/place/Christies+Beach+SA+5165,+Australia",
+    "https://www.google.com/maps/place/Adelaide+SA,+Australia",
 };
 
 export const credentials = {
@@ -128,7 +128,7 @@ export const testimonials = [
   {
     id: 3,
     name: "Michael R.",
-    location: "Christies Beach",
+    location: "Adelaide",
     rating: 5,
     text: "Called about a switchboard issue and James had everything sorted quickly. Fair pricing and excellent communication throughout. Highly recommend.",
     service: "Residential",

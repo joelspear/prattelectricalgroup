@@ -27,7 +27,7 @@ export function ServiceAreas({ className }: ServiceAreasProps) {
             </div>
             <h2 className="mb-4">Proudly Serving All of South Australia</h2>
             <p className="text-gray-600 mb-8">
-              Based in Christies Beach, we service all of South Australia.
+              Based in Adelaide, we service all of South Australia.
               Our team is ready to help with all your electrical and solar needs.
             </p>
 
@@ -70,7 +70,7 @@ export function ServiceAreas({ className }: ServiceAreasProps) {
                     South Australia Wide
                   </p>
                   <p className="text-sm text-gray-600 mt-2">
-                    Christies Beach, SA 5165
+                    Adelaide, SA
                   </p>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export function ServiceAreas({ className }: ServiceAreasProps) {
                 </div>
                 <div>
                   <p className="font-semibold text-charcoal">Based in</p>
-                  <p className="text-sm text-gray-600">Christies Beach</p>
+                  <p className="text-sm text-gray-600">Adelaide, SA</p>
                 </div>
               </div>
             </div>

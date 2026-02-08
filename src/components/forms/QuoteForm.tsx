@@ -144,10 +144,10 @@ export function QuoteForm({
           >
             <CheckCircle className={cn("h-16 w-16 mx-auto mb-4", isDark ? "text-success" : "text-success")} />
             <h3 className={cn("text-xl font-semibold mb-2", isDark && "text-white")}>
-              Thanks {submittedName}!
+              Thank you, {submittedName}!
             </h3>
             <p className={cn("text-gray-600", isDark && "text-gray-300")}>
-              We&apos;ve received your request and will call you within 2 business hours.
+              We&apos;ve received your request. Someone from our team will be in touch shortly.
             </p>
           </motion.div>
         ) : (
