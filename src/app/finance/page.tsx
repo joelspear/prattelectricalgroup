@@ -121,19 +121,20 @@ export default function FinancePage() {
 
     try {
       const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/02d048a7-7aa7-4ba7-83db-0c0f11a8eb2c",
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/36a7724f-4ec3-4adb-92f4-1ed4b39f1b62",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: data.name,
+            full_name: data.name,
             phone: data.phone,
             email: data.email,
             service: data.projectType,
             message: data.message || "",
             source: "Website Finance Enquiry",
+            tags: "finance_enquiry",
             submittedAt: new Date().toISOString(),
           }),
         }

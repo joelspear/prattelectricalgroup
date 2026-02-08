@@ -16,6 +16,7 @@ const quoteFormSchema = z.object({
     message: "Please select if this is residential or commercial",
   }),
   name: z.string().min(2, "Please enter your name"),
+  email: z.string().email("Please enter a valid email address"),
   phone: z
     .string()
     .min(8, "Please enter a valid phone number")
@@ -86,6 +87,7 @@ export function QuoteForm({
           },
           body: JSON.stringify({
             full_name: data.name,
+            email: data.email,
             phone: data.phone,
             customerType: data.customerType,
             service: data.service,
@@ -157,14 +159,14 @@ export function QuoteForm({
             exit={{ opacity: 0 }}
             onSubmit={handleSubmit(onSubmit)}
             className={cn(
-              "space-y-4",
-              !isCompact && "p-6 md:p-8 rounded-xl",
+              "space-y-3",
+              !isCompact && "p-5 md:p-6 rounded-xl",
               !isCompact && (isDark ? "bg-white/5 backdrop-blur-sm" : "bg-white shadow-lg")
             )}
           >
             {showTitle && (
-              <div className="mb-6">
-                <h3 className={cn("text-xl font-semibold mb-1", isDark && "text-white")}>
+              <div className="mb-3">
+                <h3 className={cn("text-lg font-semibold mb-0.5", isDark && "text-white")}>
                   Get Your Free Quote
                 </h3>
                 <p className={cn("text-sm text-gray-600", isDark && "text-gray-400")}>
@@ -175,11 +177,10 @@ export function QuoteForm({
 
             {/* Customer Type Selection */}
             <div>
-              <label className={labelClasses}>I am a...</label>
-              <div className="grid grid-cols-2 gap-3 mt-2">
+              <div className="grid grid-cols-2 gap-2">
                 <label
                   className={cn(
-                    "relative flex items-center justify-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all",
+                    "relative flex items-center justify-center gap-2 p-2.5 rounded-lg border-2 cursor-pointer transition-all",
                     selectedCustomerType === "residential"
                       ? "border-primary-500 bg-primary-50 text-primary-700"
                       : isDark
@@ -193,14 +194,14 @@ export function QuoteForm({
                     value="residential"
                     className="sr-only"
                   />
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                   <span className="font-medium text-sm">Residential</span>
                 </label>
                 <label
                   className={cn(
-                    "relative flex items-center justify-center gap-2 p-3 rounded-lg border-2 cursor-pointer transition-all",
+                    "relative flex items-center justify-center gap-2 p-2.5 rounded-lg border-2 cursor-pointer transition-all",
                     selectedCustomerType === "commercial"
                       ? "border-primary-500 bg-primary-50 text-primary-700"
                       : isDark
@@ -214,7 +215,7 @@ export function QuoteForm({
                     value="commercial"
                     className="sr-only"
                   />
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                   <span className="font-medium text-sm">Commercial</span>
@@ -235,38 +236,72 @@ export function QuoteForm({
               </div>
             )}
 
-            {/* Name */}
-            <div>
-              <label htmlFor="name" className={labelClasses}>
-                Your Name
-              </label>
-              <input
-                {...register("name")}
-                type="text"
-                id="name"
-                placeholder="John Smith"
-                className={cn(inputClasses, errors.name && "border-secondary-500")}
-              />
-              {errors.name && (
-                <p className="form-error">{errors.name.message}</p>
-              )}
+            {/* Name & Email - side by side */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label htmlFor="name" className={labelClasses}>
+                  Name
+                </label>
+                <input
+                  {...register("name")}
+                  type="text"
+                  id="name"
+                  placeholder="John Smith"
+                  className={cn(inputClasses, errors.name && "border-secondary-500")}
+                />
+                {errors.name && (
+                  <p className="form-error">{errors.name.message}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="email" className={labelClasses}>
+                  Email
+                </label>
+                <input
+                  {...register("email")}
+                  type="email"
+                  id="email"
+                  placeholder="john@example.com"
+                  className={cn(inputClasses, errors.email && "border-secondary-500")}
+                />
+                {errors.email && (
+                  <p className="form-error">{errors.email.message}</p>
+                )}
+              </div>
             </div>
 
-            {/* Phone */}
-            <div>
-              <label htmlFor="phone" className={labelClasses}>
-                Phone Number
-              </label>
-              <input
-                {...register("phone")}
-                type="tel"
-                id="phone"
-                placeholder="0412 345 678"
-                className={cn(inputClasses, errors.phone && "border-secondary-500")}
-              />
-              {errors.phone && (
-                <p className="form-error">{errors.phone.message}</p>
-              )}
+            {/* Phone & Suburb - side by side */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label htmlFor="phone" className={labelClasses}>
+                  Phone
+                </label>
+                <input
+                  {...register("phone")}
+                  type="tel"
+                  id="phone"
+                  placeholder="0412 345 678"
+                  className={cn(inputClasses, errors.phone && "border-secondary-500")}
+                />
+                {errors.phone && (
+                  <p className="form-error">{errors.phone.message}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="suburb" className={labelClasses}>
+                  Suburb
+                </label>
+                <input
+                  {...register("suburb")}
+                  type="text"
+                  id="suburb"
+                  placeholder="e.g., Flagstaff Hill"
+                  className={cn(inputClasses, errors.suburb && "border-secondary-500")}
+                />
+                {errors.suburb && (
+                  <p className="form-error">{errors.suburb.message}</p>
+                )}
+              </div>
             </div>
 
             {/* Service */}
@@ -290,36 +325,19 @@ export function QuoteForm({
               )}
             </div>
 
-            {/* Suburb */}
-            <div>
-              <label htmlFor="suburb" className={labelClasses}>
-                Suburb
-              </label>
-              <input
-                {...register("suburb")}
-                type="text"
-                id="suburb"
-                placeholder="e.g., Flagstaff Hill"
-                className={cn(inputClasses, errors.suburb && "border-secondary-500")}
-              />
-              {errors.suburb && (
-                <p className="form-error">{errors.suburb.message}</p>
-              )}
-            </div>
-
-            {/* Message (optional) */}
-            {!isCompact && (
+            {/* Message (optional) - only on non-compact */}
+            {!isCompact && !isDark && (
               <div>
                 <label htmlFor="message" className={labelClasses}>
                   Brief description{" "}
-                  <span className={cn("font-normal", isDark ? "text-gray-400" : "text-gray-500")}>
+                  <span className="font-normal text-gray-500">
                     (optional)
                   </span>
                 </label>
                 <textarea
                   {...register("message")}
                   id="message"
-                  rows={3}
+                  rows={2}
                   placeholder="Tell us about your project..."
                   className={cn(inputClasses, "resize-none")}
                 />
