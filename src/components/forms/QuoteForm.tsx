@@ -29,17 +29,11 @@ const quoteFormSchema = z.object({
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
 
 const serviceOptions = [
-  { value: "residential-electrical", label: "Residential Electrical" },
-  { value: "commercial-electrical", label: "Commercial Electrical" },
+  { value: "residential", label: "Residential Electrical" },
+  { value: "commercial", label: "Commercial Electrical" },
   { value: "solar", label: "Solar Installation" },
   { value: "battery", label: "Battery Storage" },
   { value: "ev-charger", label: "EV Charger" },
-  { value: "switchboard", label: "Switchboard Upgrade" },
-  { value: "lighting", label: "Lighting" },
-  { value: "smoke-alarms", label: "Smoke Alarms" },
-  { value: "ceiling-fans", label: "Ceiling Fans" },
-  { value: "safety-inspection", label: "Safety Inspection" },
-  { value: "data-network", label: "Data & Network" },
   { value: "other", label: "Other" },
 ];
 
