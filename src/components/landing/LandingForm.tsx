@@ -83,7 +83,7 @@ export function LandingForm({
           existingSolar: data.existingSolar || "",
           message: data.message || "",
           source,
-          tags: slugToTag[slug] || "",
+          service: slugToTag[slug] || "",
           submittedAt: new Date().toISOString(),
         }),
       });
