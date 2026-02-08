@@ -80,7 +80,8 @@ const financeFAQs = [
 
 // Finance enquiry form schema
 const financeFormSchema = z.object({
-  name: z.string().min(2, "Please enter your name"),
+  firstName: z.string().min(2, "Please enter your first name"),
+  lastName: z.string().min(2, "Please enter your last name"),
   phone: z
     .string()
     .min(8, "Please enter a valid phone number")
@@ -128,7 +129,8 @@ export default function FinancePage() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            full_name: data.name,
+            first_name: data.firstName,
+            last_name: data.lastName,
             phone: data.phone,
             email: data.email,
             service: data.projectType,
@@ -280,24 +282,45 @@ export default function FinancePage() {
                     onSubmit={handleSubmit(onSubmit)}
                     className="space-y-5"
                   >
-                    <div>
-                      <label className="block text-sm font-medium text-charcoal mb-1.5">
-                        Full Name *
-                      </label>
-                      <input
-                        {...register("name")}
-                        type="text"
-                        placeholder="Your name"
-                        className={cn(
-                          "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
-                          errors.name ? "border-red-300" : "border-gray-200"
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-medium text-charcoal mb-1.5">
+                          First Name *
+                        </label>
+                        <input
+                          {...register("firstName")}
+                          type="text"
+                          placeholder="John"
+                          className={cn(
+                            "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
+                            errors.firstName ? "border-red-300" : "border-gray-200"
+                          )}
+                        />
+                        {errors.firstName && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.firstName.message}
+                          </p>
                         )}
-                      />
-                      {errors.name && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.name.message}
-                        </p>
-                      )}
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-charcoal mb-1.5">
+                          Last Name *
+                        </label>
+                        <input
+                          {...register("lastName")}
+                          type="text"
+                          placeholder="Smith"
+                          className={cn(
+                            "w-full px-4 py-3 rounded-lg border bg-white text-charcoal transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500",
+                            errors.lastName ? "border-red-300" : "border-gray-200"
+                          )}
+                        />
+                        {errors.lastName && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.lastName.message}
+                          </p>
+                        )}
+                      </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-5">
