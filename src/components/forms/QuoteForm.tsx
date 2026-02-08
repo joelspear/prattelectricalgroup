@@ -38,6 +38,14 @@ const serviceOptions = [
   { value: "other", label: "Other" },
 ];
 
+const serviceToTag: Record<string, string> = {
+  residential: "residential electrical",
+  commercial: "commercial electrical",
+  solar: "solar install",
+  battery: "battery",
+  "ev-charger": "ev charger",
+};
+
 interface QuoteFormProps {
   className?: string;
   variant?: "default" | "compact" | "dark";
@@ -92,6 +100,7 @@ export function QuoteForm({
             phone: data.phone,
             customerType: data.customerType,
             service: data.services.join(", "),
+            tags: data.services.map((s) => serviceToTag[s]).filter(Boolean).join(", "),
             suburb: data.suburb,
             message: data.message || "",
             source: "Website Quote Form",
