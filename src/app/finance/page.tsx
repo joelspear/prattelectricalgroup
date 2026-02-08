@@ -103,6 +103,14 @@ const projectOptions = [
   { value: "other", label: "Other" },
 ];
 
+const projectToTags: Record<string, string> = {
+  solar: "solar install",
+  battery: "battery",
+  "solar-battery": "solar install, battery",
+  electrical: "residential electrical",
+  "ev-charger": "ev charger",
+};
+
 export default function FinancePage() {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -136,7 +144,7 @@ export default function FinancePage() {
             service: data.projectType,
             message: data.message || "",
             source: "Website Finance Enquiry",
-            tags: "finance_enquiry",
+            tags: ["finance_enquiry", projectToTags[data.projectType]].filter(Boolean).join(", "),
             submittedAt: new Date().toISOString(),
           }),
         }
