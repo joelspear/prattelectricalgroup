@@ -13,6 +13,7 @@ import { contactInfo } from "@/data/siteData";
 // Validation schema
 const quoteFormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
+  email: z.string().email("Please enter a valid email address"),
   phone: z
     .string()
     .min(8, "Please enter a valid phone number")
@@ -66,20 +67,41 @@ export function QuoteForm({
     setSubmitStatus("loading");
     setSubmittedName(data.name.split(" ")[0]);
 
-    // Simulate form submission (replace with actual submission logic)
-    console.log("Form submitted:", data);
+    try {
+      const response = await fetch(
+        "https://services.leadconnectorhq.com/hooks/jb2JO6vKj0fWUU2jvhfB/webhook-trigger/36a7724f-4ec3-4adb-92f4-1ed4b39f1b62",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            full_name: data.name,
+            email: data.email,
+            phone: data.phone,
+            service: data.service,
+            suburb: data.suburb,
+            message: data.message || "",
+            source: "Website Quote Form",
+          }),
+        }
+      );
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
-    // For demo, always succeed
-    setSubmitStatus("success");
+      setSubmitStatus("success");
 
-    // Reset form after delay
-    setTimeout(() => {
-      reset();
-      setSubmitStatus("idle");
-    }, 5000);
+      // Reset form after delay
+      setTimeout(() => {
+        reset();
+        setSubmitStatus("idle");
+      }, 5000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    }
   };
 
   const isDark = variant === "dark";
@@ -166,6 +188,23 @@ export function QuoteForm({
               />
               {errors.name && (
                 <p className="form-error">{errors.name.message}</p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className={labelClasses}>
+                Email Address
+              </label>
+              <input
+                {...register("email")}
+                type="email"
+                id="email"
+                placeholder="john@example.com"
+                className={cn(inputClasses, errors.email && "border-red-500")}
+              />
+              {errors.email && (
+                <p className="form-error">{errors.email.message}</p>
               )}
             </div>
 
