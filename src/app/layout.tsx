@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { ChatBotWrapper } from "@/components/chat/ChatBotWrapper";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://prattelectrical.fuelmysocial.com.au"),
@@ -91,7 +90,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-neutral-light text-charcoal">
         {children}
-        <ChatBotWrapper />
         <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
