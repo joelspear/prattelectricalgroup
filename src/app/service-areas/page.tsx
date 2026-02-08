@@ -31,10 +31,10 @@ interface SuburbData {
 const serviceAreasData: SuburbData[] = [
   // Southern Adelaide (Priority)
   {
-    name: "Christies Beach",
-    slug: "christies-beach",
-    postcode: "5165",
-    region: "southern",
+    name: "Adelaide",
+    slug: "adelaide",
+    postcode: "5000",
+    region: "central",
     featured: true,
     description: "Our home base - fastest response times guaranteed.",
   },
@@ -247,7 +247,7 @@ export default function ServiceAreasPage() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-primary-100 mb-8"
               >
-                Based in Christies Beach, we provide fast, reliable electrical
+                Based in Adelaide, we provide fast, reliable electrical
                 services all across South Australia.
               </motion.p>
 
@@ -477,7 +477,7 @@ export default function ServiceAreasPage() {
         {/* Final CTA */}
         <CTASection
           title="South Australia's Trusted Local Electricians"
-          subtitle="Based in Christies Beach, servicing all of South Australia."
+          subtitle="Based in Adelaide, servicing all of South Australia."
           variant="primary"
         />
       </main>

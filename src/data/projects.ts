@@ -41,7 +41,7 @@ export const projects: Project[] = [
     id: 5,
     title: "Home Rewire",
     category: "residential",
-    location: "Christies Beach, SA",
+    location: "Adelaide, SA",
     description:
       "Full house rewiring for heritage property. Careful installation to preserve original features while meeting modern safety standards.",
     image: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,w_800/Pratt_Electrical14_dzcdqn.jpg",

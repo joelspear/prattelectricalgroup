@@ -143,10 +143,10 @@ export function GoHighLevelForm({
             className="p-8 rounded-xl bg-success/10 text-center"
           >
             <CheckCircle className="h-16 w-16 mx-auto mb-4 text-success" />
-            <h3 className="text-xl font-semibold mb-2">Thanks {submittedName}!</h3>
+            <h3 className="text-xl font-semibold mb-2">Thank you, {submittedName}!</h3>
             <p className="text-gray-600">
-              We&apos;ve received your enquiry and will be in touch within 2 business
-              hours.
+              We&apos;ve received your enquiry. Someone from our team will be in
+              touch shortly.
             </p>
           </motion.div>
         ) : (
@@ -161,7 +161,7 @@ export function GoHighLevelForm({
             <div className="mb-6 text-center">
               <h3 className="text-2xl font-bold mb-2">Get Your Free Quote</h3>
               <p className="text-gray-600">
-                Fill out the form below and we&apos;ll get back to you within 2 hours.
+                Fill out the form below and we&apos;ll be in touch shortly.
               </p>
             </div>
 
