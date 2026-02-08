@@ -160,11 +160,6 @@ export function Header() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <img
-              src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_40/SAA-Logo-Blue-White_wqwe6l.png"
-              alt="SAA Accredited Installer"
-              className="h-10 w-auto"
-            />
             <a
               href={contactInfo.phoneTel}
               className={cn(

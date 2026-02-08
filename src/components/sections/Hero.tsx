@@ -151,6 +151,20 @@ export function Hero({
                 </Button>
               )}
             </motion.div>
+
+            {/* SAA Accreditation Logo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className={cn("mt-6", !isHome && "flex justify-center")}
+            >
+              <img
+                src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_40/SAA-Logo-Blue-White_wqwe6l.png"
+                alt="SAA Accredited Installer"
+                className="h-10 w-auto"
+              />
+            </motion.div>
           </div>
 
           {/* Right side content (for home variant) */}

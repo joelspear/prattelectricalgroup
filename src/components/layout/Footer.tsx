@@ -23,9 +23,9 @@ export function Footer() {
             {/* SAA Accreditation Logo */}
             <div className="flex items-center gap-3">
               <img
-                src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_48/SAA-Logo-Blue-White_wqwe6l.png"
+                src="https://res.cloudinary.com/dhzl5ccct/image/upload/f_auto,q_auto,h_32/SAA-Logo-Blue-White_wqwe6l.png"
                 alt="SAA Accredited Installer"
-                className="h-12 w-auto"
+                className="h-8 w-auto"
               />
             </div>
           </div>
