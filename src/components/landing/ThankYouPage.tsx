@@ -24,8 +24,8 @@ import {
 import { Button } from "@/components/ui/Button";
 import type { LandingPageData } from "@/data/landingPages";
 
-const LOGO_LIGHT =
-  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_copy_tr41ry.png";
+const LOGO =
+  "https://res.cloudinary.com/dhzl5ccct/image/upload/v1770464871/Pratt_Electrical_Group_Logo_dzfg0y.png";
 
 const iconMap: Record<string, React.ReactNode> = {
   Zap: <Zap className="h-6 w-6" />,
@@ -53,7 +53,7 @@ function ThankYouContent({ data }: { data: LandingPageData }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" aria-label="Pratt Electrical Group">
             <Image
-              src={LOGO_LIGHT}
+              src={LOGO}
               alt="Pratt Electrical Group"
               width={200}
               height={50}
