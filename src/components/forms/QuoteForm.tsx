@@ -21,7 +21,7 @@ const quoteFormSchema = z.object({
     .string()
     .min(8, "Please enter a valid phone number")
     .regex(/^[\d\s\-+()]+$/, "Please enter a valid phone number"),
-  service: z.string().min(1, "Please select a service"),
+  services: z.array(z.string()).min(1, "Please select at least one service"),
   suburb: z.string().min(2, "Please enter your suburb"),
   message: z.string().max(500, "Message too long").optional(),
 });
@@ -29,12 +29,17 @@ const quoteFormSchema = z.object({
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
 
 const serviceOptions = [
-  { value: "", label: "What do you need?" },
-  { value: "residential", label: "Residential Electrical" },
-  { value: "commercial", label: "Commercial Electrical" },
+  { value: "residential-electrical", label: "Residential Electrical" },
+  { value: "commercial-electrical", label: "Commercial Electrical" },
   { value: "solar", label: "Solar Installation" },
   { value: "battery", label: "Battery Storage" },
-  { value: "ev-charger", label: "EV Charger Installation" },
+  { value: "ev-charger", label: "EV Charger" },
+  { value: "switchboard", label: "Switchboard Upgrade" },
+  { value: "lighting", label: "Lighting" },
+  { value: "smoke-alarms", label: "Smoke Alarms" },
+  { value: "ceiling-fans", label: "Ceiling Fans" },
+  { value: "safety-inspection", label: "Safety Inspection" },
+  { value: "data-network", label: "Data & Network" },
   { value: "other", label: "Other" },
 ];
 
@@ -66,7 +71,7 @@ export function QuoteForm({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
       customerType: preselectedCustomerType,
-      service: preselectedService || "",
+      services: preselectedService ? [preselectedService] : [],
     },
   });
 
@@ -90,7 +95,7 @@ export function QuoteForm({
             email: data.email,
             phone: data.phone,
             customerType: data.customerType,
-            service: data.service,
+            service: data.services.join(", "),
             suburb: data.suburb,
             message: data.message || "",
             source: "Website Quote Form",
@@ -304,24 +309,52 @@ export function QuoteForm({
               </div>
             </div>
 
-            {/* Service */}
+            {/* Services - Multi-select checkboxes */}
             <div>
-              <label htmlFor="service" className={labelClasses}>
+              <label className={labelClasses}>
                 What do you need?
               </label>
-              <select
-                {...register("service")}
-                id="service"
-                className={cn(inputClasses, errors.service && "border-secondary-500", "appearance-none")}
-              >
+              <div className="grid grid-cols-2 gap-2">
                 {serviceOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
+                  <label
+                    key={option.value}
+                    className={cn(
+                      "flex items-center gap-2 p-2 rounded-lg border cursor-pointer transition-all text-sm",
+                      watch("services")?.includes(option.value)
+                        ? "border-primary-500 bg-primary-50 text-primary-700"
+                        : isDark
+                        ? "border-white/20 text-white hover:border-white/40"
+                        : "border-gray-200 text-gray-600 hover:border-gray-300"
+                    )}
+                  >
+                    <input
+                      type="checkbox"
+                      value={option.value}
+                      {...register("services")}
+                      className="sr-only"
+                    />
+                    <div
+                      className={cn(
+                        "flex-shrink-0 w-4 h-4 rounded border-2 flex items-center justify-center transition-all",
+                        watch("services")?.includes(option.value)
+                          ? "border-primary-500 bg-primary-500"
+                          : isDark
+                          ? "border-white/40"
+                          : "border-gray-300"
+                      )}
+                    >
+                      {watch("services")?.includes(option.value) && (
+                        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                    </div>
+                    <span>{option.label}</span>
+                  </label>
                 ))}
-              </select>
-              {errors.service && (
-                <p className="form-error">{errors.service.message}</p>
+              </div>
+              {errors.services && (
+                <p className="form-error">{errors.services.message}</p>
               )}
             </div>
 
