@@ -28,34 +28,29 @@ export const blogPosts: BlogPost[] = [
       "Solar panel installation on residential roof in Adelaide South Australia",
     content: `Solar energy continues to be one of the smartest investments for Adelaide homeowners. With South Australia having the highest electricity prices in the country and among the best sunshine hours, the numbers stack up better here than almost anywhere else in Australia.
 
-## What Does a Solar System Cost in Adelaide?
+## What Affects the Cost of Solar in Adelaide?
 
-The cost of solar in Adelaide depends on several factors: system size, panel quality, inverter choice, and whether you add battery storage. Here's a breakdown of typical costs in 2026 after applying the Small-scale Technology Certificate (STC) rebate:
+The cost of solar in Adelaide depends on several factors: system size, panel quality, inverter choice, and whether you add battery storage. Every home is different, which is why we recommend a personalised assessment rather than relying on generic estimates.
 
-**Residential Solar System Costs (after STCs):**
+**Key factors that affect your solar quote:**
 
-- **5kW system:** $3,500 – $5,500
-- **6.6kW system:** $4,500 – $7,000
-- **10kW system:** $7,000 – $10,000
-- **13kW system:** $9,000 – $13,000
+- **System size** — matched to your household energy usage
+- **Panel quality** — tier-1 panels deliver better long-term performance
+- **Inverter choice** — the brain of your system, quality matters here
+- **Battery storage** — optional, but increasingly popular in SA
+- **Roof type and orientation** — affects installation complexity
 
-These prices include quality tier-1 panels, a reputable inverter, full installation, and all electrical work. Cheaper options exist, but we always recommend investing in quality components that will perform reliably for 25+ years.
+We always recommend investing in quality components that will perform reliably for 25+ years. Get in touch for a free, personalised quote tailored to your home.
 
-## Battery Storage Costs
+## Battery Storage — Worth Considering
 
 Adding a battery to your solar system allows you to store excess solar energy for use at night, significantly increasing your self-consumption and reducing your reliance on the grid.
 
-**Popular Battery Options:**
-
-- **5kWh battery:** $5,000 – $7,000
-- **10kWh battery:** $9,000 – $13,000
-- **13.5kWh battery (e.g., Tesla Powerwall):** $12,000 – $16,000
-
-Battery costs have been decreasing steadily, and with South Australia's high electricity prices, the payback period for batteries is shorter here than in most other states.
+Battery costs have been decreasing steadily, and with South Australia's high electricity prices, the payback period for batteries is shorter here than in most other states. Contact us to find out whether a battery makes sense for your situation.
 
 ## Government Rebates and STCs
 
-The federal government provides a rebate through Small-scale Technology Certificates (STCs). The value of STCs fluctuates but currently provides a discount of approximately $2,500 – $4,500 depending on your system size and location.
+The federal government provides a rebate through Small-scale Technology Certificates (STCs). This rebate can significantly reduce the upfront cost of your system.
 
 **Key points about STCs:**
 - Available to all Australian homeowners
@@ -63,15 +58,13 @@ The federal government provides a rebate through Small-scale Technology Certific
 - Your installer (that's us) handles all the paperwork
 - Must be installed by a Clean Energy Council accredited installer
 
-## What's the Payback Period?
+We'll explain exactly how much you're eligible for during your free quote — get in touch to find out.
 
-For a typical Adelaide household, the payback period for solar looks like this:
+## How Quickly Does Solar Pay for Itself?
 
-- **6.6kW system without battery:** 3 – 4 years
-- **6.6kW system with 10kWh battery:** 5 – 7 years
-- **10kW system without battery:** 3 – 5 years
+Adelaide's combination of high electricity prices and abundant sunshine means solar systems pay for themselves faster here than in most parts of Australia. The exact payback period depends on your system size, energy usage, and whether you include battery storage.
 
-After the payback period, your solar system generates essentially free electricity for the remaining 20+ years of its life.
+Our team can model the expected savings for your specific situation as part of your free quote, so you know exactly what to expect.
 
 ## Choosing the Right System Size
 
@@ -82,7 +75,7 @@ The right system size depends on your household's electricity usage:
 - **Large household or high usage:** 10kW – 13kW system
 - **Planning to add EV charging:** Consider 10kW+ system
 
-We always recommend getting a personalised assessment rather than guessing. Our team analyses your electricity bills, roof space, and energy goals to recommend the optimal system.
+We always recommend getting a personalised assessment rather than guessing. Our team analyses your electricity bills, roof space, and energy goals to recommend the optimal system. Call 0474 320 534 or fill out our online form for a free consultation.
 
 ## Why Choose an SAA Accredited Installer?
 
@@ -96,9 +89,9 @@ SAA accreditation is your guarantee that the installer meets the highest Austral
 Pratt Electrical Group is proud to be SAA accredited, giving you peace of mind that your investment is in expert hands.`,
     faqs: [
       {
-        question: "What is the cheapest solar system available in Adelaide?",
+        question: "How do I find out what solar will cost for my home?",
         answer:
-          "While budget solar systems start from around $3,000 for a small system, we recommend investing in quality components. Cheap panels and inverters often underperform and fail earlier, costing more in the long run. A quality 6.6kW system typically starts from $4,500.",
+          "The best way is to get a personalised quote. We assess your roof, energy usage, and goals to recommend the right system. Call 0474 320 534 or fill out our online form for a free, no-obligation quote.",
       },
       {
         question: "How long do solar panels last in Adelaide?",
@@ -108,7 +101,7 @@ Pratt Electrical Group is proud to be SAA accredited, giving you peace of mind t
       {
         question: "Is solar worth it in Adelaide in 2026?",
         answer:
-          "With South Australia having the highest electricity prices in Australia and excellent sunshine, solar is one of the best investments you can make. Most systems pay for themselves in 3-5 years and then provide free power for 20+ years.",
+          "With South Australia having the highest electricity prices in Australia and excellent sunshine, solar is one of the best investments you can make. Get in touch for a free assessment and we'll show you the potential savings for your home.",
       },
     ],
     relatedLinks: [
@@ -172,9 +165,9 @@ A typical switchboard upgrade includes:
 - Testing all circuits for compliance
 - Issuing a Certificate of Compliance
 
-## How Much Does a Switchboard Upgrade Cost?
+## Ready to Upgrade Your Switchboard?
 
-In Adelaide, a standard switchboard upgrade typically costs between $800 and $2,500 depending on the size of your home, the number of circuits, and any additional work required. We provide free quotes so you know the exact cost before work begins.
+Every home is different, so the best way to find out what's involved is to get a free, no-obligation quote. Our team will assess your current switchboard, explain what's needed, and provide a clear quote before any work begins. Call 0474 320 534 or fill out our online form to book your assessment.
 
 ## Do I Need Council Approval?
 
@@ -232,22 +225,17 @@ South Australia has some unique factors that make battery storage more attractiv
 
 **Frequent Grid Instability:** SA has experienced more grid stability issues than other states, making backup power from batteries particularly valuable.
 
-## Battery Costs and Payback
+## What Affects Battery Payback?
 
-Here's how the numbers typically work out for a South Australian household:
+The value a battery delivers depends on your specific situation. Key factors include:
 
-**10kWh Battery System:**
-- Cost: $9,000 – $13,000
-- Daily savings: $3 – $6 (depending on usage patterns)
-- Annual savings: $1,100 – $2,200
-- Payback period: 5 – 8 years
-- Battery warranty: 10 years
-
-**Key factors affecting your payback:**
 - Your household electricity usage patterns
 - Your current electricity tariff
 - The size of your existing solar system
 - Whether you're on a time-of-use tariff
+- How much solar energy you're currently exporting
+
+The best way to find out if a battery makes sense for you is to get a personalised assessment. We'll analyse your energy usage and solar generation to give you a clear picture. Call 0474 320 534 or fill out our online form for a free consultation.
 
 ## Blackout Protection
 
@@ -279,7 +267,7 @@ This is particularly valuable in South Australia, which has experienced several 
 
 Battery prices have been steadily declining, and technology continues to improve. However, with current SA electricity prices, the economics already work for many households. If you have an existing solar system that's exporting significant energy, adding a battery now makes financial sense.
 
-Our recommendation: If your electricity bills are still significant despite having solar, a battery is likely worth the investment. We can analyse your solar generation data and usage patterns to give you a clear picture of the potential savings.`,
+Our recommendation: If your electricity bills are still significant despite having solar, a battery is likely worth exploring. We can analyse your solar generation data and usage patterns to give you a clear picture — get in touch for a free, no-obligation assessment.`,
     faqs: [
       {
         question: "How long do solar batteries last?",

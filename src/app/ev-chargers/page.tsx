@@ -19,7 +19,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import { FAQ, CTASection } from "@/components/sections";
-import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { QuoteForm } from "@/components/forms";
 import { contactInfo } from "@/data/siteData";
 import { getTelLink } from "@/lib/utils";
@@ -143,11 +143,6 @@ export default function EVChargersPage() {
       <FAQSchema faqs={evFAQs} />
       <Header />
       <main>
-        <div className="container-custom py-3">
-          <Breadcrumbs
-            items={[{ name: "EV Chargers", href: "/ev-chargers" }]}
-          />
-        </div>
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-charcoal via-gray-800 to-charcoal text-white py-16 md:py-24 overflow-hidden">
           {/* Background Pattern */}

@@ -27,9 +27,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "Being based in Christies Beach means we can often provide same-day service for urgent electrical issues. Our team knows the local infrastructure, works with the local council requirements, and has built a strong reputation in the community. With a 4.9-star Google rating and SAA accreditation for solar installations, you can trust Pratt Electrical Group to deliver quality workmanship every time.",
     faqs: [
       {
-        question: "How much does an electrician cost in Christies Beach?",
+        question: "How can I get a quote for electrical work in Christies Beach?",
         answer:
-          "Electrician costs in Christies Beach vary depending on the job. A standard call-out and small repair typically starts from $150-$250. We provide free, no-obligation quotes for all work so you know the cost upfront before we start.",
+          "We provide free, no-obligation quotes for all electrical work in Christies Beach. Simply give us a call on 0474 320 534 or fill out our online form and we'll get back to you promptly with a detailed quote.",
       },
       {
         question:
@@ -69,9 +69,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "Our team services Hallett Cove regularly and understands the coastal conditions that affect electrical installations. From corrosion-resistant fittings for properties near the coast to solar panel mounting systems designed for the area's wind exposure, we ensure every installation is built to last. Our SAA accreditation and 4.9-star Google rating reflect our commitment to quality.",
     faqs: [
       {
-        question: "How much does an electrician cost in Hallett Cove?",
+        question: "How can I get a quote for electrical work in Hallett Cove?",
         answer:
-          "Electrician costs in Hallett Cove depend on the scope of work. Minor repairs typically start from $150-$250, while switchboard upgrades range from $800-$2,500. We provide free quotes for all work.",
+          "We provide free, no-obligation quotes for all electrical work in Hallett Cove. Call us on 0474 320 534 or submit our online form and we'll provide a detailed quote tailored to your specific needs.",
       },
       {
         question:
@@ -87,7 +87,7 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       {
         question: "Is Hallett Cove good for solar power?",
         answer:
-          "Yes, Hallett Cove receives excellent sunshine and many homes have unobstructed north-facing roof space. A typical 6.6kW system can save $1,500-$2,500 per year on electricity bills.",
+          "Yes, Hallett Cove receives excellent sunshine and many homes have unobstructed north-facing roof space. Get in touch for a free assessment and we'll show you how much you could save with solar.",
       },
     ],
     neighbouringSlugs: ["christies-beach", "aberfoyle-park", "happy-valley"],
@@ -110,9 +110,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "With Morphett Vale being one of our most-serviced suburbs, we have extensive experience with the local property types and electrical infrastructure. Our quick response times to the area, combined with our SAA accreditation for solar and a 4.9-star Google rating, make us the natural choice for Morphett Vale residents seeking quality electrical work.",
     faqs: [
       {
-        question: "How much does an electrician cost in Morphett Vale?",
+        question: "How can I get a quote for electrical work in Morphett Vale?",
         answer:
-          "Our Morphett Vale service rates are competitive, with standard call-outs starting from $150. We always provide a detailed quote before starting work so there are no surprises.",
+          "Getting a quote is easy — call us on 0474 320 534 or fill out our online form. We provide free, no-obligation quotes for all work and always confirm the full scope before starting.",
       },
       {
         question: "Do you service unit complexes in Morphett Vale?",
@@ -145,9 +145,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "Our team has completed numerous projects in Flagstaff Hill and understands what homeowners in the area expect — quality workmanship, attention to detail, and a professional approach. Our SAA accreditation ensures solar installations meet the highest standards, and our 4.9-star Google rating is built on consistently delivering excellent results.",
     faqs: [
       {
-        question: "How much does an electrician cost in Flagstaff Hill?",
+        question: "How can I get a quote for electrical work in Flagstaff Hill?",
         answer:
-          "Costs depend on the job scope. Standard electrical repairs start from $150-$250. For larger projects like switchboard upgrades or solar installations, we provide detailed free quotes.",
+          "We offer free, no-obligation quotes for all electrical work in Flagstaff Hill. Give us a call on 0474 320 534 or submit our online form and we'll get back to you with a detailed quote.",
       },
       {
         question: "Can you install solar panels in Flagstaff Hill?",
@@ -180,9 +180,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "We service Aberfoyle Park regularly and have built a strong reputation in the area for reliable, quality electrical work. Our SAA accreditation means your solar installation meets the highest Australian standards, and our competitive pricing with no hidden costs ensures you get genuine value.",
     faqs: [
       {
-        question: "How much does an electrician cost in Aberfoyle Park?",
+        question: "How can I get a quote for electrical work in Aberfoyle Park?",
         answer:
-          "Standard electrical work in Aberfoyle Park typically starts from $150 for minor repairs. We provide free, no-obligation quotes for all jobs so you know exactly what to expect.",
+          "Simply call us on 0474 320 534 or fill out our online quote form. We provide free, no-obligation quotes for all jobs so you know exactly what to expect before we start.",
       },
       {
         question: "Can you install solar panels in Aberfoyle Park?",
@@ -216,9 +216,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "We're a trusted name among Woodcroft residents, with regular projects in the area building our reputation for quality and reliability. Our fast response times, SAA accreditation for solar, and transparent pricing make us the go-to electrician for Woodcroft families.",
     faqs: [
       {
-        question: "How much does an electrician cost in Woodcroft?",
+        question: "How can I get a quote for electrical work in Woodcroft?",
         answer:
-          "Electrician costs in Woodcroft start from $150 for minor work. We provide free quotes for all projects to ensure complete transparency before any work begins.",
+          "Call us on 0474 320 534 or submit our online form for a free, no-obligation quote. We ensure complete transparency on scope and costs before any work begins.",
       },
       {
         question: "Can you install solar panels in Woodcroft?",
@@ -251,9 +251,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "Our track record in Happy Valley speaks for itself — quality workmanship, honest pricing, and a reliable team that shows up when we say we will. With SAA accreditation for solar installations and a 4.9-star Google rating built over years of consistent service, Pratt Electrical Group is the electrician Happy Valley trusts.",
     faqs: [
       {
-        question: "How much does an electrician cost in Happy Valley?",
+        question: "How can I get a quote for electrical work in Happy Valley?",
         answer:
-          "Standard electrical work in Happy Valley starts from $150 for minor repairs. Larger projects like solar installation or switchboard upgrades come with free, detailed quotes so you know the full cost upfront.",
+          "Getting a quote is easy — call 0474 320 534 or fill out our online form. We provide free, detailed quotes for all work so you know exactly what's involved before we start.",
       },
       {
         question: "Can you install solar panels in Happy Valley?",
@@ -287,9 +287,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "Our experience with coastal installations means we use appropriate materials and techniques to ensure longevity in the salt-air environment. Combined with our SAA accreditation, competitive pricing, and strong reputation across the southern suburbs, Pratt Electrical Group is the natural choice for Aldinga Beach residents.",
     faqs: [
       {
-        question: "How much does an electrician cost in Aldinga Beach?",
+        question: "How can I get a quote for electrical work in Aldinga Beach?",
         answer:
-          "Electrician rates in Aldinga Beach start from $150 for minor repairs. For new builds, solar installations, or larger projects, we provide detailed free quotes tailored to your specific needs.",
+          "Call us on 0474 320 534 or submit our online form for a free quote. Whether it's a new build, solar installation, or any other project, we provide detailed quotes tailored to your specific needs.",
       },
       {
         question: "Can you install solar panels in Aldinga Beach?",
@@ -322,9 +322,9 @@ export const suburbLandingPages: Record<string, SuburbLandingData> = {
       "Our experience with Reynella's older properties gives us an edge — we understand the common electrical issues in homes of different eras and can provide appropriate solutions that maintain the character of your property while bringing it up to modern safety standards. Our 4.9-star rating and SAA accreditation are your guarantee of quality.",
     faqs: [
       {
-        question: "How much does an electrician cost in Reynella?",
+        question: "How can I get a quote for electrical work in Reynella?",
         answer:
-          "Electrician costs in Reynella start from $150 for minor electrical work. We provide free quotes for all jobs including rewiring, switchboard upgrades, and solar installations.",
+          "We provide free, no-obligation quotes for all electrical work in Reynella. Call 0474 320 534 or fill out our online form — we'll get back to you promptly with a detailed quote.",
       },
       {
         question: "Can you install solar panels in Reynella?",
