@@ -19,7 +19,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Header, Footer } from "@/components/layout";
 import { QuoteForm } from "@/components/forms";
-import { Breadcrumbs, FAQSchema, GoogleReviews } from "@/components/seo";
+import { Breadcrumbs, FAQSchema } from "@/components/seo";
+import { Testimonials } from "@/components/sections";
 import { contactInfo } from "@/data/siteData";
 import { getTelLink } from "@/lib/utils";
 import type { SuburbLandingData } from "@/data/suburbLandingPages";
@@ -330,8 +331,8 @@ export default function SuburbLandingTemplate({
           </div>
         </section>
 
-        {/* Google Reviews */}
-        <GoogleReviews />
+        {/* Testimonials */}
+        <Testimonials />
 
         {/* Nearby Suburbs */}
         <section className="section bg-white">
