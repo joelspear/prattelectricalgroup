@@ -139,6 +139,43 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Service Areas */}
+      <div className="border-t border-white/10">
+        <div className="container-custom py-8">
+          <h4 className="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wide">
+            Service Areas
+          </h4>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            {[
+              { name: "Christies Beach", slug: "christies-beach" },
+              { name: "Hallett Cove", slug: "hallett-cove" },
+              { name: "Morphett Vale", slug: "morphett-vale" },
+              { name: "Flagstaff Hill", slug: "flagstaff-hill" },
+              { name: "Aberfoyle Park", slug: "aberfoyle-park" },
+              { name: "Woodcroft", slug: "woodcroft" },
+              { name: "Happy Valley", slug: "happy-valley" },
+              { name: "Aldinga Beach", slug: "aldinga-beach" },
+              { name: "Reynella", slug: "reynella" },
+              { name: "Adelaide CBD", slug: "adelaide-cbd" },
+            ].map((suburb) => (
+              <Link
+                key={suburb.slug}
+                href={`/electrician-${suburb.slug}`}
+                className="text-gray-400 hover:text-white transition-colors text-sm"
+              >
+                {suburb.name}
+              </Link>
+            ))}
+            <Link
+              href="/service-areas"
+              className="text-primary-400 hover:text-primary-300 transition-colors text-sm font-medium"
+            >
+              All Areas →
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container-custom py-6">

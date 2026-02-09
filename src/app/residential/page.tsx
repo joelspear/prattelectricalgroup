@@ -5,19 +5,34 @@ import {
   ServiceList,
   WhyChooseUs,
   FAQ,
-  Testimonials,
   CTASection,
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
+import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { services } from "@/data/siteData";
 import { residentialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Residential Electrician South Australia | Home Electrical Services",
+  title:
+    "Residential Electrician Adelaide | Home Electrical Services | Pratt Electrical",
   description:
-    "Expert residential electrical services across South Australia. New builds, renovations, switchboard upgrades, lighting, safety switches. Licensed electricians. Free quotes.",
+    "Expert residential electrical services across Adelaide & SA. Switchboard upgrades, lighting, safety switches, rewiring & more. Quality workmanship guaranteed. Free quotes.",
+  openGraph: {
+    title:
+      "Residential Electrician Adelaide | Home Electrical Services | Pratt Electrical",
+    description:
+      "Expert residential electrical services across Adelaide & SA. Switchboard upgrades, lighting, safety switches, rewiring & more. Quality workmanship guaranteed. Free quotes.",
+    url: "https://www.prattelectricalgroup.com/residential",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Residential Electrician Adelaide | Home Electrical Services | Pratt Electrical",
+    description:
+      "Expert residential electrical services across Adelaide & SA. Switchboard upgrades, lighting, safety switches, rewiring & more.",
+  },
 };
 
 const residentialProjects = projects.filter((p) => p.category === "residential");
@@ -26,8 +41,33 @@ const residentialProjects = projects.filter((p) => p.category === "residential")
 export default function ResidentialPage() {
   return (
     <>
+      <ServiceSchema
+        name="Residential Electrical Services Adelaide"
+        description="Expert residential electrical services across Adelaide and South Australia. Switchboard upgrades, lighting installation, safety switches, rewiring and more."
+        url="https://www.prattelectricalgroup.com/residential"
+        catalogName="Residential Electrical Services"
+        services={[
+          "Switchboard Upgrades",
+          "Lighting Installation",
+          "Power Points & GPOs",
+          "Safety Switches (RCDs)",
+          "Smoke Alarms",
+          "Rewiring",
+          "New Home Builds",
+          "Extensions & Renovations",
+          "Home Automation",
+          "EV Charger Installation",
+        ]}
+      />
+      <FAQSchema faqs={residentialFAQs} />
       <Header />
       <main>
+        <div className="container-custom py-3">
+          <Breadcrumbs
+            items={[{ name: "Residential Electrical", href: "/residential" }]}
+          />
+        </div>
+
         {/* Hero Section */}
         <ServiceHero
           title="Residential Electrical Services"
@@ -80,8 +120,8 @@ export default function ResidentialPage() {
           className="bg-gray-50"
         />
 
-        {/* Testimonials */}
-        <Testimonials variant="grid" limit={3} />
+        {/* Google Reviews */}
+        <GoogleReviews />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

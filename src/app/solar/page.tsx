@@ -6,10 +6,10 @@ import {
   ServiceHero,
   ServiceList,
   FAQ,
-  Testimonials,
   CTASection,
   ProjectGallery,
 } from "@/components/sections";
+import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { QuoteForm } from "@/components/forms";
 import { services } from "@/data/siteData";
 import { solarFAQs } from "@/data/faqs";
@@ -20,8 +20,28 @@ const solarProjects = projects.filter((p) => p.category === "solar");
 export default function SolarPage() {
   return (
     <>
+      <ServiceSchema
+        name="Solar Installation Adelaide"
+        description="SAA accredited solar panel and battery installation for homes and businesses across South Australia. Free quotes available."
+        url="https://www.prattelectricalgroup.com/solar"
+        catalogName="Solar Services"
+        services={[
+          "Residential Solar Systems",
+          "Commercial Solar",
+          "Battery Storage",
+          "Solar System Upgrades",
+          "Maintenance & Repairs",
+          "SA Power Networks Connection",
+        ]}
+      />
+      <FAQSchema faqs={solarFAQs} />
       <Header />
       <main>
+        <div className="container-custom py-3">
+          <Breadcrumbs
+            items={[{ name: "Solar & Battery", href: "/solar" }]}
+          />
+        </div>
         {/* Hero Section */}
         <ServiceHero
           title="Solar & Battery Installation"
@@ -252,7 +272,7 @@ export default function SolarPage() {
         />
 
         {/* Testimonials */}
-        <Testimonials variant="grid" limit={3} />
+        <GoogleReviews />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">
