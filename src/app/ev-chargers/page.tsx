@@ -19,7 +19,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import { FAQ, CTASection } from "@/components/sections";
-import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema } from "@/components/seo";
+import { Testimonials } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
 import { contactInfo } from "@/data/siteData";
 import { getTelLink } from "@/lib/utils";
@@ -399,7 +400,7 @@ export default function EVChargersPage() {
         />
 
         {/* Testimonials */}
-        <GoogleReviews className="bg-white" />
+        <Testimonials />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

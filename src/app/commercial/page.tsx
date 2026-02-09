@@ -9,7 +9,8 @@ import {
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
-import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema } from "@/components/seo";
+import { Testimonials } from "@/components/sections";
 import { services } from "@/data/siteData";
 import { commercialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
@@ -147,7 +148,7 @@ export default function CommercialPage() {
         />
 
         {/* Testimonials */}
-        <GoogleReviews />
+        <Testimonials />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

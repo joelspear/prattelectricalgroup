@@ -9,7 +9,8 @@ import {
   CTASection,
   ProjectGallery,
 } from "@/components/sections";
-import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema } from "@/components/seo";
+import { Testimonials } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
 import { services } from "@/data/siteData";
 import { solarFAQs } from "@/data/faqs";
@@ -267,7 +268,7 @@ export default function SolarPage() {
         />
 
         {/* Testimonials */}
-        <GoogleReviews />
+        <Testimonials />
 
         {/* Quote Form Section */}
         <section className="section bg-charcoal">

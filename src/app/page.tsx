@@ -10,7 +10,7 @@ import {
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
-import { GoogleReviews } from "@/components/seo";
+import { Testimonials } from "@/components/sections";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
@@ -52,8 +52,8 @@ export default function HomePage() {
         {/* Project Showcase */}
         <ProjectGallery projects={projects} limit={6} showFilters={false} />
 
-        {/* Google Reviews */}
-        <GoogleReviews />
+        {/* Testimonials */}
+        <Testimonials variant="grid" limit={6} />
 
         {/* Service Areas */}
         <ServiceAreas />
