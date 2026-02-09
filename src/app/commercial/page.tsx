@@ -9,7 +9,7 @@ import {
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
-import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { services } from "@/data/siteData";
 import { commercialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
@@ -60,11 +60,6 @@ export default function CommercialPage() {
       <FAQSchema faqs={commercialFAQs} />
       <Header />
       <main>
-        <div className="container-custom py-3">
-          <Breadcrumbs
-            items={[{ name: "Commercial Electrical", href: "/commercial" }]}
-          />
-        </div>
         {/* Hero Section */}
         <ServiceHero
           title="Commercial Electrical Services"

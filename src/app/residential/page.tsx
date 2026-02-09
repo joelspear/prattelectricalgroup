@@ -9,7 +9,7 @@ import {
   ProjectGallery,
 } from "@/components/sections";
 import { QuoteForm } from "@/components/forms";
-import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { services } from "@/data/siteData";
 import { residentialFAQs } from "@/data/faqs";
 import { projects } from "@/data/projects";
@@ -62,12 +62,6 @@ export default function ResidentialPage() {
       <FAQSchema faqs={residentialFAQs} />
       <Header />
       <main>
-        <div className="container-custom py-3">
-          <Breadcrumbs
-            items={[{ name: "Residential Electrical", href: "/residential" }]}
-          />
-        </div>
-
         {/* Hero Section */}
         <ServiceHero
           title="Residential Electrical Services"

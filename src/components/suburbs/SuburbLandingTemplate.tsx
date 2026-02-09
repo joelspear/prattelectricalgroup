@@ -101,19 +101,6 @@ export default function SuburbLandingTemplate({
       <FAQSchema faqs={data.faqs} />
       <Header />
       <main>
-        {/* Breadcrumbs */}
-        <div className="container-custom py-3">
-          <Breadcrumbs
-            items={[
-              { name: "Service Areas", href: "/service-areas" },
-              {
-                name: data.name,
-                href: `/electrician-${data.slug}`,
-              },
-            ]}
-          />
-        </div>
-
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-charcoal via-gray-800 to-charcoal text-white py-16 md:py-24 overflow-hidden">
           <div className="absolute inset-0 bg-grid-white/5" />
@@ -132,7 +119,7 @@ export default function SuburbLandingTemplate({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-3xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6 text-white"
               >
                 Electrician {data.name} | Trusted Local Electrical &amp; Solar
                 Services
@@ -177,6 +164,16 @@ export default function SuburbLandingTemplate({
         {/* Introduction */}
         <section className="section bg-white">
           <div className="container-custom">
+            <Breadcrumbs
+              items={[
+                { name: "Service Areas", href: "/service-areas" },
+                {
+                  name: data.name,
+                  href: `/electrician-${data.slug}`,
+                },
+              ]}
+              className="mb-8"
+            />
             <div className="max-w-4xl mx-auto">
               <h2 className="mb-6">
                 Your Local Electrician in {data.name}

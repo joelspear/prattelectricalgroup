@@ -9,7 +9,7 @@ import {
   CTASection,
   ProjectGallery,
 } from "@/components/sections";
-import { Breadcrumbs, ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
+import { ServiceSchema, FAQSchema, GoogleReviews } from "@/components/seo";
 import { QuoteForm } from "@/components/forms";
 import { services } from "@/data/siteData";
 import { solarFAQs } from "@/data/faqs";
@@ -37,11 +37,6 @@ export default function SolarPage() {
       <FAQSchema faqs={solarFAQs} />
       <Header />
       <main>
-        <div className="container-custom py-3">
-          <Breadcrumbs
-            items={[{ name: "Solar & Battery", href: "/solar" }]}
-          />
-        </div>
         {/* Hero Section */}
         <ServiceHero
           title="Solar & Battery Installation"
