@@ -82,7 +82,6 @@ export const metadata: Metadata = {
     apple:
       "https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_180,h_180,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png",
   },
-  manifest: "/site.webmanifest",
 };
 
 const localBusinessSchema = {
@@ -134,6 +133,9 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_32,h_32,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_16,h_16,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png" />
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_180,h_180,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link
           rel="preconnect"
