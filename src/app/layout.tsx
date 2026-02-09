@@ -67,9 +67,20 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      {
+        url: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_32,h_32,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_16,h_16,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+    apple:
+      "https://res.cloudinary.com/dhzl5ccct/image/upload/f_png,w_180,h_180,c_fit/v1770464871/Pratt_Electrical_Group_Logo_phhoux.png",
   },
   manifest: "/site.webmanifest",
 };
