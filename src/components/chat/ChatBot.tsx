@@ -126,6 +126,8 @@ export function ChatBot() {
           source: "Website Chatbot",
         }),
       }).catch((err) => console.error("GHL webhook error:", err));
+
+      (window as any).fbq?.("track", "Lead");
     }
   };
 
