@@ -250,6 +250,7 @@ function SubscriptionModal({
 
       if (!response.ok) throw new Error("Failed to submit");
       setStatus("success");
+      (window as any).fbq?.("track", "Lead");
     } catch {
       setStatus("error");
     }
@@ -464,6 +465,7 @@ function CommercialQuoteModal({ onClose }: { onClose: () => void }) {
 
       if (!response.ok) throw new Error("Failed to submit");
       setStatus("success");
+      (window as any).fbq?.("track", "Lead");
     } catch {
       setStatus("error");
     }

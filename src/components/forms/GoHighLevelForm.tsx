@@ -116,6 +116,7 @@ export function GoHighLevelForm({
       }
 
       setSubmitStatus("success");
+      (window as any).fbq?.("track", "Lead");
 
       // Reset form after delay
       setTimeout(() => {

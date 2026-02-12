@@ -152,6 +152,7 @@ export default function FinancePage() {
 
       if (response.ok) {
         setSubmitStatus("success");
+        (window as any).fbq?.("track", "Lead");
         setTimeout(() => {
           reset();
           setSubmitStatus("idle");
