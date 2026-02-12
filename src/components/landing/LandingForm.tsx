@@ -89,7 +89,7 @@ export function LandingForm({
       });
 
       if (response.ok) {
-        (window as any).fbq?.("track", "Lead");
+        window.fbq?.("track", "Lead");
         router.push(`/ads/${slug}/thank-you?name=${encodeURIComponent(data.firstName)}`);
       } else {
         setSubmitStatus("error");

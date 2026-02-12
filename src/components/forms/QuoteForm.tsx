@@ -111,7 +111,7 @@ export function QuoteForm({
 
       if (response.ok) {
         setSubmitStatus("success");
-        (window as any).fbq?.("track", "Lead");
+        window.fbq?.("track", "Lead");
         setTimeout(() => {
           reset();
           setSubmitStatus("idle");
